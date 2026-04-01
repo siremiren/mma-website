@@ -73,6 +73,7 @@ collections:
           - { label: "Individuals Section Description", name: "individuals_desc", widget: "text" }
           - { label: "Accelerator Description", name: "accelerator_desc", widget: "text" }
           - { label: "DWY Programme Description", name: "dwy_desc", widget: "text" }
+          - { label: "DFY Programme Description", name: "dfy_desc", widget: "text" }
           - { label: "Organisations Section Description", name: "organisations_desc", widget: "text" }
           - { label: "Partners Heading", name: "partners_heading", widget: "string" }
           - { label: "CTA Heading", name: "cta_heading", widget: "string" }
