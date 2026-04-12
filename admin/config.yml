@@ -1,0 +1,108 @@
+backend:
+  name: github
+  repo: siremiren/mma-website
+  branch: main
+
+media_folder: "images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "content/home.json"
+        fields:
+          - { label: "Hero Badge Text", name: "hero_badge", widget: "string" }
+          - { label: "Hero Heading (use <em> for gold text)", name: "hero_heading", widget: "string" }
+          - { label: "Hero Description", name: "hero_sub", widget: "text" }
+          - { label: "Stat 1 Number", name: "stat1_num", widget: "string" }
+          - { label: "Stat 1 Label", name: "stat1_label", widget: "string" }
+          - { label: "Stat 2 Number", name: "stat2_num", widget: "string" }
+          - { label: "Stat 2 Label", name: "stat2_label", widget: "string" }
+          - { label: "Stat 3 Number", name: "stat3_num", widget: "string" }
+          - { label: "Stat 3 Label", name: "stat3_label", widget: "string" }
+          - { label: "Stat 4 Number", name: "stat4_num", widget: "string" }
+          - { label: "Stat 4 Label", name: "stat4_label", widget: "string" }
+          - { label: "Problem Section Heading", name: "problem_heading", widget: "string" }
+          - { label: "Problem Paragraph 1", name: "problem_p1", widget: "text" }
+          - { label: "Problem Paragraph 2", name: "problem_p2", widget: "text" }
+          - { label: "Problem Paragraph 3", name: "problem_p3", widget: "text" }
+          - { label: "Callout Quote", name: "callout_quote", widget: "text" }
+          - { label: "Callout Attribution", name: "callout_attr", widget: "string" }
+          - { label: "Method Heading", name: "method_heading", widget: "string" }
+          - { label: "Method Description", name: "method_desc", widget: "text" }
+          - { label: "Card 1 Title", name: "card1_title", widget: "string" }
+          - { label: "Card 1 Description", name: "card1_desc", widget: "text" }
+          - { label: "Card 2 Title", name: "card2_title", widget: "string" }
+          - { label: "Card 2 Description", name: "card2_desc", widget: "text" }
+          - { label: "Card 3 Title", name: "card3_title", widget: "string" }
+          - { label: "Card 3 Description", name: "card3_desc", widget: "text" }
+          - { label: "Individuals Description", name: "individuals_desc", widget: "text" }
+          - { label: "Organisations Description", name: "organisations_desc", widget: "text" }
+          - { label: "Impact Heading", name: "impact_heading", widget: "string" }
+          - { label: "Impact Paragraph 1 (use <strong> for bold)", name: "impact_p1", widget: "text" }
+          - { label: "Impact Paragraph 2", name: "impact_p2", widget: "text" }
+          - { label: "Impact Paragraph 3 (use <strong> for bold)", name: "impact_p3", widget: "text" }
+          - { label: "CTA Heading", name: "cta_heading", widget: "string" }
+          - { label: "CTA Description", name: "cta_desc", widget: "text" }
+
+      - name: "about"
+        label: "About Page"
+        file: "content/about.json"
+        fields:
+          - { label: "Page Subtitle", name: "page_desc", widget: "text" }
+          - { label: "Founder Bio Paragraph 1", name: "founder_p1", widget: "text" }
+          - { label: "Founder Bio Paragraph 2", name: "founder_p2", widget: "text" }
+          - { label: "Founder Bio Paragraph 3", name: "founder_p3", widget: "text" }
+          - { label: "Why We Exist Heading", name: "gap_heading", widget: "string" }
+          - { label: "Why We Exist Paragraph 1", name: "gap_p1", widget: "text" }
+          - { label: "Why We Exist Paragraph 2", name: "gap_p2", widget: "text" }
+          - { label: "Why We Exist Paragraph 3", name: "gap_p3", widget: "text" }
+          - { label: "Callout Quote", name: "callout_quote", widget: "text" }
+          - { label: "Callout Attribution", name: "callout_attr", widget: "string" }
+          - { label: "Approach Heading", name: "approach_heading", widget: "string" }
+          - { label: "Approach Description", name: "approach_desc", widget: "text" }
+
+      - name: "programmes"
+        label: "Programmes Page"
+        file: "content/programmes.json"
+        fields:
+          - { label: "Page Subtitle", name: "page_desc", widget: "text" }
+          - { label: "Individuals Section Heading", name: "individuals_heading", widget: "string" }
+          - { label: "Individuals Section Description", name: "individuals_desc", widget: "text" }
+          - { label: "Accelerator Description", name: "accelerator_desc", widget: "text" }
+          - { label: "DWY Programme Description", name: "dwy_desc", widget: "text" }
+          - { label: "DFY Programme Description", name: "dfy_desc", widget: "text" }
+          - { label: "Organisations Section Description", name: "organisations_desc", widget: "text" }
+          - { label: "Partners Heading", name: "partners_heading", widget: "string" }
+          - { label: "CTA Heading", name: "cta_heading", widget: "string" }
+          - { label: "CTA Description", name: "cta_desc", widget: "text" }
+
+      - name: "media"
+        label: "Media Page — Testimonials"
+        file: "content/media.json"
+        fields:
+          - { label: "Quote 1", name: "quote_1", widget: "text" }
+          - { label: "Name 1", name: "name_1", widget: "string" }
+          - { label: "Context 1 (e.g. Workshop Participant)", name: "context_1", widget: "string" }
+          - { label: "Quote 2", name: "quote_2", widget: "text" }
+          - { label: "Name 2", name: "name_2", widget: "string" }
+          - { label: "Context 2", name: "context_2", widget: "string" }
+          - { label: "Quote 3", name: "quote_3", widget: "text" }
+          - { label: "Name 3", name: "name_3", widget: "string" }
+          - { label: "Context 3", name: "context_3", widget: "string" }
+          - { label: "Quote 4", name: "quote_4", widget: "text" }
+          - { label: "Name 4", name: "name_4", widget: "string" }
+          - { label: "Context 4", name: "context_4", widget: "string" }
+
+  - name: "images"
+    label: "Site Images"
+    files:
+      - name: "site_images"
+        label: "Upload Images"
+        file: "content/images.json"
+        fields:
+          - { label: "Hero Image", name: "hero_img", widget: "image", required: false }
+          - { label: "Founder Portrait", name: "founder_img", widget: "image", required: false }
+          - { label: "Community Event Photo", name: "community_img", widget: "image", required: false }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Mind & Method Academy</title>
+<meta name="description" content="Get in touch with Mind and Method Academy. Enquire about programmes, partnerships, or speaking engagements.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .contact-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+  .contact-details { margin-top: 2rem; }
+  .contact-detail { margin-bottom: 2rem; }
+  .contact-detail h4 { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--legacy-gold); margin-bottom: 0.5rem; }
+  .contact-detail p, .contact-detail a { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; text-decoration: none; }
+  .contact-detail a:hover { color: var(--legacy-gold); }
+  .contact-note { background: var(--legacy-gold-muted); border-radius: 12px; padding: 1.5rem; margin-top: 2rem; }
+  .contact-note h4 { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--legacy-gold); margin-bottom: 0.5rem; }
+  .contact-note p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+  @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--legacy-gold);"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="nav-logo-text">Mind <span>&amp;</span> Method</div></a>
+    <ul class="nav-links" id="navLinks"><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/programmes/">Programmes</a></li><li><a href="/media/">Media</a></li><li><a href="/contact/" class="nav-cta active">Get in Touch</a></li></ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">Contact</div>
+    <h1>Let's start a <em>conversation.</em></h1>
+    <p class="page-hero-desc">Whether you are an individual exploring our programmes or an organisation interested in a partnership — we would love to hear from you.</p>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="reveal">
+        <h2 class="section-title" style="font-size: 1.5rem;">Send us an enquiry</h2>
+        <p class="section-desc" style="margin-bottom: 2rem; font-size: 0.95rem;">Complete the form below and we will respond within two working days.</p>
+        <form action="https://formsubmit.co/hello@mindandmethodacademy.com" method="POST">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="firstName">First Name <span class="required">*</span></label>
+              <input class="form-input" type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastName">Last Name <span class="required">*</span></label>
+              <input class="form-input" type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+              <input class="form-input" type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="organisation">Organisation</label>
+              <input class="form-input" type="text" id="organisation" name="organisation">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="role">Your Role</label>
+              <input class="form-input" type="text" id="role" name="role">
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label" for="enquiryType">Enquiry Type</label>
+              <select class="form-select" id="enquiryType" name="enquiryType">
+                <option value="">Please select</option>
+                <option value="individual">Individual — Programme Interest</option>
+                <option value="partnership">Organisation — Partnership Enquiry</option>
+                <option value="workshop">Organisation — Workshop Booking</option>
+                <option value="speaking">Speaking Engagement</option>
+                <option value="media">Media or Press</option>
+                <option value="general">General Enquiry</option>
+              </select>
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label" for="message">Your Message <span class="required">*</span></label>
+              <textarea class="form-textarea" id="message" name="message" required></textarea>
+            </div>
+            <div class="form-group form-group--full">
+              <button type="submit" class="btn-primary">Submit Enquiry <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="reveal">
+        <div class="contact-details">
+          <div class="contact-detail">
+            <h4>Email</h4>
+            <a href="mailto:hello@mindandmethodacademy.com">hello@mindandmethodacademy.com</a>
+          </div>
+          <div class="contact-detail">
+            <h4>Registered Address</h4>
+            <p>71-75 Shelton Street<br>Covent Garden, London<br>WC2H 9JQ</p>
+          </div>
+          <div class="contact-detail">
+            <h4>Company</h4>
+            <p>Mind and Method Academy Ltd<br>Company No. 16932969<br>ICO Registration: ZC073024</p>
+          </div>
+        </div>
+        <div class="contact-note">
+          <h4>For Organisations</h4>
+          <p>If you are enquiring on behalf of a university, council, government body, or corporate partner, please include details of your objectives, the audience you are looking to support, and your preferred timeline. This helps us prepare a relevant proposal for your initial conversation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><a href="/" class="nav-logo" style="display:inline-flex"><div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--legacy-gold)"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="nav-logo-text">Mind <span>&amp;</span> Method</div></a><p class="footer-brand-text">World-class business education, without the £30k MBA.</p></div><div><h4>Navigate</h4><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/programmes/">Programmes</a></li><li><a href="/media/">Media</a></li><li><a href="/contact/">Contact</a></li></ul></div><div><h4>Legal</h4><ul class="footer-links"><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookies/">Cookie Policy</a></li></ul></div><div><h4>Contact</h4><ul class="footer-links"><li><a href="mailto:hello@mindandmethodacademy.com">hello@mindandmethodacademy.com</a></li><li>71-75 Shelton Street</li><li>Covent Garden, London</li><li>WC2H 9JQ</li></ul></div></div><div class="footer-bottom"><span>&copy; 2026 Mind and Method Academy Ltd. Company No. 16932969. ICO Reg. ZC073024.</span><div class="footer-bottom-links"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookies/">Cookies</a></div></div></div></footer>
+
+<script src="/css/main.js"></script>
+</body>
+</html>
