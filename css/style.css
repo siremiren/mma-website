@@ -696,8 +696,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     display: flex; flex-direction: column;
     position: fixed;
     top: 80px; left: 0; right: 0; bottom: 0;
-    background: var(--oxford-blue);
+    background: rgba(27, 38, 59, 1);
     padding: 2rem; gap: 1.5rem; z-index: 99;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .nav-links.open a { font-size: 1rem; color: rgba(255,255,255,0.8); }
