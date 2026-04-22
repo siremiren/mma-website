@@ -57,7 +57,7 @@
   }
 </style>
 </head>
-<body>
+<body data-page="home">
 
 <nav class="nav nav--transparent" id="nav">
   <div class="nav-inner">
@@ -68,7 +68,8 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="/" class="active">Home</a></li>
       <li><a href="/about/">About</a></li>
-      <li><a href="/programmes/">Programmes</a></li><li><a href="/media/">Media</a></li><li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
+      <li><a href="/programmes/">Programmes</a></li>
+      <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
   </div>
@@ -191,17 +192,6 @@
   </div>
 </section>
 
-<section class="section section--white text-center">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-label section-label--center">See the Work</div>
-      <h2 class="section-title">See what we do in action.</h2>
-      <p class="section-desc section-desc--center mb-4">Photos, videos, and stories from our workshops, programmes, and events.</p>
-      <a href="/media/" class="btn-primary">View Media <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
 <section class="section section--cream text-center">
   <div class="section-inner">
     <div class="reveal">
@@ -248,5 +238,6 @@ const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{n
 const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');hamburger.addEventListener('click',()=>{navLinks.classList.toggle('open')});
 const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>{entry.target.classList.add('visible')},i*80);observer.unobserve(entry.target)}})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});reveals.forEach(el=>observer.observe(el));
 </script>
+<script src="/css/cms-loader.js"></script>
 </body>
 </html>
