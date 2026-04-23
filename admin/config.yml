@@ -95,6 +95,21 @@ collections:
           - { label: "Quote 4", name: "quote_4", widget: "text" }
           - { label: "Name 4", name: "name_4", widget: "string" }
           - { label: "Context 4", name: "context_4", widget: "string" }
+          - { label: "Quote 5", name: "quote_5", widget: "text", required: false }
+          - { label: "Name 5", name: "name_5", widget: "string", required: false }
+          - { label: "Context 5", name: "context_5", widget: "string", required: false }
+          - { label: "Quote 6", name: "quote_6", widget: "text", required: false }
+          - { label: "Name 6", name: "name_6", widget: "string", required: false }
+          - { label: "Context 6", name: "context_6", widget: "string", required: false }
+          - { label: "Quote 7", name: "quote_7", widget: "text", required: false }
+          - { label: "Name 7", name: "name_7", widget: "string", required: false }
+          - { label: "Context 7", name: "context_7", widget: "string", required: false }
+          - { label: "Quote 8", name: "quote_8", widget: "text", required: false }
+          - { label: "Name 8", name: "name_8", widget: "string", required: false }
+          - { label: "Context 8", name: "context_8", widget: "string", required: false }
+          - { label: "Quote 9", name: "quote_9", widget: "text", required: false }
+          - { label: "Name 9", name: "name_9", widget: "string", required: false }
+          - { label: "Context 9", name: "context_9", widget: "string", required: false }
 
   - name: "images"
     label: "Site Images"
