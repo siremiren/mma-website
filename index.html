@@ -88,6 +88,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <style>
+  .nav-cta { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
   .hero { min-height: 100vh; background: var(--oxford-blue); position: relative; display: flex; align-items: center; overflow: hidden; }
   .hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 140%; background: radial-gradient(ellipse at center, rgba(197, 160, 89, 0.06) 0%, transparent 70%); pointer-events: none; }
   .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.3), transparent); }
@@ -147,10 +148,6 @@
   .tc-arrow:hover { border-color: var(--legacy-gold); }
   .tc-arrow:hover svg { stroke: var(--legacy-gold); }
   .tc-progress { flex: 1; }
-  .tc-dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 7px; }
-  .tc-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.15); border: none; padding: 0; transition: background 0.3s, transform 0.3s; }
-  .tc-dot.on { background: var(--legacy-gold); transform: scale(1.3); }
-  .tc-dot.adj { background: rgba(197,160,89,0.4); transform: scale(1.1); }
   .tc-track { height: 2px; background: rgba(255,255,255,0.12); border-radius: 1px; overflow: hidden; }
   .tc-fill { height: 100%; background: var(--legacy-gold); border-radius: 1px; transition: width 0.4s ease; }
   @media (max-width: 768px) { .tc-quote { font-size: 0.95rem; } .tc-wrap { max-width: 100%; } }
@@ -207,13 +204,6 @@
         <div class="tc-nav">
           <button class="tc-arrow" id="tcPrev" aria-label="Previous testimonial"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></button>
           <div class="tc-progress">
-            <div class="tc-dots" id="tcDots">
-              <div class="tc-dot"></div>
-              <div class="tc-dot"></div>
-              <div class="tc-dot"></div>
-              <div class="tc-dot"></div>
-              <div class="tc-dot"></div>
-            </div>
             <div class="tc-track"><div class="tc-fill" id="tcFill"></div></div>
           </div>
           <button class="tc-arrow" id="tcNext" aria-label="Next testimonial"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
@@ -380,20 +370,12 @@ const reveals=document.querySelectorAll('.reveal');const observer=new Intersecti
   var total=slides.length,current=0,timer;
   var qEl=document.getElementById("tcQuote"),nEl=document.getElementById("tcName"),cEl=document.getElementById("tcCtx");
   var fillEl=document.getElementById("tcFill");
-  var dots=document.querySelectorAll("#tcDots .tc-dot");
-  function updateDots(idx){
-    dots.forEach(function(d){d.className="tc-dot";});
-    dots[2].classList.add("on");
-    dots[1].classList.add("adj");
-    dots[3].classList.add("adj");
-  }
   function goTo(n){
     current=(n+total)%total;
     var s=slides[current];
     qEl.textContent=s.q;
     nEl.textContent=s.name;
     cEl.textContent=s.ctx;
-    updateDots(current);
     fillEl.style.width=(((current+1)/total)*100)+"%";
   }
   function startTimer(){timer=setInterval(function(){goTo(current+1);},7000);}
