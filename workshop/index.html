@@ -50,6 +50,8 @@
     color: var(--legacy-gold);
     text-transform: uppercase;
     margin-bottom: 1.5rem;
+    white-space: nowrap;
+    max-width: 100%;
   }
   .next-date-badge span {
     width: 7px; height: 7px;
@@ -332,9 +334,11 @@
       <!-- LEFT — Info -->
       <div class="reveal">
 
-        <div class="next-date-badge">
-          <span></span>
-          <span data-cms="next_date">Saturday 23rd May 2026</span>
+        <div style="display: block; line-height: 1; margin-bottom: 1.5rem;">
+          <div class="next-date-badge" style="margin-bottom: 0;">
+            <span></span>
+            <span data-cms="next_date">Saturday 23rd May 2026</span>
+          </div>
         </div>
 
         <h2 class="section-title" style="font-size: 1.75rem; margin-bottom: 1rem;" data-cms="main_heading">
