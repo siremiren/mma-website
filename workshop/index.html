@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Builder Workshop — Mind & Method Academy</title>
+<meta name="description" content="Join the waiting list for the Business Builder Workshop. A free half-day event for corporate professionals who are ready to start building their first business.">
+<link rel="canonical" href="https://mindandmethodacademy.com/workshop/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mindandmethodacademy.com/workshop/">
+<meta property="og:title" content="Business Builder Workshop — Mind & Method Academy">
+<meta property="og:description" content="A free half-day event for corporate professionals who are ready to start building their first business.">
+<meta property="og:site_name" content="Mind &amp; Method Academy">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Business Builder Workshop — Mind & Method Academy">
+<meta name="twitter:description" content="A free half-day event for corporate professionals who are ready to start building their first business.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<style>
+  /* ── Page layout ── */
+  .workshop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  /* ── Next date badge ── */
+  .next-date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--legacy-gold-muted);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    border-radius: 100px;
+    padding: 0.45rem 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--legacy-gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .next-date-badge span {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--legacy-gold);
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  /* ── What you'll leave with ── */
+  .outcomes-list {
+    list-style: none;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .outcomes-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .outcomes-list li::before {
+    content: '';
+    width: 20px; height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    background: var(--legacy-gold-muted);
+    border: 1.5px solid var(--legacy-gold);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%23C5A059' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 2px;
+  }
+
+  /* ── Session cards ── */
+  .sessions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin: 2rem 0;
+  }
+  .session-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .session-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--legacy-gold);
+    margin-bottom: 0.3rem;
+  }
+  .session-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--oxford-blue);
+    margin-bottom: 0.2rem;
+  }
+  .session-topic {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Form card ── */
+  .form-card {
+    background: var(--oxford-blue);
+    border-radius: 16px;
+    padding: 2.5rem;
+    position: sticky;
+    top: 100px;
+  }
+  .form-card-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--legacy-gold);
+    margin-bottom: 0.75rem;
+  }
+  .form-card h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+  .form-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+  .form-card .form-label {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.78rem;
+  }
+  .form-card .form-input,
+  .form-card .form-select {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.14);
+    color: #fff;
+  }
+  .form-card .form-input::placeholder { color: rgba(255,255,255,0.3); }
+  .form-card .form-input:focus,
+  .form-card .form-select:focus {
+    border-color: var(--legacy-gold);
+    background: rgba(255,255,255,0.1);
+    outline: none;
+  }
+  .form-card .form-select option { background: var(--oxford-blue); color: #fff; }
+  .form-card .btn-primary {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.25rem;
+  }
+  .form-card-privacy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.5;
+  }
+  .form-card-privacy a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+
+  /* ── Divider ── */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--legacy-gold), transparent);
+    margin: 1.75rem 0;
+    opacity: 0.35;
+  }
+
+  /* ── About Samuel ── */
+  .facilitator-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding: 1.25rem;
+    background: var(--legacy-gold-muted);
+    border-radius: 10px;
+    border: 1px solid rgba(197,160,89,0.2);
+  }
+  .facilitator-avatar {
+    width: 52px; height: 52px;
+    min-width: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--legacy-gold);
+  }
+  .facilitator-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--oxford-blue);
+    margin-bottom: 0.2rem;
+  }
+  .facilitator-title {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Free badge ── */
+  .free-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  /* ── Success state ── */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .form-success-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(197,160,89,0.15);
+    border: 2px solid var(--legacy-gold);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .form-success h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  .form-success p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .workshop-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .form-card { position: static; }
+  }
+  @media (max-width: 640px) {
+    .sessions-grid { grid-template-columns: 1fr; }
+  }
+
+  .nav-cta { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header role="banner">
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--legacy-gold);">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+      </div>
+      <div class="nav-logo-text">Mind <span>&amp;</span> Method</div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/programmes/">Programmes</a></li>
+      <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+</header>
+
+<main id="main-content" role="main">
+
+<!-- ── HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">Free Event</div>
+    <h1>Business Builder <em>Workshop</em></h1>
+    <p class="page-hero-desc">A free half-day event for corporate professionals who are ready to stop thinking about starting — and actually start.</p>
+  </div>
+</section>
+
+<!-- ── MAIN CONTENT ── -->
+<section class="section section--cream">
+  <div class="section-inner">
+    <div class="workshop-grid">
+
+      <!-- LEFT — Info -->
+      <div class="reveal">
+
+        <div class="next-date-badge">
+          <span></span>
+          Next date: Saturday 23rd May 2026
+        </div>
+
+        <h2 class="section-title" style="font-size: 1.75rem; margin-bottom: 1rem;">
+          Four hours. A business plan, an offer, and a sales script — all yours.
+        </h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; margin-bottom: 0.5rem;">
+          Most people who want to build a business spend years thinking about it. Watching others. Waiting until they feel ready.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75;">
+          The Business Builder Workshop is built for one thing: getting you off the starting line. In one room, with a structured process, you will produce real outputs — not notes from a talk, not a summary of someone else's framework. Your business plan. Your offer. The beginning of your first sales script.
+        </p>
+
+        <div class="gold-divider"></div>
+
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--legacy-gold); margin-bottom: 1rem;">What you leave with</h3>
+        <ul class="outcomes-list">
+          <li>A completed, written business plan — answers to the seven questions every business needs to answer</li>
+          <li>A packaged offer using a proven framework, with a price attached</li>
+          <li>A customer avatar — the specific person you are selling to and why</li>
+          <li>Your first sales script with objections mapped and responses prepared</li>
+          <li>A primary marketing channel committed to, with a weekly action target</li>
+        </ul>
+
+        <div class="gold-divider"></div>
+
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--legacy-gold); margin-bottom: 1rem;">The sessions</h3>
+        <div class="sessions-grid">
+          <div class="session-card">
+            <div class="session-number">Session 01</div>
+            <div class="session-name">The Founder's Compass</div>
+            <div class="session-topic">Mindset & Psychology</div>
+          </div>
+          <div class="session-card">
+            <div class="session-number">Session 02</div>
+            <div class="session-name">The Profit Blueprint</div>
+            <div class="session-topic">Business Planning</div>
+          </div>
+          <div class="session-card">
+            <div class="session-number">Session 03</div>
+            <div class="session-name">The Irresistible Architecture</div>
+            <div class="session-topic">Offers & Pricing</div>
+          </div>
+          <div class="session-card">
+            <div class="session-number">Session 04</div>
+            <div class="session-name">The Conversion Engine</div>
+            <div class="session-topic">Sales & Marketing</div>
+          </div>
+        </div>
+
+        <div class="gold-divider"></div>
+
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--legacy-gold); margin-bottom: 0.75rem;">Who this is for</h3>
+        <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.75;">
+          Corporate professionals — in marketing, finance, law, or any field — who have been carrying a business idea alongside a full-time job and haven't been able to move it forward. You do not need to have everything figured out. You need to show up and do the work on the day.
+        </p>
+
+        <!-- Facilitator -->
+        <div class="facilitator-block">
+          <img src="/images/sam-profile.jpg" alt="Samuel Iremiren" class="facilitator-avatar">
+          <div>
+            <div class="facilitator-name">Samuel Iremiren</div>
+            <div class="facilitator-title">Founder, Mind & Method Academy · MBA, MSc Economics</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT — Form -->
+      <div class="reveal">
+        <div class="form-card">
+
+          <div class="free-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Free to attend
+          </div>
+
+          <div class="form-card-label">Join the waiting list</div>
+          <h2>Get notified about upcoming workshop dates</h2>
+          <p>Register below and we will contact you ahead of the next available date with full details and your place confirmation.</p>
+
+          <!-- Form -->
+          <div id="formWrapper">
+            <form
+              action="https://formsubmit.co/hello@mindandmethodacademy.com"
+              method="POST"
+              id="waitlistForm"
+            >
+              <!-- FormSubmit config -->
+              <input type="hidden" name="_subject" value="New Workshop Waiting List Registration">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://mindandmethodacademy.com/workshop/?registered=true">
+              <input type="text" name="_honey" style="display:none">
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="firstName">First Name <span class="required">*</span></label>
+                  <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="lastName">Last Name <span class="required">*</span></label>
+                  <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+                </div>
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="currentRole">Current Role / Industry</label>
+                  <input class="form-input" type="text" id="currentRole" name="currentRole" placeholder="e.g. Marketing Manager, Finance, Legal">
+                </div>
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="howFound">How did you find us?</label>
+                  <select class="form-input form-select" id="howFound" name="howFound">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="friend_family">Friend or Family</option>
+                    <option value="google">Google Search</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group form-group--full">
+                  <button type="submit" class="btn-primary">
+                    Reserve My Place
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Success state (shown via JS on ?registered=true) -->
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>You're on the list.</h3>
+            <p>We'll be in touch ahead of the next available date with your place confirmation and everything you need to know before the day.</p>
+          </div>
+
+          <p class="form-card-privacy">
+            Your details are used only to contact you about workshop dates. We do not share or sell your information. View our <a href="/privacy/">Privacy Policy</a>.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIAL PROOF ── -->
+<section class="section">
+  <div class="section-inner" style="text-align: center; max-width: 680px; margin: 0 auto;">
+    <div class="section-label">What attendees say</div>
+    <h2 class="section-title">The content works. The room delivers.</h2>
+    <p class="section-desc">The Business Builder Workshop has a 5-star rating on Google. Attendees consistently describe the Offer Building session as the standout moment — a room full of people helping each other build better businesses.</p>
+    <a href="https://g.page/r/mindandmethodacademy/review" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+      Read reviews on Google
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="nav-logo" style="display:inline-flex">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--legacy-gold)">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div class="nav-logo-text">Mind <span>&amp;</span> Method</div>
+        </a>
+        <p class="footer-brand-text">World-class business education, without the £30k MBA.</p>
+      </div>
+      <div>
+        <h3 class="footer-heading">Navigate</h3>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/programmes/">Programmes</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/cookies/">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">Contact</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:hello@mindandmethodacademy.com">hello@mindandmethodacademy.com</a></li>
+          <li>71-75 Shelton Street</li>
+          <li>Covent Garden, London</li>
+          <li>WC2H 9JQ</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Mind and Method Academy Ltd. Company No. 16932969. ICO Reg. ZC073024.</span>
+      <div class="footer-bottom-links">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/cookies/">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/css/main.js"></script>
+<script>
+  // Show success state if redirected back with ?registered=true
+  (function() {
+    if (window.location.search.includes('registered=true')) {
+      var wrapper = document.getElementById('formWrapper');
+      var success = document.getElementById('formSuccess');
+      if (wrapper && success) {
+        wrapper.style.display = 'none';
+        success.style.display = 'block';
+        // Scroll form card into view
+        document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  })();
+</script>
+</body>
+</html>
