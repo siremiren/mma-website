@@ -79,6 +79,31 @@ collections:
           - { label: "CTA Heading", name: "cta_heading", widget: "string" }
           - { label: "CTA Description", name: "cta_desc", widget: "text" }
 
+      - name: "workshop"
+        label: "Workshop Page"
+        file: "content/workshop.json"
+        fields:
+          - { label: "Hero Badge Text", name: "hero_badge", widget: "string" }
+          - { label: "Hero Heading (use <em> for gold text)", name: "hero_heading", widget: "string" }
+          - { label: "Hero Description", name: "hero_desc", widget: "text" }
+          - { label: "Next Workshop Date", name: "next_date", widget: "string" }
+          - { label: "Main Heading", name: "main_heading", widget: "string" }
+          - { label: "Intro Paragraph 1", name: "intro_p1", widget: "text" }
+          - { label: "Intro Paragraph 2", name: "intro_p2", widget: "text" }
+          - { label: "Outcomes Section Heading", name: "outcomes_heading", widget: "string" }
+          - { label: "Outcome 1", name: "outcome_1", widget: "text" }
+          - { label: "Outcome 2", name: "outcome_2", widget: "text" }
+          - { label: "Outcome 3", name: "outcome_3", widget: "text" }
+          - { label: "Outcome 4", name: "outcome_4", widget: "text" }
+          - { label: "Outcome 5", name: "outcome_5", widget: "text" }
+          - { label: "Who This Is For Heading", name: "who_heading", widget: "string" }
+          - { label: "Who This Is For Description", name: "who_desc", widget: "text" }
+          - { label: "Form Label", name: "form_label", widget: "string" }
+          - { label: "Form Heading", name: "form_heading", widget: "string" }
+          - { label: "Form Description", name: "form_desc", widget: "text" }
+          - { label: "Social Proof Heading", name: "social_proof_heading", widget: "string" }
+          - { label: "Social Proof Description", name: "social_proof_desc", widget: "text" }
+
       - name: "media"
         label: "Media Page — Testimonials"
         file: "content/media.json"
