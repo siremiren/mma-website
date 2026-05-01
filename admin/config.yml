@@ -46,8 +46,8 @@ collections:
           - { label: "Impact Paragraph 3 (use <strong> for bold)", name: "impact_p3", widget: "text" }
           - { label: "CTA Heading", name: "cta_heading", widget: "string" }
           - { label: "CTA Description", name: "cta_desc", widget: "text" }
-
-      - name: "about"
+          - { label: "Email Capture Heading", name: "capture_heading", widget: "string" }
+          - { label: "Email Capture Subtext", name: "capture_subtext", widget: "string" }
         label: "About Page"
         file: "content/about.json"
         fields:
@@ -103,6 +103,41 @@ collections:
           - { label: "Form Description", name: "form_desc", widget: "text" }
           - { label: "Social Proof Heading", name: "social_proof_heading", widget: "string" }
           - { label: "Social Proof Description", name: "social_proof_desc", widget: "text" }
+
+      - name: "businessplan"
+        label: "Business Plan Tool"
+        file: "content/businessplan.json"
+        fields:
+          - { label: "Badge Text", name: "badge_text", widget: "string" }
+          - { label: "Card Heading (use <em> for italic gold text)", name: "card_heading", widget: "string" }
+          - { label: "Card Description", name: "card_desc", widget: "text" }
+          - { label: "Step 1 Label", name: "step_1", widget: "string" }
+          - { label: "Step 2 Label", name: "step_2", widget: "string" }
+          - { label: "Step 3 Label", name: "step_3", widget: "string" }
+          - { label: "Name Field Label", name: "label_name", widget: "string" }
+          - { label: "Email Field Label", name: "label_email", widget: "string" }
+          - { label: "Start Button Text", name: "btn_start", widget: "string" }
+          - { label: "Capture Small Print", name: "capture_note", widget: "string" }
+          - { label: "Questions Section Label", name: "questions_label", widget: "string" }
+          - { label: "Questions Heading", name: "questions_heading", widget: "string" }
+          - { label: "Questions Intro Text", name: "questions_intro", widget: "text" }
+          - { label: "Question 1", name: "q1_text", widget: "string" }
+          - { label: "Question 2", name: "q2_text", widget: "string" }
+          - { label: "Question 3", name: "q3_text", widget: "string" }
+          - { label: "Question 4", name: "q4_text", widget: "string" }
+          - { label: "Question 5", name: "q5_text", widget: "string" }
+          - { label: "Question 6", name: "q6_text", widget: "string" }
+          - { label: "Question 7", name: "q7_text", widget: "string" }
+          - { label: "Generate Button Text", name: "btn_generate", widget: "string" }
+          - { label: "Generate Small Print", name: "generate_note", widget: "string" }
+          - { label: "Output Section Label", name: "output_label", widget: "string" }
+          - { label: "Output Heading", name: "output_heading", widget: "string" }
+          - { label: "Output Subtext", name: "output_sub", widget: "string" }
+          - { label: "Plan Document Title", name: "doc_title", widget: "string" }
+          - { label: "Plan Document Subtitle", name: "doc_subtitle", widget: "text" }
+          - { label: "CTA Heading", name: "cta_heading", widget: "string" }
+          - { label: "CTA Description", name: "cta_desc", widget: "text" }
+          - { label: "CTA Button Text", name: "cta_btn", widget: "string" }
 
       - name: "media"
         label: "Media Page — Testimonials"
