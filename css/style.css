@@ -147,7 +147,7 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--oxford-blue) !important;
   background: var(--legacy-gold);
-  padding: 0.65rem 1.5rem;
+  padding: 0.65rem 2rem;
   border-radius: 4px;
   text-decoration: none;
   transition: all 0.3s;
