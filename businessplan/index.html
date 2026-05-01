@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your 1-Hour Business Plan — Mind & Method Academy</title>
+<meta name="description" content="Answer 7 questions and get a complete, formatted business plan. Free from Mind and Method Academy.">
+<link rel="canonical" href="https://mindandmethodacademy.com/businessplan/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mindandmethodacademy.com/businessplan/">
+<meta property="og:title" content="Your 1-Hour Business Plan — Mind & Method Academy">
+<meta property="og:description" content="Answer 7 questions and get a complete, formatted business plan. Free from Mind and Method Academy.">
+<meta property="og:site_name" content="Mind &amp; Method Academy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  /* ── NAV OVERRIDE: always solid on this page ── */
+  .nav { background: rgba(27,38,59,0.97) !important; backdrop-filter: blur(20px); }
+
+  /* ── SCREENS ── */
+  .bp-screen { display: none; }
+  .bp-screen.active { display: block; }
+
+  /* ══ SCREEN 1: EMAIL CAPTURE ══ */
+  .bp-hero {
+    min-height: calc(100vh - 80px);
+    background: var(--oxford-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .bp-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(197,160,89,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(197,160,89,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .bp-hero::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -15%;
+    width: 55%;
+    height: 120%;
+    background: radial-gradient(ellipse, rgba(197,160,89,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .bp-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(197,160,89,0.2);
+    border-radius: 24px;
+    padding: 3.5rem;
+    max-width: 560px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  .bp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    border: 1px solid rgba(197,160,89,0.3);
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+  .bp-badge-dot { width: 6px; height: 6px; background: var(--legacy-gold); border-radius: 50%; }
+  .bp-badge span { font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--legacy-gold); }
+  .bp-card h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: white; line-height: 1.15; margin-bottom: 1rem; }
+  .bp-card h1 em { font-style: italic; color: var(--legacy-gold); }
+  .bp-card-desc { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.6); margin-bottom: 1.75rem; }
+  .bp-card-desc strong { color: rgba(255,255,255,0.85); }
+  .bp-steps { display: flex; gap: 1.5rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+  .bp-step { display: flex; align-items: center; gap: 8px; }
+  .bp-step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--legacy-gold-muted); border: 1px solid rgba(197,160,89,0.3); display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 800; color: var(--legacy-gold); flex-shrink: 0; }
+  .bp-step span { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+  .bp-form { display: flex; flex-direction: column; gap: 1rem; }
+  .bp-field label { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; }
+  .bp-field input {
+    width: 100%;
+    padding: 0.9rem 1.25rem;
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: white;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .bp-field input::placeholder { color: rgba(255,255,255,0.28); }
+  .bp-field input:focus { border-color: var(--legacy-gold); background: rgba(255,255,255,0.09); }
+  .bp-field input.error { border-color: #e53e3e; }
+  .bp-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--legacy-gold);
+    color: var(--oxford-blue);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 0.25rem;
+  }
+  .bp-submit:hover { background: var(--legacy-gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(197,160,89,0.3); }
+  .bp-submit svg { width: 16px; height: 16px; }
+  .bp-note { font-size: 0.8rem; color: rgba(255,255,255,0.28); text-align: center; margin-top: 0.75rem; }
+
+  /* ══ SCREEN 2: QUESTIONS ══ */
+  .bp-questions-header {
+    background: var(--oxford-blue);
+    padding: 3rem 2rem 2.5rem;
+    border-bottom: 1px solid rgba(197,160,89,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .bp-questions-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(197,160,89,0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(197,160,89,0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+  }
+  .bp-questions-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
+  .bp-questions-header .section-label { margin-bottom: 0.75rem; }
+  .bp-questions-header h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 0.75rem; }
+  .bp-questions-header p { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 520px; }
+  .bp-questions-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; background: var(--cream); }
+  .bp-q-block { margin-bottom: 2.5rem; }
+  .bp-q-label { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 0.75rem; }
+  .bp-q-num { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 800; color: var(--legacy-gold); min-width: 20px; padding-top: 1px; }
+  .bp-q-text { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+  .bp-q-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 1rem 1.25rem;
+    background: white;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 1.7;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .bp-q-textarea::placeholder { color: rgba(27,38,59,0.28); font-style: italic; }
+  .bp-q-textarea:focus { border-color: var(--legacy-gold); box-shadow: 0 0 0 3px rgba(197,160,89,0.1); }
+  .bp-q-divider { height: 1px; background: var(--border); margin-top: 2.5rem; }
+  .bp-gen-wrap { margin-top: 2.5rem; }
+  .bp-gen-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 1.1rem 2rem;
+    background: var(--oxford-blue);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .bp-gen-btn:hover { background: var(--oxford-blue-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(27,38,59,0.2); }
+  .bp-gen-btn svg { width: 16px; height: 16px; }
+  .bp-gen-note { font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem; }
+
+  /* ══ SCREEN 3: OUTPUT ══ */
+  .bp-output-header {
+    background: var(--oxford-blue);
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(197,160,89,0.12);
+  }
+  .bp-output-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(197,160,89,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(197,160,89,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .bp-output-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .bp-output-header .section-label { margin-bottom: 0.75rem; }
+  .bp-output-header h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 0.4rem; }
+  .bp-output-header-sub { font-size: 0.9rem; color: rgba(255,255,255,0.45); }
+  .bp-print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0.7rem 1.25rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+  }
+  .bp-print-btn:hover { border-color: var(--legacy-gold); color: var(--legacy-gold); }
+  .bp-print-btn svg { width: 14px; height: 14px; }
+
+  /* Plan document */
+  .bp-output-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; background: var(--cream); }
+  .plan-doc { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 40px rgba(27,38,59,0.08); }
+  .plan-doc-cover { background: var(--oxford-blue); padding: 3rem; position: relative; overflow: hidden; }
+  .plan-doc-cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(197,160,89,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(197,160,89,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .plan-doc-cover-inner { position: relative; z-index: 2; }
+  .plan-doc-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 2.5rem; }
+  .plan-doc-logo-icon { width: 32px; height: 32px; border: 1.5px solid var(--legacy-gold); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+  .plan-doc-logo-icon svg { width: 16px; height: 16px; color: var(--legacy-gold); }
+  .plan-doc-logo-text { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+  .plan-doc-logo-text span { color: var(--legacy-gold); }
+  .plan-doc-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; color: white; line-height: 1.15; margin-bottom: 0.5rem; }
+  .plan-doc-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 2rem; max-width: 480px; line-height: 1.6; }
+  .plan-doc-meta-row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+  .plan-doc-meta { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+  .plan-doc-meta strong { color: rgba(255,255,255,0.7); font-weight: 700; }
+  .plan-doc-gold-bar { height: 3px; background: linear-gradient(90deg, var(--legacy-gold), var(--burnt-ochre), transparent); }
+  .plan-doc-body { padding: 2.5rem 3rem 3rem; }
+  .plan-answer-block { padding: 1.75rem 0; border-bottom: 1px solid var(--border); }
+  .plan-answer-block:last-child { border-bottom: none; }
+  .plan-answer-num-row { display: flex; align-items: center; gap: 10px; margin-bottom: 0.6rem; }
+  .plan-answer-num { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 800; color: var(--legacy-gold); }
+  .plan-answer-q { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+  .plan-answer-text { font-size: 1rem; color: var(--text-primary); line-height: 1.8; padding-left: 28px; min-height: 1.8rem; white-space: pre-wrap; }
+  .plan-answer-text.empty { color: rgba(27,38,59,0.25); font-style: italic; }
+  .plan-doc-footer { background: var(--oxford-blue-dark); padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .plan-doc-footer-brand { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .plan-doc-footer-brand span { color: var(--legacy-gold); }
+  .plan-doc-footer-url { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+  /* Output CTA */
+  .bp-output-cta { margin-top: 2.5rem; background: var(--oxford-blue); border-radius: 16px; padding: 2.5rem; text-align: center; }
+  .bp-output-cta h3 { font-size: 1.15rem; font-weight: 800; color: white; margin-bottom: 0.75rem; }
+  .bp-output-cta p { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 1.75rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .bp-output-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-outline-white { display: inline-flex; align-items: center; gap: 8px; padding: 0.8rem 1.75rem; background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.2s; cursor: pointer; }
+  .btn-outline-white:hover { border-color: rgba(255,255,255,0.5); color: white; }
+
+  /* Print styles */
+  @media print {
+    .nav, .bp-output-header, .bp-output-cta, .bp-print-btn { display: none !important; }
+    #screen-output { background: white; }
+    .bp-output-body { padding: 0; max-width: 100%; background: white; }
+    .plan-doc { box-shadow: none; border-radius: 0; }
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .bp-card { padding: 2rem 1.5rem; }
+    .bp-questions-body, .bp-output-body { padding: 2rem 1.25rem 3rem; }
+    .plan-doc-body { padding: 2rem 1.5rem; }
+    .plan-doc-cover { padding: 2rem 1.5rem; }
+    .plan-doc-footer { padding: 1.25rem 1.5rem; }
+    .bp-output-header-inner { flex-direction: column; }
+  }
+</style>
+</head>
+<body data-page="businessplan">
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header role="banner">
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--legacy-gold);"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <div class="nav-logo-text">Mind <span>&amp;</span> Method</div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/programmes/">Programmes</a></li>
+      <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+</header>
+
+<main id="main-content" role="main">
+
+<!-- ══ SCREEN 1: EMAIL CAPTURE ══ -->
+<div class="bp-screen active" id="screen-capture">
+  <div class="bp-hero">
+    <div class="bp-card">
+      <div class="bp-badge">
+        <div class="bp-badge-dot"></div>
+        <span data-cms="badge_text">Free Tool — Mind &amp; Method Academy</span>
+      </div>
+      <h1 data-cms-html="card_heading">Your <em>1-Hour</em><br>Business Plan</h1>
+      <p class="bp-card-desc" data-cms="card_desc">Answer <strong>7 questions</strong> and you will have more clarity than 90% of people who call themselves entrepreneurs. Write quickly. Do not overthink. Clarity on paper is the goal.</p>
+      <div class="bp-steps">
+        <div class="bp-step"><div class="bp-step-num">1</div><span data-cms="step_1">Enter your details</span></div>
+        <div class="bp-step"><div class="bp-step-num">2</div><span data-cms="step_2">Answer 7 questions</span></div>
+        <div class="bp-step"><div class="bp-step-num">3</div><span data-cms="step_3">Get your plan</span></div>
+      </div>
+      <div class="bp-form">
+        <div class="bp-field">
+          <label for="userName" data-cms="label_name">Your name</label>
+          <input type="text" id="userName" placeholder="First name" autocomplete="given-name">
+        </div>
+        <div class="bp-field">
+          <label for="userEmail" data-cms="label_email">Your email address</label>
+          <input type="email" id="userEmail" placeholder="you@example.com" autocomplete="email">
+        </div>
+        <button class="bp-submit" onclick="startQuestions()">
+          <span data-cms="btn_start">Start Building</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+      <p class="bp-note" data-cms="capture_note">No spam. Unsubscribe any time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN 2: 7 QUESTIONS ══ -->
+<div class="bp-screen" id="screen-questions">
+  <div class="bp-questions-header">
+    <div class="bp-questions-header-inner">
+      <div class="section-label" data-cms="questions_label">Your Business Plan</div>
+      <h2 data-cms="questions_heading">Your 1-Hour Business Plan</h2>
+      <p data-cms="questions_intro">Write quickly. Don't overthink. You can refine later — right now, the goal is clarity on paper.</p>
+    </div>
+  </div>
+  <div class="bp-questions-body">
+
+    <div class="bp-q-block">
+      <div class="bp-q-label">
+        <span class="bp-q-num">1.</span>
+        <span class="bp-q-text" data-cms="q1_text">What problem do you solve?</span>
+      </div>
+      <textarea class="bp-q-textarea" id="q1" rows="4" placeholder="Describe the specific problem your business addresses…"></textarea>
+      <div class="bp-q-divider"></div>
+    </div>
+
+    <div class="bp-q-block">
+      <div class="bp-q-label">
+        <span class="bp-q-num">2.</span>
+        <span class="bp-q-text" data-cms="q2_text">Who has this problem? (Be specific — name the person, not a broad category)</span>
+      </div>
+      <textarea class="bp-q-textarea" id="q2" rows="4" placeholder="E.g. A 35-year-old marketing manager in London who wants to start a side business…"></textarea>
+      <div class="bp-q-divider"></div>
+    </div>
+
+    <div class="bp-q-block">
+      <div class="bp-q-label">
+        <span class="bp-q-num">3.</span>
+        <span class="bp-q-text" data-cms="q3_text">What is your solution — and how do you deliver it?</span>
+      </div>
+      <textarea class="bp-q-textarea" id="q3" rows="4" placeholder="What exactly do you offer and how does the delivery work…"></textarea>
+      <div class="bp-q-divider"></div>
+    </div>
+
+    <div class="bp-q-block">
+      <div class="bp-q-label">
+        <span class="bp-q-num">4.</span>
+        <span class="bp-q-text" data-cms="q4_text">Why are you the right person to deliver this? (Experience, story, results, etc)</span>
+      </div>
+      <textarea class="bp-q-textarea" id="q4" rows="4" placeholder="What makes you credible and qualified to solve this problem…"></textarea>
+      <div class="bp-q-divider"></div>
+    </div>
+
+    <div class="bp-q-block">
+      <div class="bp-q-label">
+        <span class="bp-q-num">5.</span>
+        <span class="bp-q-text" data-cms="q5_text">What will you charge — and why is that fair value?</span>
+      </div>
+      <textarea class="bp-q-textarea" id="q5" rows="4" placeholder="Your pricing and the reasoning behind it…"></textarea>
+      <div class="bp-q-divider"></div>
+    </div>
+
+    <div class="bp-q-block">
+      <div class="bp-q-label">
+        <span class="bp-q-num">6.</span>
+        <span class="bp-q-text" data-cms="q6_text">How will you find your first 5 customers?</span>
+      </div>
+      <textarea class="bp-q-textarea" id="q6" rows="4" placeholder="Specific channels, conversations, or outreach strategies…"></textarea>
+      <div class="bp-q-divider"></div>
+    </div>
+
+    <div class="bp-q-block">
+      <div class="bp-q-label">
+        <span class="bp-q-num">7.</span>
+        <span class="bp-q-text" data-cms="q7_text">What does success look like in 90 days?</span>
+      </div>
+      <textarea class="bp-q-textarea" id="q7" rows="4" placeholder="Concrete, measurable outcomes you are aiming for…"></textarea>
+    </div>
+
+    <div class="bp-gen-wrap">
+      <button class="bp-gen-btn" onclick="generatePlan()">
+        <span data-cms="btn_generate">Generate My Business Plan</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+      <p class="bp-gen-note" data-cms="generate_note">Your plan will appear on the next screen. You can print or save it from there.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ SCREEN 3: OUTPUT ══ -->
+<div class="bp-screen" id="screen-output">
+  <div class="bp-output-header">
+    <div class="bp-output-header-inner">
+      <div>
+        <div class="section-label" data-cms="output_label">Your Business Plan</div>
+        <h2 data-cms="output_heading">Here's your plan.</h2>
+        <p class="bp-output-header-sub" data-cms="output_sub">Built in under an hour. Save it, share it, or build on it.</p>
+      </div>
+      <button class="bp-print-btn" onclick="window.print()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print / Save PDF
+      </button>
+    </div>
+  </div>
+
+  <div class="bp-output-body">
+    <div class="plan-doc">
+      <div class="plan-doc-cover">
+        <div class="plan-doc-cover-inner">
+          <div class="plan-doc-logo">
+            <div class="plan-doc-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+            <div class="plan-doc-logo-text">Mind <span>&amp;</span> Method Academy</div>
+          </div>
+          <div class="plan-doc-title" data-cms="doc_title">Your 1-Hour Business Plan</div>
+          <div class="plan-doc-subtitle" data-cms="doc_subtitle">Answer these 7 questions clearly, and you will have more clarity than 90% of people who call themselves entrepreneurs.</div>
+          <div class="plan-doc-meta-row">
+            <div class="plan-doc-meta">Prepared by <strong id="outputOwner">—</strong></div>
+            <div class="plan-doc-meta" id="outputDate">—</div>
+          </div>
+        </div>
+      </div>
+      <div class="plan-doc-gold-bar"></div>
+
+      <div class="plan-doc-body">
+        <div class="plan-answer-block">
+          <div class="plan-answer-num-row"><span class="plan-answer-num">01</span><span class="plan-answer-q">What problem do you solve?</span></div>
+          <div class="plan-answer-text" id="out1"></div>
+        </div>
+        <div class="plan-answer-block">
+          <div class="plan-answer-num-row"><span class="plan-answer-num">02</span><span class="plan-answer-q">Who has this problem?</span></div>
+          <div class="plan-answer-text" id="out2"></div>
+        </div>
+        <div class="plan-answer-block">
+          <div class="plan-answer-num-row"><span class="plan-answer-num">03</span><span class="plan-answer-q">What is your solution — and how do you deliver it?</span></div>
+          <div class="plan-answer-text" id="out3"></div>
+        </div>
+        <div class="plan-answer-block">
+          <div class="plan-answer-num-row"><span class="plan-answer-num">04</span><span class="plan-answer-q">Why are you the right person to deliver this?</span></div>
+          <div class="plan-answer-text" id="out4"></div>
+        </div>
+        <div class="plan-answer-block">
+          <div class="plan-answer-num-row"><span class="plan-answer-num">05</span><span class="plan-answer-q">What will you charge — and why is that fair value?</span></div>
+          <div class="plan-answer-text" id="out5"></div>
+        </div>
+        <div class="plan-answer-block">
+          <div class="plan-answer-num-row"><span class="plan-answer-num">06</span><span class="plan-answer-q">How will you find your first 5 customers?</span></div>
+          <div class="plan-answer-text" id="out6"></div>
+        </div>
+        <div class="plan-answer-block">
+          <div class="plan-answer-num-row"><span class="plan-answer-num">07</span><span class="plan-answer-q">What does success look like in 90 days?</span></div>
+          <div class="plan-answer-text" id="out7"></div>
+        </div>
+      </div>
+
+      <div class="plan-doc-footer">
+        <div class="plan-doc-footer-brand">Mind <span>&amp;</span> Method Academy</div>
+        <div class="plan-doc-footer-url">mindandmethodacademy.com</div>
+      </div>
+    </div>
+
+    <div class="bp-output-cta">
+      <h3 data-cms="cta_heading">You have a plan. Now build it.</h3>
+      <p data-cms="cta_desc">The Business Builder Workshop takes everything you have just written and turns it into a real, operating business — with coaching, accountability, and a structured path to your first paying client.</p>
+      <div class="bp-output-cta-btns">
+        <a href="/workshop/" class="btn-primary">
+          <span data-cms="cta_btn">Book the Workshop</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <button class="btn-outline-white" onclick="resetTool()">Start Again</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{navLinks.classList.toggle('open')});
+</script>
+<script src="/css/cms-loader.js"></script>
+<script>
+var userName='', userEmail='';
+
+function showScreen(id){
+  document.querySelectorAll('.bp-screen').forEach(function(s){s.classList.remove('active');});
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function startQuestions(){
+  var nEl=document.getElementById('userName');
+  var eEl=document.getElementById('userEmail');
+  var n=nEl.value.trim(), e=eEl.value.trim();
+  if(!n){ nEl.classList.add('error'); nEl.focus(); setTimeout(function(){nEl.classList.remove('error');},2000); return; }
+  if(!e||!e.includes('@')){ eEl.classList.add('error'); eEl.focus(); setTimeout(function(){eEl.classList.remove('error');},2000); return; }
+  userName=n; userEmail=e;
+
+  /* ── Mailchimp / FormSubmit hook ──────────────────────────
+     To connect Mailchimp: replace the fetch URL below with
+     your list-manage subscribe URL, e.g.:
+     'https://xxxxx.us1.list-manage.com/subscribe/post-json?u=...&id=...&c=?'
+     and send as JSONP or use a proxy.
+
+     For now, FormSubmit sends a notification email silently.
+     The page does NOT redirect — the user stays on screen 2.
+  ─────────────────────────────────────────────────────────── */
+  fetch('https://formsubmit.co/ajax/hello@mindandmethodacademy.com', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      name: userName,
+      email: userEmail,
+      _subject: 'New Business Plan Tool Sign-up',
+      _captcha: 'false'
+    })
+  }).catch(function(){}); // Silent — never blocks the user flow
+
+  showScreen('screen-questions');
+}
+
+function generatePlan(){
+  for(var i=1;i<=7;i++){
+    var val=document.getElementById('q'+i).value.trim();
+    var el=document.getElementById('out'+i);
+    if(val){ el.textContent=val; el.classList.remove('empty'); }
+    else { el.textContent='Not completed.'; el.classList.add('empty'); }
+  }
+  document.getElementById('outputOwner').textContent=userName||'Anonymous';
+  var now=new Date();
+  document.getElementById('outputDate').textContent=now.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  showScreen('screen-output');
+}
+
+function resetTool(){
+  for(var i=1;i<=7;i++){document.getElementById('q'+i).value='';}
+  document.getElementById('userName').value='';
+  document.getElementById('userEmail').value='';
+  userName=''; userEmail='';
+  showScreen('screen-capture');
+}
+
+document.getElementById('userName').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('userEmail').focus();});
+document.getElementById('userEmail').addEventListener('keydown',function(e){if(e.key==='Enter')startQuestions();});
+</script>
+</body>
+</html>
