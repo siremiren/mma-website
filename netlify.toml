@@ -3,6 +3,13 @@
 [build]
   publish = "."
 
+# Landing page redirect
+[[redirects]]
+  from = "/landing"
+  to = "https://stealthfsale-dbrdqpmh.manus.space"
+  status = 301
+  force = true
+
 # Custom 404
 [[redirects]]
   from = "/*"
