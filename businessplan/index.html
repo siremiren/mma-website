@@ -280,12 +280,89 @@
   .btn-outline-white { display: inline-flex; align-items: center; gap: 8px; padding: 0.8rem 1.75rem; background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.2s; cursor: pointer; }
   .btn-outline-white:hover { border-color: rgba(255,255,255,0.5); color: white; }
 
+.bp-email-capture {
+  background: var(--cream, #f7f3eb);
+  border: 1px solid var(--border, rgba(0,0,0,0.08));
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+.bp-email-capture h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--oxford-blue);
+  margin-bottom: 0.5rem;
+}
+.bp-email-capture p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+.bp-email-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.bp-email-row input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border, rgba(0,0,0,0.15));
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+.bp-email-row button {
+  background: var(--oxford-blue);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.bp-email-row button:hover { background: var(--oxford-blue-light, #2a3a5e); }
+.bp-consent-note {
+  font-size: 0.78rem !important;
+  color: var(--text-muted, rgba(0,0,0,0.55)) !important;
+  line-height: 1.5;
+  margin-bottom: 0 !important;
+}
+.bp-consent-note a { color: var(--legacy-gold); text-decoration: underline; }
+.bp-email-success {
+  color: #1a7d3a;
+  font-weight: 600;
+  margin-top: 0.75rem !important;
+}
   /* Print styles */
   @media print {
-    .nav, .bp-output-header, .bp-output-cta, .bp-print-btn { display: none !important; }
-    #screen-output { background: white; }
+    .nav,
+    .nav-hamburger,
+    .footer,
+    .skip-link,
+    .bp-output-header,
+    .bp-output-cta,
+    .bp-email-capture,
+    .bp-print-btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline-white,
+    button {
+      display: none !important;
+    }
+    body { background: white !important; color: black !important; }
+    #screen-output { background: white !important; }
     .bp-output-body { padding: 0; max-width: 100%; background: white; }
-    .plan-doc { box-shadow: none; border-radius: 0; }
+    .plan-doc { box-shadow: none !important; border: 1px solid #ddd !important; page-break-inside: avoid; border-radius: 0; }
   }
 
   /* Responsive */
@@ -311,11 +388,13 @@
       <div class="nav-logo-text">Mind <span>&amp;</span> Method</div>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/programmes/">Programmes</a></li>
-      <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
-    </ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/programmes/">Programmes</a></li>
+  <li><a href="/workshop/">Workshop</a></li>
+  <li><a href="/businessplan/" class="active">Free Tool</a></li>
+  <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
+</ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -344,15 +423,13 @@
           <input type="text" id="userName" placeholder="First name" autocomplete="given-name">
         </div>
         <div class="bp-field">
-          <label for="userEmail" data-cms="label_email">Your email address</label>
-          <input type="email" id="userEmail" placeholder="you@example.com" autocomplete="email">
         </div>
         <button class="bp-submit" onclick="startQuestions()">
           <span data-cms="btn_start">Start Building</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </button>
       </div>
-      <p class="bp-note" data-cms="capture_note">No spam. Unsubscribe any time.</p>
+      <p class="bp-note">Just your first name to personalise your plan.</p>
     </div>
   </div>
 </div>
@@ -512,10 +589,25 @@
       </div>
     </div>
 
+    <div class="bp-email-capture" id="screen-output-email">
+      <h3>Want a copy emailed to you?</h3>
+      <p>We'll send a copy of your plan to your inbox so you can refer back to it.</p>
+      <div class="bp-email-row">
+        <input type="email" id="outputEmail" placeholder="you@example.com" autocomplete="email">
+        <button type="button" onclick="captureOutputEmail()">Email me my plan</button>
+      </div>
+      <p class="bp-consent-note">By submitting, you agree to receive your plan and occasional resources from Mind &amp; Method Academy. No spam. Unsubscribe any time. See our <a href="/privacy/">Privacy Policy</a>.</p>
+      <p class="bp-email-success" id="outputEmailSuccess" style="display:none;">Thanks — your plan is on its way to your inbox.</p>
+    </div>
+
     <div class="bp-output-cta">
       <h3 data-cms="cta_heading">You have a plan. Now build it.</h3>
       <p data-cms="cta_desc">The Business Builder Workshop takes everything you have just written and turns it into a real, operating business — with coaching, accountability, and a structured path to your first paying client.</p>
       <div class="bp-output-cta-btns">
+        <button class="btn-secondary" onclick="window.print()" style="margin-right: 0.5rem;">
+          Save as PDF
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
         <a href="/workshop/" class="btn-primary">
           <span data-cms="cta_btn">Book the Workshop</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -536,7 +628,7 @@ hamburger.addEventListener('click',()=>{navLinks.classList.toggle('open')});
 </script>
 <script src="/css/cms-loader.js"></script>
 <script>
-var userName='', userEmail='';
+var userName='';
 
 function showScreen(id){
   document.querySelectorAll('.bp-screen').forEach(function(s){s.classList.remove('active');});
@@ -546,32 +638,10 @@ function showScreen(id){
 
 function startQuestions(){
   var nEl=document.getElementById('userName');
-  var eEl=document.getElementById('userEmail');
-  var n=nEl.value.trim(), e=eEl.value.trim();
+  var n=nEl.value.trim();
   if(!n){ nEl.classList.add('error'); nEl.focus(); setTimeout(function(){nEl.classList.remove('error');},2000); return; }
-  if(!e||!e.includes('@')){ eEl.classList.add('error'); eEl.focus(); setTimeout(function(){eEl.classList.remove('error');},2000); return; }
-  userName=n; userEmail=e;
-
-  /* ── Mailchimp / FormSubmit hook ──────────────────────────
-     To connect Mailchimp: replace the fetch URL below with
-     your list-manage subscribe URL, e.g.:
-     'https://xxxxx.us1.list-manage.com/subscribe/post-json?u=...&id=...&c=?'
-     and send as JSONP or use a proxy.
-
-     For now, FormSubmit sends a notification email silently.
-     The page does NOT redirect — the user stays on screen 2.
-  ─────────────────────────────────────────────────────────── */
-  fetch('https://formsubmit.co/ajax/hello@mindandmethodacademy.com', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-    body: JSON.stringify({
-      name: userName,
-      email: userEmail,
-      _subject: 'New Business Plan Tool Sign-up',
-      _captcha: 'false'
-    })
-  }).catch(function(){}); // Silent — never blocks the user flow
-
+  userName=n;
+  // No email captured here — email is captured at output screen if user opts in
   showScreen('screen-questions');
 }
 
@@ -588,16 +658,57 @@ function generatePlan(){
   showScreen('screen-output');
 }
 
+
+function captureOutputEmail(){
+  var eEl = document.getElementById('outputEmail');
+  var email = eEl.value.trim();
+  if(!email || !email.includes('@')){
+    eEl.classList.add('error');
+    eEl.focus();
+    setTimeout(function(){ eEl.classList.remove('error'); }, 2000);
+    return;
+  }
+
+  var planSummary = 'Plan owner: ' + (userName || 'Anonymous') + '\n\n';
+  for(var i = 1; i <= 7; i++){
+    var q = document.getElementById('q' + i);
+    if(q){
+      planSummary += 'Q' + i + ': ' + q.value.trim() + '\n\n';
+    }
+  }
+
+  fetch('https://formsubmit.co/ajax/hello@mindandmethodacademy.com', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      name: userName || 'Anonymous',
+      email: email,
+      plan: planSummary,
+      _subject: 'Business Plan Tool — User submitted plan',
+      _captcha: 'true'
+    })
+  }).then(function(){
+    document.getElementById('outputEmailSuccess').style.display = 'block';
+    document.querySelector('.bp-email-row').style.display = 'none';
+  }).catch(function(){
+    document.getElementById('outputEmailSuccess').textContent = 'Could not send. Please email hello@mindandmethodacademy.com directly.';
+    document.getElementById('outputEmailSuccess').style.display = 'block';
+  });
+}
 function resetTool(){
   for(var i=1;i<=7;i++){document.getElementById('q'+i).value='';}
   document.getElementById('userName').value='';
-  document.getElementById('userEmail').value='';
-  userName=''; userEmail='';
+  var outEmail = document.getElementById('outputEmail');
+  if(outEmail) outEmail.value='';
+  var success = document.getElementById('outputEmailSuccess');
+  if(success) success.style.display='none';
+  var emailRow = document.querySelector('.bp-email-row');
+  if(emailRow) emailRow.style.display='flex';
+  userName='';
   showScreen('screen-capture');
 }
 
-document.getElementById('userName').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('userEmail').focus();});
-document.getElementById('userEmail').addEventListener('keydown',function(e){if(e.key==='Enter')startQuestions();});
+document.getElementById('userName').addEventListener('keydown',function(e){if(e.key==='Enter')startQuestions();});
 </script>
 </body>
 </html>
