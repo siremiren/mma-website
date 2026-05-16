@@ -255,6 +255,52 @@
   }
 
 
+.ws-testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.ws-testimonial {
+  background: var(--warm-white, #faf7f0);
+  border: 1px solid var(--border, rgba(0,0,0,0.08));
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin: 0;
+}
+.ws-testimonial-quote {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  font-style: italic;
+  margin: 0 0 1.25rem 0;
+}
+.ws-testimonial-attr {
+  border-top: 1px solid var(--border, rgba(0,0,0,0.1));
+  padding-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ws-testimonial-attr strong {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--legacy-gold);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.ws-testimonial-attr span {
+  font-size: 0.75rem;
+  color: var(--text-muted, rgba(0,0,0,0.55));
+}
+@media (max-width: 1024px) {
+  .ws-testimonials { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .ws-testimonials { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body data-page="workshop">
@@ -274,11 +320,13 @@
       <div class="nav-logo-text">Mind <span>&amp;</span> Method</div>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/programmes/">Programmes</a></li>
-      <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
-    </ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/programmes/">Programmes</a></li>
+  <li><a href="/workshop/" class="active">Workshop</a></li>
+  <li><a href="/businessplan/">Free Tool</a></li>
+  <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
+</ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu">
       <span></span><span></span><span></span>
     </button>
@@ -458,16 +506,55 @@
   </div>
 </section>
 
+<section class="section section--cream">
+  <div class="section-inner">
+    <div class="reveal text-center" style="max-width: 720px; margin: 0 auto;">
+      <div class="section-label section-label--center">Want to prepare?</div>
+      <h2 class="section-title">Get a head start with the 1-Hour Business Plan.</h2>
+      <p class="section-desc section-desc--center">If you arrive at the workshop with a draft already in hand, you will get more out of the day. Spend an hour answering 7 questions and you will already be ahead.</p>
+      <a href="/businessplan/" class="btn-secondary" style="margin-top: 1rem;">Build your plan now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
 <!-- ── SOCIAL PROOF ── -->
 <section class="section">
-  <div class="section-inner" style="text-align: center; max-width: 680px; margin: 0 auto;">
-    <div class="section-label">What attendees say</div>
-    <h2 class="section-title" data-cms="social_proof_heading">The content works. The room delivers.</h2>
-    <p class="section-desc" data-cms="social_proof_desc">The Business Builder Workshop has a 5-star rating on Google. Attendees consistently describe the Offer Building session as the standout moment — a room full of people helping each other build better businesses.</p>
-    <a href="https://g.page/r/mindandmethodacademy/review" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem;">
-      Read reviews on Google
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-    </a>
+  <div class="section-inner">
+    <div class="reveal text-center" style="max-width: 720px; margin: 0 auto 3rem;">
+      <div class="section-label section-label--center">What attendees say</div>
+      <h2 class="section-title" data-cms="social_proof_heading">The content works. The room delivers.</h2>
+    </div>
+
+    <div class="ws-testimonials">
+      <blockquote class="ws-testimonial">
+        <p class="ws-testimonial-quote">"This was such a great experience for me. Sam is an exceptional coach who has a level of depth not many do when it comes to business. This workshop helped me with the mindset shift I needed to get to a new level."</p>
+        <footer class="ws-testimonial-attr">
+          <strong>Elizabeth D</strong>
+          <span>Cohort 1</span>
+        </footer>
+      </blockquote>
+      <blockquote class="ws-testimonial">
+        <p class="ws-testimonial-quote">"Sam delivered the workshop with excellence. I left feeling empowered to do more with my business. The nuggets given were priceless and I know that in months to come I will reap what I learnt."</p>
+        <footer class="ws-testimonial-attr">
+          <strong>Toyin A</strong>
+          <span>Cohort 1</span>
+        </footer>
+      </blockquote>
+      <blockquote class="ws-testimonial">
+        <p class="ws-testimonial-quote">"I couldn't believe all the information I received was for free. I went there struggling to take my business to the next stage, but those couple of hours gave me the practical tools needed to do so."</p>
+        <footer class="ws-testimonial-attr">
+          <strong>Tomiwa A</strong>
+          <span>Cohort 2</span>
+        </footer>
+      </blockquote>
+    </div>
+
+    <div class="text-center" style="margin-top: 2.5rem;">
+      <a href="https://g.page/r/mindandmethodacademy/review" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        Read all reviews on Google
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -490,12 +577,14 @@
       </div>
       <div>
         <h3 class="footer-heading">Navigate</h3>
-        <ul class="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/programmes/">Programmes</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
+<ul class="footer-links">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/programmes/">Programmes</a></li>
+  <li><a href="/workshop/">Workshop</a></li>
+  <li><a href="/businessplan/">Free Business Plan</a></li>
+  <li><a href="/contact/">Contact</a></li>
+</ul>
       </div>
       <div>
         <h3 class="footer-heading">Legal</h3>
