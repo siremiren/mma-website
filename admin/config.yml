@@ -9,6 +9,7 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+
       - name: "home"
         label: "Home Page"
         file: "content/home.json"
@@ -48,6 +49,8 @@ collections:
           - { label: "CTA Description", name: "cta_desc", widget: "text" }
           - { label: "Email Capture Heading", name: "capture_heading", widget: "string" }
           - { label: "Email Capture Subtext", name: "capture_subtext", widget: "string" }
+
+      - name: "about"
         label: "About Page"
         file: "content/about.json"
         fields:
@@ -69,15 +72,102 @@ collections:
         file: "content/programmes.json"
         fields:
           - { label: "Page Subtitle", name: "page_desc", widget: "text" }
-          - { label: "Individuals Section Heading", name: "individuals_heading", widget: "string" }
-          - { label: "Individuals Section Description", name: "individuals_desc", widget: "text" }
-          - { label: "Accelerator Description", name: "accelerator_desc", widget: "text" }
-          - { label: "DWY Programme Description", name: "dwy_desc", widget: "text" }
-          - { label: "DFY Programme Description", name: "dfy_desc", widget: "text" }
-          - { label: "Organisations Section Description", name: "organisations_desc", widget: "text" }
-          - { label: "Partners Heading", name: "partners_heading", widget: "string" }
-          - { label: "CTA Heading", name: "cta_heading", widget: "string" }
-          - { label: "CTA Description", name: "cta_desc", widget: "text" }
+          - label: "Individuals Section"
+            name: "individuals_group"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Section Heading", name: "individuals_section_heading", widget: "string" }
+              - { label: "Section Description", name: "individuals_section_desc", widget: "text" }
+          - label: "Programme 1 — DIY Accelerator"
+            name: "p1_group"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Card Title", name: "p1_title", widget: "string" }
+              - { label: "Card Description", name: "p1_desc", widget: "text" }
+              - { label: "What You Will Learn 1", name: "p1_learn_1", widget: "string" }
+              - { label: "What You Will Learn 2", name: "p1_learn_2", widget: "string" }
+              - { label: "What You Will Learn 3", name: "p1_learn_3", widget: "string" }
+              - { label: "What You Will Learn 4", name: "p1_learn_4", widget: "string" }
+              - { label: "What You Will Learn 5", name: "p1_learn_5", widget: "string" }
+              - { label: "Who This Is For 1", name: "p1_for_1", widget: "string" }
+              - { label: "Who This Is For 2", name: "p1_for_2", widget: "string" }
+              - { label: "Who This Is For 3", name: "p1_for_3", widget: "string" }
+              - { label: "What You Will Leave With 1", name: "p1_leave_1", widget: "string" }
+              - { label: "What You Will Leave With 2", name: "p1_leave_2", widget: "string" }
+              - { label: "What You Will Leave With 3", name: "p1_leave_3", widget: "string" }
+              - { label: "What You Will Leave With 4", name: "p1_leave_4", widget: "string" }
+              - { label: "What You Will Leave With 5", name: "p1_leave_5", widget: "string" }
+          - label: "Programme 2 — Done With You"
+            name: "p2_group"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Card Title", name: "p2_title", widget: "string" }
+              - { label: "Card Description", name: "p2_desc", widget: "text" }
+              - { label: "What This Includes 1", name: "p2_includes_1", widget: "string" }
+              - { label: "What This Includes 2", name: "p2_includes_2", widget: "string" }
+              - { label: "What This Includes 3", name: "p2_includes_3", widget: "string" }
+              - { label: "What This Includes 4", name: "p2_includes_4", widget: "string" }
+              - { label: "What This Includes 5", name: "p2_includes_5", widget: "string" }
+              - { label: "Who This Is For 1", name: "p2_for_1", widget: "string" }
+              - { label: "Who This Is For 2", name: "p2_for_2", widget: "string" }
+              - { label: "Who This Is For 3", name: "p2_for_3", widget: "string" }
+              - { label: "What You Will Leave With 1", name: "p2_leave_1", widget: "string" }
+              - { label: "What You Will Leave With 2", name: "p2_leave_2", widget: "string" }
+              - { label: "What You Will Leave With 3", name: "p2_leave_3", widget: "string" }
+              - { label: "What You Will Leave With 4", name: "p2_leave_4", widget: "string" }
+              - { label: "What You Will Leave With 5", name: "p2_leave_5", widget: "string" }
+          - label: "Programme 3 — Done For You"
+            name: "p3_group"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Card Title", name: "p3_title", widget: "string" }
+              - { label: "Card Description", name: "dfy_desc", widget: "text" }
+              - { label: "What We Do For You 1", name: "p3_does_1", widget: "string" }
+              - { label: "What We Do For You 2", name: "p3_does_2", widget: "string" }
+              - { label: "What We Do For You 3", name: "p3_does_3", widget: "string" }
+              - { label: "What We Do For You 4", name: "p3_does_4", widget: "string" }
+              - { label: "What We Do For You 5", name: "p3_does_5", widget: "string" }
+              - { label: "Who This Is For 1", name: "p3_for_1", widget: "string" }
+              - { label: "Who This Is For 2", name: "p3_for_2", widget: "string" }
+              - { label: "Who This Is For 3", name: "p3_for_3", widget: "string" }
+              - { label: "What You Will Walk Away With 1", name: "p3_leave_1", widget: "string" }
+              - { label: "What You Will Walk Away With 2", name: "p3_leave_2", widget: "string" }
+              - { label: "What You Will Walk Away With 3", name: "p3_leave_3", widget: "string" }
+              - { label: "What You Will Walk Away With 4", name: "p3_leave_4", widget: "string" }
+              - { label: "What You Will Walk Away With 5", name: "p3_leave_5", widget: "string" }
+          - label: "Organisations Section"
+            name: "org_group"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Section Heading", name: "organisations_heading", widget: "string" }
+              - { label: "Section Description", name: "organisations_desc", widget: "text" }
+              - { label: "Universities", name: "sector_universities", widget: "text" }
+              - { label: "Councils & Government", name: "sector_councils", widget: "text" }
+              - { label: "Charities & Third Sector", name: "sector_charities", widget: "text" }
+              - { label: "Prisons & Rehabilitation", name: "sector_prisons", widget: "text" }
+              - { label: "Schools & Youth", name: "sector_schools", widget: "text" }
+              - { label: "Corporate Partners", name: "sector_corporate", widget: "text" }
+          - label: "What Partners Can Expect"
+            name: "expect_group"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Section Heading", name: "partners_section_heading", widget: "string" }
+              - { label: "Point 1", name: "expect_1", widget: "string" }
+              - { label: "Point 2", name: "expect_2", widget: "string" }
+              - { label: "Point 3", name: "expect_3", widget: "string" }
+              - { label: "Point 4", name: "expect_4", widget: "string" }
+              - { label: "Point 5", name: "expect_5", widget: "string" }
+              - { label: "Point 6", name: "expect_6", widget: "string" }
+              - { label: "Point 7", name: "expect_7", widget: "string" }
+              - { label: "Point 8", name: "expect_8", widget: "string" }
+          - { label: "CTA Heading", name: "cta_section_heading", widget: "string" }
+          - { label: "CTA Description", name: "cta_section_desc", widget: "text" }
 
       - name: "workshop"
         label: "Workshop Page"
@@ -115,9 +205,7 @@ collections:
           - { label: "Step 2 Label", name: "step_2", widget: "string" }
           - { label: "Step 3 Label", name: "step_3", widget: "string" }
           - { label: "Name Field Label", name: "label_name", widget: "string" }
-          - { label: "Email Field Label", name: "label_email", widget: "string" }
           - { label: "Start Button Text", name: "btn_start", widget: "string" }
-          - { label: "Capture Small Print", name: "capture_note", widget: "string" }
           - { label: "Questions Section Label", name: "questions_label", widget: "string" }
           - { label: "Questions Heading", name: "questions_heading", widget: "string" }
           - { label: "Questions Intro Text", name: "questions_intro", widget: "text" }
@@ -145,7 +233,7 @@ collections:
         fields:
           - { label: "Quote 1", name: "quote_1", widget: "text" }
           - { label: "Name 1", name: "name_1", widget: "string" }
-          - { label: "Context 1 (e.g. Workshop Participant)", name: "context_1", widget: "string" }
+          - { label: "Context 1", name: "context_1", widget: "string" }
           - { label: "Quote 2", name: "quote_2", widget: "text" }
           - { label: "Name 2", name: "name_2", widget: "string" }
           - { label: "Context 2", name: "context_2", widget: "string" }
