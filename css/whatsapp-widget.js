@@ -20,7 +20,10 @@
   // ---- inject CSS ----
   var css = ''
     + '#mma-wa-widget{position:fixed;bottom:24px;right:24px;z-index:9999;font-family:"Lato",system-ui,-apple-system,sans-serif}'
-    + '#mma-wa-launcher{display:inline-flex;align-items:center;gap:10px;background:#C5A059;color:#1B263B;border:none;border-radius:999px;padding:14px 22px 14px 18px;font-family:"Montserrat",sans-serif;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 8px 24px rgba(27,38,59,.25);transition:transform .15s ease,box-shadow .15s ease}'
+    + '#mma-wa-launcher{display:inline-flex;align-items:center;gap:0;background:#C5A059;color:#1B263B;border:none;border-radius:999px;padding:14px;font-family:"Montserrat",sans-serif;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 8px 24px rgba(27,38,59,.25);transition:all .2s ease;overflow:hidden}'
+    + '#mma-wa-launcher #mma-wa-launcher-text{max-width:0;opacity:0;white-space:nowrap;transition:max-width .25s ease,opacity .2s ease,margin-left .25s ease}'
+    + '#mma-wa-launcher:hover #mma-wa-launcher-text{max-width:200px;opacity:1;margin-left:10px}'
+    + '#mma-wa-launcher:hover{padding:14px 22px 14px 18px}'
     + '#mma-wa-launcher:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(27,38,59,.3)}'
     + '#mma-wa-launcher:focus-visible{outline:3px solid #1B263B;outline-offset:2px}'
     + '#mma-wa-panel{position:absolute;bottom:72px;right:0;width:340px;max-width:calc(100vw - 32px);background:#FFF;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(27,38,59,.25);animation:mma-wa-pop .18s ease-out}'
@@ -36,7 +39,7 @@
     + '#mma-wa-footer{background:#FFF;padding:12px 14px;border-top:1px solid #EEE}'
     + '#mma-wa-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#FFF;text-decoration:none;padding:12px 18px;border-radius:8px;font-family:"Montserrat",sans-serif;font-weight:700;font-size:14px}'
     + '#mma-wa-cta:hover{background:#1ebd5b}'
-    + '@media (max-width:480px){#mma-wa-widget{bottom:16px;right:16px}#mma-wa-launcher-text{display:none}#mma-wa-launcher{padding:14px}#mma-wa-panel{width:calc(100vw - 32px);right:0}}';
+    + '@media (max-width:480px){#mma-wa-widget{bottom:16px;right:16px}#mma-wa-launcher-text{display:none}#mma-wa-launcher{padding:14px;gap:0}#mma-wa-panel{width:calc(100vw - 32px);right:0}}';
 
   var styleEl = document.createElement('style');
   styleEl.type = 'text/css';

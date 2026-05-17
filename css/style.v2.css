@@ -325,6 +325,18 @@ img { max-width: 100%; display: block; }
 
 .btn-secondary:hover { color: white; border-color: rgba(255,255,255,0.5); }
 
+/* Dark variant — for use on light/cream backgrounds */
+.btn-secondary--dark {
+  color: var(--oxford-blue);
+  border: 1px solid rgba(27, 38, 59, 0.25);
+}
+
+.btn-secondary--dark:hover {
+  color: var(--oxford-blue);
+  border-color: var(--oxford-blue);
+  background: rgba(27, 38, 59, 0.04);
+}
+
 .btn-arrow { width: 16px; height: 16px; }
 
 /* ═══════════════════════════════════════
