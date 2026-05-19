@@ -2,6 +2,7 @@
 
 [build]
   publish = "."
+  functions = "netlify/functions"
 
 # Landing page redirect
 [[redirects]]
@@ -26,7 +27,7 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Cross-Origin-Opener-Policy = "same-origin"
-    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co"
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
 
 # HTML — short cache so content updates ship instantly
 [[headers]]

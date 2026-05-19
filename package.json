@@ -1,0 +1,9 @@
+{
+  "name": "mma-website",
+  "version": "1.0.0",
+  "description": "Mind & Method Academy website — Netlify Functions dependencies",
+  "private": true,
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}
