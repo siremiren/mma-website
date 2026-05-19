@@ -399,6 +399,14 @@
 </head>
 <body data-page="businessplan">
 
+<!-- Hidden form for Netlify Forms detection. Must exist in static HTML so Netlify's build-time parser registers it. -->
+<form name="business-plan" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name">
+  <input type="email" name="email">
+  <textarea name="plan"></textarea>
+  <input type="text" name="bot-field">
+</form>
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <header role="banner">
@@ -621,7 +629,7 @@
       <h3 data-cms="cta_heading">You have a plan. Now build it.</h3>
       <p data-cms="cta_desc">The Business Builder Workshop takes everything you have just written and turns it into a real, operating business — with coaching, accountability, and a structured path to your first paying client.</p>
       <div class="bp-output-cta-btns">
-        <button class="btn-secondary btn-secondary--dark" onclick="window.print()" style="margin-right: 0.5rem;">
+        <button class="btn-secondary" onclick="window.print()">
           Save as PDF
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         </button>
@@ -694,17 +702,21 @@ function captureOutputEmail(){
     }
   }
 
-  fetch('https://formsubmit.co/ajax/hello@mindandmethodacademy.com', {
+  // Netlify Forms — URL-encoded POST to the page itself, with form-name set
+  var formData = new URLSearchParams();
+  formData.append('form-name', 'business-plan');
+  formData.append('name', userName || 'Anonymous');
+  formData.append('email', email);
+  formData.append('plan', planSummary);
+  formData.append('bot-field', '');
+
+  fetch('/', {
     method: 'POST',
-    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-    body: JSON.stringify({
-      name: userName || 'Anonymous',
-      email: email,
-      plan: planSummary,
-      _subject: 'Business Plan Tool — User submitted plan',
-      _captcha: 'true'
-    })
-  }).then(function(){
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: formData.toString()
+  }).then(function(response){
+    if(!response.ok){ throw new Error('Submission failed: ' + response.status); }
+    document.getElementById('outputEmailSuccess').textContent = 'Thanks — your plan is on its way to your inbox.';
     document.getElementById('outputEmailSuccess').style.display = 'block';
     document.querySelector('.bp-email-row').style.display = 'none';
   }).catch(function(){
