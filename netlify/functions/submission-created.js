@@ -128,9 +128,12 @@ function buildHtml(name, answers) {
         </td></tr>
 
         <tr><td style="background:#f5f3ef;padding:24px 40px;text-align:center;border-top:1px solid #e5e0d6;">
-          <p style="font-family:Arial,sans-serif;font-size:12px;color:#999;margin:0;line-height:1.6;">
+          <p style="font-family:Arial,sans-serif;font-size:12px;color:#999;margin:0 0 8px 0;line-height:1.6;">
             Mind &amp; Method Academy &middot; <a href="https://mindandmethodacademy.com" style="color:#999;">mindandmethodacademy.com</a><br>
             You received this because you completed the free business plan tool.
+          </p>
+          <p style="font-family:Arial,sans-serif;font-size:11px;color:#bbb;margin:0;line-height:1.6;">
+            Don't want emails from us? <a href="mailto:hello@mindandmethodacademy.com?subject=unsubscribe" style="color:#bbb;text-decoration:underline;">Unsubscribe</a>.
           </p>
         </td></tr>
 
@@ -169,6 +172,8 @@ function buildPlainText(name, answers) {
   lines.push('—');
   lines.push('Mind & Method Academy');
   lines.push('mindandmethodacademy.com');
+  lines.push('');
+  lines.push('To unsubscribe, reply to this email with "unsubscribe" in the subject.');
   return lines.join('\n');
 }
 
@@ -211,6 +216,10 @@ exports.handler = async (event) => {
   const resend = new Resend(process.env.RESEND_API_KEY);
   const answers = parsePlan(planText);
 
+  // Unique ID per email — helps mailbox providers track legitimacy and lets us
+  // correlate logs across Netlify / Resend / our records.
+  const messageId = `bp-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+
   try {
     const { data: result, error } = await resend.emails.send({
       from: FROM_ADDRESS,
@@ -218,7 +227,17 @@ exports.handler = async (event) => {
       replyTo: 'hello@mindandmethodacademy.com',
       subject: 'Your 1-Hour Business Plan',
       html: buildHtml(userName, answers),
-      text: buildPlainText(userName, answers)
+      text: buildPlainText(userName, answers),
+      headers: {
+        // Mailto-based unsubscribe — signals legitimacy to Gmail/Yahoo without needing
+        // a separate HTTPS POST endpoint. Appropriate here because this is a single
+        // triggered email per user, not a recurring list. If you later add a newsletter
+        // or recurring sends, upgrade this to a proper RFC 8058 one-click endpoint.
+        'List-Unsubscribe': '<mailto:hello@mindandmethodacademy.com?subject=unsubscribe>',
+        // Unique reference ID for this email — improves deliverability scoring and
+        // makes the email traceable across logs.
+        'X-Entity-Ref-ID': messageId
+      }
     });
 
     if (error) {
