@@ -36,6 +36,11 @@
   .programme-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
   .programme-card > p { font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; }
   .programme-card > p + p { margin-top: -1rem; }
+  .programme-section h4 { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--legacy-gold); margin-bottom: 0.75rem; }
+  .programme-section { margin-bottom: 1.5rem; }
+  .programme-section ul { list-style: none; }
+  .programme-section li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); padding: 0.3rem 0; }
+  .programme-section li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--legacy-gold); flex-shrink: 0; margin-top: 0.55rem; }
   .org-sectors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
   .org-sector { background: var(--cream); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.4s ease; }
   .org-sector:hover { transform: translateY(-4px); border-color: rgba(197, 160, 89, 0.2); box-shadow: 0 20px 60px rgba(27, 38, 59, 0.08); }
@@ -96,18 +101,102 @@
         <h3 id="training-area-1" data-cms="p1_title">Entrepreneurship</h3>
         <p data-cms="p1_desc">Learn how to start, build and develop a business. From understanding your market and creating a business plan to finding customers and managing your business, we offer practical training, workshops and coaching to help you move forward.</p>
         <p data-cms="p1_desc2">Business Builder is one of our established entrepreneurship programmes.</p>
+        <div class="grid-2">
+          <div>
+            <div class="programme-section">
+              <h4>What You Will Learn</h4>
+              <ul role="list">
+                <li>Understanding your market and finding customers</li>
+                <li>Creating a business plan</li>
+                <li>Starting, building and managing a business</li>
+              </ul>
+            </div>
+            <div class="programme-section">
+              <h4>Who This Is For</h4>
+              <ul role="list">
+                <li>People exploring how to start a business</li>
+                <li>People who want to develop a business they already run</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="programme-section">
+              <h4>What You Will Leave With</h4>
+              <ul role="list">
+                <li>A clearer understanding of the steps involved in starting and developing a business</li>
+                <li>Lorem ipsum (placeholder for an approved practical takeaway)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <a href="/contact/" class="link-arrow" aria-describedby="training-area-1">Enquire About This Training <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
 
       <div class="programme-card reveal">
         <h3 id="training-area-2" data-cms="p2_title">Professional &amp; Personal Development</h3>
         <p data-cms="p2_desc">Develop the skills to communicate clearly, lead effectively and work confidently with others. Our training covers leadership, management, negotiation, public speaking, confidence and other skills that can make a difference in your professional and personal life.</p>
+        <div class="grid-2">
+          <div>
+            <div class="programme-section">
+              <h4>What You Will Learn</h4>
+              <ul role="list">
+                <li>Leadership and management</li>
+                <li>Communication, negotiation and public speaking</li>
+                <li>Building confidence when working with others</li>
+              </ul>
+            </div>
+            <div class="programme-section">
+              <h4>Who This Is For</h4>
+              <ul role="list">
+                <li>People who want to communicate more clearly or lead more effectively</li>
+                <li>People who want to work more confidently with others</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="programme-section">
+              <h4>What You Will Leave With</h4>
+              <ul role="list">
+                <li>Knowledge of communication and leadership skills relevant to professional and personal life</li>
+                <li>Lorem ipsum (placeholder for an approved practical takeaway)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <a href="/contact/" class="link-arrow" aria-describedby="training-area-2">Enquire About This Training <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
 
       <div class="programme-card reveal">
         <h3 id="training-area-3" data-cms="p3_title">Artificial Intelligence</h3>
         <p data-cms="dfy_desc">Learn how to understand and use AI in practical ways. From getting familiar with AI tools to improving productivity and applying AI in work, business and everyday life, we help people develop the knowledge and confidence to make use of this technology.</p>
+        <div class="grid-2">
+          <div>
+            <div class="programme-section">
+              <h4>What You Will Learn</h4>
+              <ul role="list">
+                <li>Getting familiar with AI tools</li>
+                <li>Using AI to improve productivity</li>
+                <li>Applying AI in work, business and everyday life</li>
+              </ul>
+            </div>
+            <div class="programme-section">
+              <h4>Who This Is For</h4>
+              <ul role="list">
+                <li>People who want to get familiar with AI tools</li>
+                <li>People exploring how AI could be useful in their work, business or everyday life</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="programme-section">
+              <h4>What You Will Leave With</h4>
+              <ul role="list">
+                <li>A clearer understanding of where AI tools can be useful in day-to-day tasks</li>
+                <li>Lorem ipsum (placeholder for an approved practical takeaway)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <a href="/contact/" class="link-arrow" aria-describedby="training-area-3">Enquire About This Training <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
     </div>
