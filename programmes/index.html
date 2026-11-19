@@ -72,7 +72,15 @@
     <ul class="nav-links" id="navLinks">
   <li><a href="/">Home</a></li>
   <li><a href="/about/">About</a></li>
-  <li><a href="/programmes/" class="active">Programmes</a></li>
+  <li class="nav-programmes">
+    <a href="/programmes/" class="active">Programmes</a>
+    <button class="nav-submenu-toggle" type="button" aria-label="Show Programmes submenu" aria-expanded="false" aria-controls="programmesSubmenu"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></button>
+    <ul class="nav-submenu" id="programmesSubmenu" hidden>
+      <li><a href="/programmes/entrepreneurship/">Entrepreneurship</a></li>
+      <li><span>Professional &amp; Personal Development</span></li>
+      <li><span>Artificial Intelligence</span></li>
+    </ul>
+  </li>
   <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
 </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
@@ -332,5 +340,6 @@
 <script src="/css/main.js"></script>
 <script src="/css/cms-loader.js"></script>
 <script src="/css/whatsapp-widget.js" defer></script>
+<script src="/css/nav-dropdown.js"></script>
 </body>
 </html>
