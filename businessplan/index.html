@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your 1-Hour Business Plan — Mind & Method Academy</title>
-<meta name="description" content="Answer 7 questions and get a complete, formatted business plan. Free from Mind and Method Academy.">
+<title>Your 1-Hour Business Plan | Mind and Method Academy</title>
+<meta name="description" content="Answer seven practical questions to create a first draft of your business plan, save a copy and prepare for a free Business Plan Review.">
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="shortcut icon" href="/favicon.ico">
@@ -14,8 +14,8 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mindandmethodacademy.com/businessplan/">
-<meta property="og:title" content="Your 1-Hour Business Plan — Mind &amp; Method Academy">
-<meta property="og:description" content="Answer 7 questions and get a complete, formatted business plan. Free from Mind and Method Academy.">
+<meta property="og:title" content="Your 1-Hour Business Plan | Mind and Method Academy">
+<meta property="og:description" content="Answer seven practical questions to create a first draft of your business plan, save a copy and prepare for a free Business Plan Review.">
 <meta property="og:site_name" content="Mind &amp; Method Academy">
 <meta property="og:image" content="https://mindandmethodacademy.com/images/og-default.jpg">
 <meta property="og:image:width" content="1200">
@@ -23,14 +23,9 @@
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Your 1-Hour Business Plan — Mind &amp; Method Academy">
-<meta name="twitter:description" content="Answer 7 questions and get a complete, formatted business plan. Free from Mind and Method Academy.">
+<meta name="twitter:title" content="Your 1-Hour Business Plan | Mind and Method Academy">
+<meta name="twitter:description" content="Answer seven practical questions to create a first draft of your business plan, save a copy and prepare for a free Business Plan Review.">
 <meta name="twitter:image" content="https://mindandmethodacademy.com/images/og-default.jpg">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mindandmethodacademy.com/businessplan/">
-<meta property="og:title" content="Your 1-Hour Business Plan — Mind & Method Academy">
-<meta property="og:description" content="Answer 7 questions and get a complete, formatted business plan. Free from Mind and Method Academy.">
-<meta property="og:site_name" content="Mind &amp; Method Academy">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -363,6 +358,14 @@
   font-weight: 600;
   margin-top: 0.75rem !important;
 }
+  .bp-q-help { color: var(--text-secondary); line-height: 1.7; margin: 0.75rem 0 1rem; }
+  .bp-marketing { display: flex; align-items: flex-start; gap: 0.75rem; line-height: 1.6; margin: 1rem 0; }
+  .bp-marketing input { flex-shrink: 0; margin-top: 0.3rem; }
+  .bp-gen-btn:disabled { opacity: 0.65; cursor: wait; }
+  #submissionStatus { margin-top: 1rem; }
+  .plan-answer-text { overflow-wrap: anywhere; }
+  .plan-answer-text.empty { color: var(--text-muted); }
+  @media print { #screen-capture, #screen-questions, #mma-consent, #mma-wa-launcher { display: none !important; } }
   /* Print styles */
   @media print {
     .nav,
@@ -404,6 +407,19 @@
   <input type="text" name="name">
   <input type="email" name="email">
   <textarea name="plan"></textarea>
+  <input name="submission_id" type="hidden">
+  <input name="schema_version" type="hidden">
+  <input name="marketing_opt_in" type="hidden">
+  <input name="consent_version" type="hidden">
+  <input name="consent_text" type="hidden">
+  <input name="source" type="hidden">
+  <input name="answer_1" type="hidden">
+  <input name="answer_2" type="hidden">
+  <input name="answer_3" type="hidden">
+  <input name="answer_4" type="hidden">
+  <input name="answer_5" type="hidden">
+  <input name="answer_6" type="hidden">
+  <input name="answer_7" type="hidden">
   <input type="text" name="bot-field">
 </form>
 
@@ -438,9 +454,10 @@
         <span data-cms="badge_text">Free Tool — Mind &amp; Method Academy</span>
       </div>
       <h1 data-cms-html="card_heading">Your <em>1-Hour</em> Business Plan</h1>
-      <p class="bp-card-desc" data-cms="card_desc">Answer <strong>7 questions</strong> and you will have more clarity than 90% of people who call themselves entrepreneurs. Write quickly. Do not overthink. Clarity on paper is the goal.</p>
+      <p class="bp-card-desc" data-cms="card_desc">Every business starts with a plan. Answer seven practical questions about your business idea, who you want to serve, what you&#x27;ll offer and how you&#x27;ll find your first customers.</p>
+      <p class="bp-card-desc" data-cms="card_desc2">Your answers will form a simple business plan you can save, review and improve as your ideas develop.</p>
       <div class="bp-steps">
-        <div class="bp-step"><div class="bp-step-num">1</div><span data-cms="step_1">Enter your details</span></div>
+        <div class="bp-step"><div class="bp-step-num">1</div><span data-cms="step_1">Enter your name</span></div>
         <div class="bp-step"><div class="bp-step-num">2</div><span data-cms="step_2">Answer 7 questions</span></div>
         <div class="bp-step"><div class="bp-step-num">3</div><span data-cms="step_3">Get your plan</span></div>
       </div>
@@ -449,10 +466,8 @@
           <label for="userName" data-cms="label_name">Your name</label>
           <input type="text" id="userName" placeholder="First name" autocomplete="given-name">
         </div>
-        <div class="bp-field">
-        </div>
-        <button class="bp-submit" onclick="startQuestions()">
-          <span data-cms="btn_start">Start Building</span>
+                <button class="bp-submit" onclick="startQuestions()">
+          <span data-cms="btn_start">Start My Plan</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </button>
       </div>
@@ -467,7 +482,7 @@
     <div class="bp-questions-header-inner">
       <div class="section-label" data-cms="questions_label">Your Business Plan</div>
       <h2 data-cms="questions_heading">Your 1-Hour Business Plan</h2>
-      <p data-cms="questions_intro">Write quickly. Don't overthink. You can refine later — right now, the goal is clarity on paper.</p>
+      <p data-cms="questions_intro">Write quickly. Don&#x27;t overthink. You can refine later — right now, the goal is clarity on paper.</p>
     </div>
   </div>
   <div class="bp-questions-body">
@@ -475,71 +490,89 @@
     <div class="bp-q-block">
       <div class="bp-q-label">
         <span class="bp-q-num">1.</span>
-        <span class="bp-q-text" data-cms="q1_text">What problem do you solve?</span>
+        <label class="bp-q-text" for="q1" data-cms="q1_text">What problem do you solve?</label>
       </div>
-      <textarea class="bp-q-textarea" id="q1" rows="4" placeholder="Describe the specific problem your business addresses…"></textarea>
+      <p class="bp-q-help" id="q1-help" data-cms="q1_help">Think about a real problem, difficulty or unmet need that people experience. What happens because of this problem, and why would someone want it solved?</p>
+      <textarea class="bp-q-textarea" id="q1" rows="4" aria-describedby="q1-help"></textarea>
       <div class="bp-q-divider"></div>
     </div>
 
     <div class="bp-q-block">
       <div class="bp-q-label">
         <span class="bp-q-num">2.</span>
-        <span class="bp-q-text" data-cms="q2_text">Who has this problem? (Be specific — name the person, not a broad category)</span>
+        <label class="bp-q-text" for="q2" data-cms="q2_text">Who has this problem?</label>
       </div>
-      <textarea class="bp-q-textarea" id="q2" rows="4" placeholder="E.g. A 35-year-old marketing manager in London who wants to start a side business…"></textarea>
+      <p class="bp-q-help" id="q2-help" data-cms="q2_help">Be specific about the people or organisations you want to serve. Think about their circumstances, needs and what makes them likely to pay for a solution. Avoid broad answers like &quot;everyone&quot; or &quot;small businesses&quot;.</p>
+      <textarea class="bp-q-textarea" id="q2" rows="4" aria-describedby="q2-help"></textarea>
       <div class="bp-q-divider"></div>
     </div>
 
     <div class="bp-q-block">
       <div class="bp-q-label">
         <span class="bp-q-num">3.</span>
-        <span class="bp-q-text" data-cms="q3_text">What is your solution — and how do you deliver it?</span>
+        <label class="bp-q-text" for="q3" data-cms="q3_text">What is your solution — and how do you deliver it?</label>
       </div>
-      <textarea class="bp-q-textarea" id="q3" rows="4" placeholder="What exactly do you offer and how does the delivery work…"></textarea>
+      <p class="bp-q-help" id="q3-help" data-cms="q3_help">Describe what you could offer and how customers would receive it. Would it be a product, service or something else? Explain what the customer would get and how your solution would address their problem.</p>
+      <textarea class="bp-q-textarea" id="q3" rows="4" aria-describedby="q3-help"></textarea>
       <div class="bp-q-divider"></div>
     </div>
 
     <div class="bp-q-block">
       <div class="bp-q-label">
         <span class="bp-q-num">4.</span>
-        <span class="bp-q-text" data-cms="q4_text">Why are you the right person to deliver this? (Experience, story, results, etc)</span>
+        <label class="bp-q-text" for="q4" data-cms="q4_text">Why are you the right person to deliver this?</label>
       </div>
-      <textarea class="bp-q-textarea" id="q4" rows="4" placeholder="What makes you credible and qualified to solve this problem…"></textarea>
+      <p class="bp-q-help" id="q4-help" data-cms="q4_help">Consider your experience, skills, knowledge or understanding of the problem. What gives you an advantage or makes you credible? Be honest about any gaps you may need to address.</p>
+      <textarea class="bp-q-textarea" id="q4" rows="4" aria-describedby="q4-help"></textarea>
       <div class="bp-q-divider"></div>
     </div>
 
     <div class="bp-q-block">
       <div class="bp-q-label">
         <span class="bp-q-num">5.</span>
-        <span class="bp-q-text" data-cms="q5_text">What will you charge — and why is that fair value?</span>
+        <label class="bp-q-text" for="q5" data-cms="q5_text">What will you charge — and why is that fair value?</label>
       </div>
-      <textarea class="bp-q-textarea" id="q5" rows="4" placeholder="Your pricing and the reasoning behind it…"></textarea>
+      <p class="bp-q-help" id="q5-help" data-cms="q5_help">If you&#x27;re already trading, consider your current prices. If you&#x27;re starting out, suggest a realistic price. Think about your costs, what customers receive and what they might be willing to pay. It&#x27;s fine to identify assumptions you still need to test.</p>
+      <textarea class="bp-q-textarea" id="q5" rows="4" aria-describedby="q5-help"></textarea>
       <div class="bp-q-divider"></div>
     </div>
 
     <div class="bp-q-block">
       <div class="bp-q-label">
         <span class="bp-q-num">6.</span>
-        <span class="bp-q-text" data-cms="q6_text">How will you find your first 5 customers?</span>
+        <label class="bp-q-text" for="q6" data-cms="q6_text">How will you find your first five customers — or your next five?</label>
       </div>
-      <textarea class="bp-q-textarea" id="q6" rows="4" placeholder="Specific channels, conversations, or outreach strategies…"></textarea>
+      <p class="bp-q-help" id="q6-help" data-cms="q6_help">Think about specific ways to reach people who need what you offer. Consider existing contacts, referrals, communities, partnerships or marketing channels. What practical actions could you take to reach those five customers?</p>
+      <textarea class="bp-q-textarea" id="q6" rows="4" aria-describedby="q6-help"></textarea>
       <div class="bp-q-divider"></div>
     </div>
 
     <div class="bp-q-block">
       <div class="bp-q-label">
         <span class="bp-q-num">7.</span>
-        <span class="bp-q-text" data-cms="q7_text">What does success look like in 90 days?</span>
+        <label class="bp-q-text" for="q7" data-cms="q7_text">What does success look like in 90 days?</label>
       </div>
-      <textarea class="bp-q-textarea" id="q7" rows="4" placeholder="Concrete, measurable outcomes you are aiming for…"></textarea>
+      <p class="bp-q-help" id="q7-help" data-cms="q7_help">Set a few realistic goals for the next three months. These might include testing demand, speaking to potential customers, making sales or improving something that isn&#x27;t working. Be specific about what you want to achieve and how you&#x27;ll know you&#x27;ve achieved it.</p>
+      <textarea class="bp-q-textarea" id="q7" rows="4" aria-describedby="q7-help"></textarea>
+    </div>
+
+    <div class="bp-email-capture">
+      <h3>Almost there. Your business plan is nearly ready.</h3>
+      <p>Enter your email address to generate your plan and receive a copy. Your completed answers will also be shared with Mind and Method Academy to support the Business Plan Review process.</p>
+      <div class="bp-field"><label for="planEmail">Email address</label>
+        <input type="email" id="planEmail" placeholder="you@example.com" autocomplete="email" required>
+      </div>
+      <label class="bp-marketing"><input type="checkbox" id="marketingConsent"> <span>I&#x27;d like to receive emails from Mind and Method Academy with practical business advice, information about training and coaching, and updates on programmes such as Business Builder.</span></label>
+      <p class="bp-consent-note">Marketing emails are optional. You can unsubscribe at any time. See our <a href="/privacy/">Privacy Policy</a>.</p>
+      <p id="submissionStatus" role="status" aria-live="polite"></p>
+      <input id="planBot" type="text" tabindex="-1" autocomplete="off" hidden>
     </div>
 
     <div class="bp-gen-wrap">
-      <button class="bp-gen-btn" onclick="generatePlan()">
+      <button id="generateButton" class="bp-gen-btn" onclick="generatePlan()">
         <span data-cms="btn_generate">Generate My Business Plan</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </button>
-      <p class="bp-gen-note" data-cms="generate_note">Your plan will appear on the next screen. You can print or save it from there.</p>
     </div>
 
   </div>
@@ -551,8 +584,8 @@
     <div class="bp-output-header-inner">
       <div>
         <div class="section-label" data-cms="output_label">Your Business Plan</div>
-        <h2 data-cms="output_heading">Here's your plan.</h2>
-        <p class="bp-output-header-sub" data-cms="output_sub">Built in under an hour. Save it, share it, or build on it.</p>
+        <h2 data-cms="output_heading">Here&#x27;s your plan.</h2>
+        <p class="bp-output-header-sub" data-cms="output_sub">You&#x27;ve brought your business idea together in one place. Save a copy so you can revisit and improve it as your ideas develop.</p>
       </div>
     </div>
   </div>
@@ -566,9 +599,9 @@
             <div class="plan-doc-logo-text">Mind <span>&amp;</span> Method Academy</div>
           </div>
           <div class="plan-doc-title" data-cms="doc_title">Your 1-Hour Business Plan</div>
-          <div class="plan-doc-subtitle" data-cms="doc_subtitle">Answer these 7 questions clearly, and you will have more clarity than 90% of people who call themselves entrepreneurs.</div>
+          <div class="plan-doc-subtitle" data-cms="doc_subtitle">A starting point for developing, testing and improving your business idea.</div>
           <div class="plan-doc-meta-row">
-            <div class="plan-doc-meta">Prepared by <strong id="outputOwner">—</strong></div>
+            <div class="plan-doc-meta">Prepared by: <strong id="outputOwner">—</strong></div>
             <div class="plan-doc-meta" id="outputDate">—</div>
           </div>
         </div>
@@ -597,7 +630,7 @@
           <div class="plan-answer-text" id="out5"></div>
         </div>
         <div class="plan-answer-block">
-          <div class="plan-answer-num-row"><span class="plan-answer-num">06</span><span class="plan-answer-q">How will you find your first 5 customers?</span></div>
+          <div class="plan-answer-num-row"><span class="plan-answer-num">06</span><span class="plan-answer-q">How will you find your first five customers — or your next five?</span></div>
           <div class="plan-answer-text" id="out6"></div>
         </div>
         <div class="plan-answer-block">
@@ -612,27 +645,20 @@
       </div>
     </div>
 
-    <div class="bp-email-capture" id="screen-output-email">
-      <h3>Want a copy emailed to you?</h3>
-      <p>We'll send a copy of your plan to your inbox so you can refer back to it.</p>
-      <div class="bp-email-row">
-        <input type="email" id="outputEmail" placeholder="you@example.com" autocomplete="email">
-        <button type="button" onclick="captureOutputEmail()">Email me my plan</button>
-      </div>
-      <p class="bp-consent-note">By submitting, you agree to receive your plan and occasional resources from Mind &amp; Method Academy. No spam. Unsubscribe any time. See our <a href="/privacy/">Privacy Policy</a>.</p>
-      <p class="bp-email-success" id="outputEmailSuccess" style="display:none;">Thanks — your plan is on its way to your inbox.</p>
-    </div>
-
     <div class="bp-output-cta">
-      <h3 data-cms="cta_heading">You have a plan. Now build it.</h3>
-      <p data-cms="cta_desc">The Business Builder Workshop takes everything you have just written and turns it into a real, operating business — with coaching, accountability, and a structured path to your first paying client.</p>
+      <h3 data-cms="cta_heading">Your business plan is ready.</h3>
+      <p data-cms="cta_desc">You&#x27;ve brought your business idea together in one place. A copy of your plan will be sent to your email address.</p>
+      <h3>Let's review your plan together.</h3>
+      <p>Book your free 30-minute Business Plan Review to talk through your answers, identify areas that need more work and discuss your next steps.</p>
+      <p>I'll review your answers before our conversation so we can make the most of our time together.</p>
+      <p>Please use the same email address when booking so I can match your appointment with your completed plan.</p>
       <div class="bp-output-cta-btns">
         <button class="btn-secondary" onclick="window.print()">
           Save as PDF
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         </button>
-        <a href="/workshop/" class="btn-primary">
-          <span data-cms="cta_btn">Book the Workshop</span>
+        <a href="https://calendar.app.google/LjNrPJZ51Rj18Xpv8" class="btn-primary">
+          <span data-cms="cta_btn">Book My Free Business Plan Review</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
         <button class="btn-outline-white" onclick="resetTool()">Start Again</button>
@@ -651,91 +677,98 @@ hamburger.addEventListener('click',()=>{navLinks.classList.toggle('open')});
 </script>
 <script src="/css/cms-loader.js"></script>
 <script>
-var userName='';
-
-function showScreen(id){
-  document.querySelectorAll('.bp-screen').forEach(function(s){s.classList.remove('active');});
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+var userName = '';
+var pending = false;
+var submissionId = '';
+var submissionSnapshot = '';
+var acceptedSnapshot = '';
+// Provisional system wording for review before publication.
+function showScreen(id) {
+  document.querySelectorAll('.bp-screen').forEach(function(screen) {
+    screen.classList.toggle('active', screen.id === id);
+  });
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  var heading = document.querySelector('#' + id + ' h1, #' + id + ' h2');
+  heading.setAttribute('tabindex', '-1');
+  heading.focus({preventScroll: true});
 }
-
-function startQuestions(){
-  var nEl=document.getElementById('userName');
-  var n=nEl.value.trim();
-  if(!n){ nEl.classList.add('error'); nEl.focus(); setTimeout(function(){nEl.classList.remove('error');},2000); return; }
-  userName=n;
-  // No email captured here — email is captured at output screen if user opts in
-  showScreen('screen-questions');
-}
-
-function generatePlan(){
-  for(var i=1;i<=7;i++){
-    var val=document.getElementById('q'+i).value.trim();
-    var el=document.getElementById('out'+i);
-    if(val){ el.textContent=val; el.classList.remove('empty'); }
-    else { el.textContent='Not completed.'; el.classList.add('empty'); }
-  }
-  document.getElementById('outputOwner').textContent=userName||'Anonymous';
-  var now=new Date();
-  document.getElementById('outputDate').textContent=now.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-  showScreen('screen-output');
-}
-
-
-function captureOutputEmail(){
-  var eEl = document.getElementById('outputEmail');
-  var email = eEl.value.trim();
-  if(!email || !email.includes('@')){
-    eEl.classList.add('error');
-    eEl.focus();
-    setTimeout(function(){ eEl.classList.remove('error'); }, 2000);
+function startQuestions() {
+  var name = document.getElementById('userName');
+  if (!name.value.trim()) {
+    name.setCustomValidity('Please enter your first name.');
+    name.reportValidity();
+    name.focus();
     return;
   }
-
-  var planSummary = 'Plan owner: ' + (userName || 'Anonymous') + '\n\n';
-  for(var i = 1; i <= 7; i++){
-    var q = document.getElementById('q' + i);
-    if(q){
-      planSummary += 'Q' + i + ': ' + q.value.trim() + '\n\n';
-    }
-  }
-
-  // Netlify Forms — URL-encoded POST to the page itself, with form-name set
-  var formData = new URLSearchParams();
-  formData.append('form-name', 'business-plan');
-  formData.append('name', userName || 'Anonymous');
-  formData.append('email', email);
-  formData.append('plan', planSummary);
-  formData.append('bot-field', '');
-
-  fetch('/', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: formData.toString()
-  }).then(function(response){
-    if(!response.ok){ throw new Error('Submission failed: ' + response.status); }
-    document.getElementById('outputEmailSuccess').textContent = 'Thanks — your plan is on its way to your inbox.';
-    document.getElementById('outputEmailSuccess').style.display = 'block';
-    document.querySelector('.bp-email-row').style.display = 'none';
-  }).catch(function(){
-    document.getElementById('outputEmailSuccess').textContent = 'Could not send. Please email hello@mindandmethodacademy.com directly.';
-    document.getElementById('outputEmailSuccess').style.display = 'block';
-  });
+  name.setCustomValidity('');
+  userName = name.value.trim();
+  showScreen('screen-questions');
 }
-function resetTool(){
-  for(var i=1;i<=7;i++){document.getElementById('q'+i).value='';}
-  document.getElementById('userName').value='';
-  var outEmail = document.getElementById('outputEmail');
-  if(outEmail) outEmail.value='';
-  var success = document.getElementById('outputEmailSuccess');
-  if(success) success.style.display='none';
-  var emailRow = document.querySelector('.bp-email-row');
-  if(emailRow) emailRow.style.display='flex';
-  userName='';
+function renderPlan(answers) {
+  answers.forEach(function(answer, i) {
+    var output = document.getElementById('out' + (i + 1));
+    output.textContent = answer || 'Not answered yet.';
+    output.classList.toggle('empty', !answer);
+  });
+  document.getElementById('outputOwner').textContent = userName;
+  document.getElementById('outputDate').textContent = new Date().toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
+  showScreen('screen-output');
+}
+async function generatePlan() {
+  if (pending) return;
+  var email = document.getElementById('planEmail');
+  if (!email.reportValidity()) { email.focus(); return; }
+  var answers = Array.from({length: 7}, function(_, i) { return document.getElementById('q' + (i + 1)).value; });
+  var consent = document.getElementById('marketingConsent').checked;
+  var snapshot = JSON.stringify([userName, email.value.trim(), answers, consent]);
+  if (snapshot === acceptedSnapshot) { renderPlan(answers); return; }
+  if (snapshot !== submissionSnapshot) {
+    submissionId = crypto.randomUUID();
+    submissionSnapshot = snapshot;
+  }
+  var form = new URLSearchParams({
+    'form-name': 'business-plan', name: userName, email: email.value.trim(),
+    submission_id: submissionId, schema_version: '2',
+    marketing_opt_in: String(consent), consent_version: 'business-plan-marketing-2026-11-18',
+    consent_text: document.querySelector('.bp-marketing span').textContent,
+    source: '/businessplan/', 'bot-field': document.getElementById('planBot').value
+  });
+  answers.forEach(function(answer, i) { form.set('answer_' + (i + 1), answer); });
+  form.set('plan', JSON.stringify({name:userName, answers:answers}));
+  var status = document.getElementById('submissionStatus');
+  var button = document.getElementById('generateButton');
+  pending = true; button.disabled = true;
+  status.textContent = 'Submitting your plan…';
+  var controller = new AbortController();
+  var timeout = setTimeout(function() { controller.abort(); }, 20000);
+  try {
+    var response = await fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:form.toString(), signal:controller.signal});
+    if (!response.ok) throw new Error('Submission unavailable');
+    acceptedSnapshot = snapshot;
+    status.textContent = '';
+    renderPlan(answers);
+  } catch (_) {
+    status.textContent = "We couldn't confirm that your plan was submitted. Your answers are still here, so you can try again.";
+  } finally {
+    clearTimeout(timeout);
+    pending = false; button.disabled = false;
+  }
+}
+function resetTool() {
+  if (pending) return;
+  for (var i = 1; i <= 7; i++) {
+    document.getElementById('q' + i).value = '';
+    document.getElementById('out' + i).textContent = '';
+  }
+  document.getElementById('userName').value = '';
+  document.getElementById('planEmail').value = '';
+  document.getElementById('marketingConsent').checked = false;
+  document.getElementById('submissionStatus').textContent = '';
+  userName = ''; submissionId = ''; submissionSnapshot = ''; acceptedSnapshot = '';
   showScreen('screen-capture');
 }
-
-document.getElementById('userName').addEventListener('keydown',function(e){if(e.key==='Enter')startQuestions();});
+document.getElementById('userName').addEventListener('input', function() { this.setCustomValidity(''); });
+document.getElementById('userName').addEventListener('keydown', function(e) { if(e.key === 'Enter') startQuestions(); });
 </script>
 <script src="/css/whatsapp-widget.js" defer></script>
 </body>

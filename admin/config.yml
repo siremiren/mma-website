@@ -163,7 +163,6 @@ collections:
           - { label: "Question 6", name: "q6_text", widget: "string" }
           - { label: "Question 7", name: "q7_text", widget: "string" }
           - { label: "Generate Button Text", name: "btn_generate", widget: "string" }
-          - { label: "Generate Small Print", name: "generate_note", widget: "string" }
           - { label: "Output Section Label", name: "output_label", widget: "string" }
           - { label: "Output Heading", name: "output_heading", widget: "string" }
           - { label: "Output Subtext", name: "output_sub", widget: "string" }
@@ -172,6 +171,15 @@ collections:
           - { label: "CTA Heading", name: "cta_heading", widget: "string" }
           - { label: "CTA Description", name: "cta_desc", widget: "text" }
           - { label: "CTA Button Text", name: "cta_btn", widget: "string" }
+
+          - { label: "Card Desc2", name: "card_desc2", widget: "text" }
+          - { label: "Q1 Help", name: "q1_help", widget: "text" }
+          - { label: "Q2 Help", name: "q2_help", widget: "text" }
+          - { label: "Q3 Help", name: "q3_help", widget: "text" }
+          - { label: "Q4 Help", name: "q4_help", widget: "text" }
+          - { label: "Q5 Help", name: "q5_help", widget: "text" }
+          - { label: "Q6 Help", name: "q6_help", widget: "text" }
+          - { label: "Q7 Help", name: "q7_help", widget: "text" }
 
       - name: "media"
         label: "Media Page — Testimonials"

@@ -1,37 +1,20 @@
-// Netlify Function: submission-created
-// Fires automatically when a Netlify Form submission is verified.
-// Sends the user an auto-reply containing their business plan + a soft workshop CTA.
-//
-// Environment variables required (set in Netlify UI):
-//   RESEND_API_KEY  — your Resend API key (starts with "re_")
-//
-// Setup checklist:
-//   1. Sign up at resend.com
-//   2. Verify mindandmethodacademy.com as a domain in Resend (adds SPF/DKIM/DMARC to Cloudflare)
-//   3. Create an API key in Resend → add as RESEND_API_KEY env var in Netlify
-//   4. Deploy. Function runs automatically on every business-plan form submission.
-
+// Netlify verified-form event. Netlify Forms is the durable plan/consent record.
+// Email wording is provisional. Provider acceptance is not inbox delivery.
+// Required: RESEND_API_KEY, BUSINESS_PLAN_FROM (verified Resend identity),
+// BUSINESS_PLAN_ACADEMY_EMAIL (monitored inbox). No marketing list is subscribed.
 const { Resend } = require('resend');
-
-const FROM_ADDRESS = 'Mind & Method Academy <hello@mindandmethodacademy.com>';
-const WORKSHOP_URL = 'https://mindandmethodacademy.com/workshop/';
-
-// The 7 questions in the same order as the form. Kept here (not relying on form data) so the
-// email is well-structured even if a user leaves blanks.
 const QUESTIONS = [
-  'What problem do you solve?',
-  'Who has this problem?',
-  'What is your solution — and how do you deliver it?',
-  'Why are you the right person to deliver this?',
-  'What will you charge — and why is that fair value?',
-  'How will you find your first 5 customers?',
-  'What does success look like in 90 days?'
+  "What problem do you solve?",
+  "Who has this problem?",
+  "What is your solution — and how do you deliver it?",
+  "Why are you the right person to deliver this?",
+  "What will you charge — and why is that fair value?",
+  "How will you find your first five customers — or your next five?",
+  "What does success look like in 90 days?"
 ];
+const CONSENT_VERSION = "business-plan-marketing-2026-11-18";
+const CONSENT_TEXT = "I'd like to receive emails from Mind and Method Academy with practical business advice, information about training and coaching, and updates on programmes such as Business Builder.";
 
-// Parses the plain-text "plan" field from the form back into structured Q&A.
-// Form sends: "Plan owner: X\n\nQ1: answer\n\nQ2: answer\n\n..."
-// Markers (Q1:, Q2:, ...) only count when they appear at the start of a line, so a user
-// typing "Q5:" inside an answer body won't confuse the parser.
 function parsePlan(planText) {
   if (!planText) return ['','','','','','',''];
   const answers = ['','','','','','',''];
@@ -53,202 +36,99 @@ function parsePlan(planText) {
   return answers;
 }
 
-// Escape HTML so user input can't break the email template or inject markup.
-function escapeHtml(str) {
-  return String(str || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 }
-
-function buildHtml(name, answers) {
-  const safeName = escapeHtml(name || 'there');
-  const blocks = QUESTIONS.map((q, i) => {
-    const answer = answers[i] || '<em style="color:#999;">Not completed.</em>';
-    const safeAnswer = answers[i] ? escapeHtml(answer).replace(/\n/g, '<br>') : answer;
-    return `
-      <div style="margin-bottom:28px;">
-        <div style="font-family:'Montserrat',Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#C5A059;margin-bottom:6px;">
-          Question ${i + 1}
-        </div>
-        <div style="font-family:Georgia,serif;font-size:16px;font-weight:600;color:#1B263B;margin-bottom:10px;line-height:1.4;">
-          ${escapeHtml(q)}
-        </div>
-        <div style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#333;">
-          ${safeAnswer}
-        </div>
-      </div>`;
-  }).join('');
-
-  return `<!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><title>Your Business Plan</title></head>
-<body style="margin:0;padding:0;background:#f5f3ef;font-family:Arial,sans-serif;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f5f3ef;padding:40px 20px;">
-    <tr><td align="center">
-      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:8px;overflow:hidden;max-width:600px;">
-
-        <tr><td style="background:#1B263B;padding:32px 40px;">
-          <div style="font-family:'Montserrat',Arial,sans-serif;font-size:18px;font-weight:800;color:#ffffff;letter-spacing:0.02em;">
-            Mind <span style="color:#C5A059;">&amp;</span> Method Academy
-          </div>
-        </td></tr>
-
-        <tr><td style="padding:40px 40px 20px 40px;">
-          <h1 style="font-family:'Montserrat',Arial,sans-serif;font-size:24px;font-weight:800;color:#1B263B;margin:0 0 16px 0;line-height:1.2;">
-            Your 1-Hour Business Plan
-          </h1>
-          <p style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#555;margin:0 0 8px 0;">
-            Hi ${safeName},
-          </p>
-          <p style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#555;margin:0 0 24px 0;">
-            Here is the plan you built. Keep it. Revisit it. Use it as the starting point — not the finish line.
-          </p>
-          <div style="height:2px;background:#C5A059;width:60px;margin:0 0 28px 0;"></div>
-        </td></tr>
-
-        <tr><td style="padding:0 40px 20px 40px;">
-          ${blocks}
-        </td></tr>
-
-        <tr><td style="padding:20px 40px 40px 40px;">
-          <div style="background:#1B263B;border-radius:8px;padding:32px;text-align:center;">
-            <div style="font-family:'Montserrat',Arial,sans-serif;font-size:18px;font-weight:800;color:#ffffff;margin-bottom:12px;">
-              You have a plan. Now build it.
-            </div>
-            <p style="font-family:Arial,sans-serif;font-size:14px;line-height:1.6;color:rgba(255,255,255,0.7);margin:0 0 20px 0;">
-              The Business Builder Workshop takes everything you just wrote and turns it into a real, operating business — with coaching, accountability, and a structured path to your first paying client.
-            </p>
-            <a href="${WORKSHOP_URL}" style="display:inline-block;background:#C5A059;color:#1B263B;font-family:'Montserrat',Arial,sans-serif;font-size:13px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:14px 28px;border-radius:4px;">
-              See the Workshop &rarr;
-            </a>
-          </div>
-        </td></tr>
-
-        <tr><td style="background:#f5f3ef;padding:24px 40px;text-align:center;border-top:1px solid #e5e0d6;">
-          <p style="font-family:Arial,sans-serif;font-size:12px;color:#999;margin:0 0 8px 0;line-height:1.6;">
-            Mind &amp; Method Academy &middot; <a href="https://mindandmethodacademy.com" style="color:#999;">mindandmethodacademy.com</a><br>
-            You received this because you completed the free business plan tool.
-          </p>
-          <p style="font-family:Arial,sans-serif;font-size:11px;color:#bbb;margin:0;line-height:1.6;">
-            Don't want emails from us? <a href="mailto:hello@mindandmethodacademy.com?subject=unsubscribe" style="color:#bbb;text-decoration:underline;">Unsubscribe</a>.
-          </p>
-        </td></tr>
-
-      </table>
-    </td></tr>
-  </table>
-</body>
-</html>`;
-}
-
 function buildPlainText(name, answers) {
-  const lines = [
-    `Hi ${name || 'there'},`,
+  return [
+    'Your 1-Hour Business Plan',
+    'Prepared by: ' + name,
     '',
-    'Here is the plan you built. Keep it. Revisit it. Use it as the starting point — not the finish line.',
-    '',
-    '─────────────────────────────',
-    'YOUR 1-HOUR BUSINESS PLAN',
-    '─────────────────────────────',
-    ''
-  ];
-  QUESTIONS.forEach((q, i) => {
-    lines.push(`${i + 1}. ${q}`);
-    lines.push('');
-    lines.push(answers[i] || '(Not completed.)');
-    lines.push('');
-  });
-  lines.push('─────────────────────────────');
-  lines.push('');
-  lines.push('You have a plan. Now build it.');
-  lines.push('');
-  lines.push('The Business Builder Workshop takes everything you just wrote and turns it into a real, operating business — with coaching, accountability, and a structured path to your first paying client.');
-  lines.push('');
-  lines.push(`See the Workshop: ${WORKSHOP_URL}`);
-  lines.push('');
-  lines.push('—');
-  lines.push('Mind & Method Academy');
-  lines.push('mindandmethodacademy.com');
-  lines.push('');
-  lines.push('To unsubscribe, reply to this email with "unsubscribe" in the subject.');
-  return lines.join('\n');
+    ...QUESTIONS.flatMap((question, i) => [(i + 1) + '. ' + question, answers[i] || 'Not answered yet.', '']),
+    'Mind & Method Academy',
+    'mindandmethodacademy.com'
+  ].join('\n');
 }
-
+function buildHtml(name, answers) {
+  return '<!doctype html><html lang="en"><meta charset="utf-8"><body style="font-family:Arial,sans-serif;color:#1B263B">' +
+    '<h1>Your 1-Hour Business Plan</h1><p>Prepared by: ' + escapeHtml(name) + '</p>' +
+    QUESTIONS.map((question, i) => '<h2 style="font-size:18px">' + (i + 1) + '. ' + escapeHtml(question) +
+      '</h2><div style="white-space:pre-wrap;overflow-wrap:anywhere">' + escapeHtml(answers[i] || 'Not answered yet.') + '</div>').join('') +
+    '<p>Mind &amp; Method Academy<br>mindandmethodacademy.com</p></body></html>';
+}
 exports.handler = async (event) => {
-  // Guard: only process POSTs with a body
-  if (!event.body) {
-    return { statusCode: 400, body: 'No payload' };
-  }
-
+  if (event.httpMethod && event.httpMethod !== 'POST') return {statusCode:405, body:'Method not allowed'};
   let submission;
-  try {
-    submission = JSON.parse(event.body).payload;
-  } catch (err) {
-    console.error('Failed to parse submission body:', err);
-    return { statusCode: 400, body: 'Invalid JSON' };
+  try { submission = JSON.parse(event.body || '').payload; } catch (_) {
+    return {statusCode:400, body:'Invalid submission'};
   }
-
-  // Only handle the business-plan form. If you add other Netlify forms later, they'll
-  // all hit this function — this check stops us emailing contact-form senders by mistake.
-  if (submission.form_name !== 'business-plan') {
-    console.log(`Ignoring submission from form: ${submission.form_name}`);
-    return { statusCode: 200, body: 'Not business-plan form, ignored' };
-  }
-
+  if (!submission || submission.form_name !== 'business-plan') return {statusCode:200, body:'Ignored'};
   const data = submission.data || {};
-  const userEmail = (data.email || '').trim();
-  const userName = (data.name || '').trim();
-  const planText = data.plan || '';
-
-  if (!userEmail || !userEmail.includes('@')) {
-    console.error('No valid email on submission');
-    return { statusCode: 400, body: 'No email' };
+  if (data['bot-field']) return {statusCode:200, body:'Ignored'};
+  // Stable Netlify identity and server timestamp, never client-provided receipt time.
+  if (!submission.id || !submission.created_at || !Number.isFinite(Date.parse(submission.created_at))) {
+    return {statusCode:400, body:'Missing verified receipt metadata'};
   }
-
-  if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY not set in Netlify environment variables');
-    return { statusCode: 500, body: 'Email service not configured' };
-  }
-
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const answers = parsePlan(planText);
-
-  // Unique ID per email — helps mailbox providers track legitimacy and lets us
-  // correlate logs across Netlify / Resend / our records.
-  const messageId = `bp-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-
-  try {
-    const { data: result, error } = await resend.emails.send({
-      from: FROM_ADDRESS,
-      to: [userEmail],
-      replyTo: 'hello@mindandmethodacademy.com',
-      subject: 'Your 1-Hour Business Plan',
-      html: buildHtml(userName, answers),
-      text: buildPlainText(userName, answers),
-      headers: {
-        // Mailto-based unsubscribe — signals legitimacy to Gmail/Yahoo without needing
-        // a separate HTTPS POST endpoint. Appropriate here because this is a single
-        // triggered email per user, not a recurring list. If you later add a newsletter
-        // or recurring sends, upgrade this to a proper RFC 8058 one-click endpoint.
-        'List-Unsubscribe': '<mailto:hello@mindandmethodacademy.com?subject=unsubscribe>',
-        // Unique reference ID for this email — improves deliverability scoring and
-        // makes the email traceable across logs.
-        'X-Entity-Ref-ID': messageId
-      }
-    });
-
-    if (error) {
-      console.error('Resend returned error:', error);
-      return { statusCode: 500, body: JSON.stringify(error) };
+  const email = String(data.email || '').trim();
+  const name = String(data.name || '').trim();
+  if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return {statusCode:400, body:'Invalid participant'};
+  let answers;
+  if (data.schema_version === '2') {
+    answers = QUESTIONS.map((_, i) => data['answer_' + (i + 1)] === undefined ? '' : data['answer_' + (i + 1)]);
+    if (!answers.every(answer => typeof answer === 'string')) return {statusCode:400, body:'Missing answers'};
+    if (!['true','false'].includes(data.marketing_opt_in) || data.consent_version !== CONSENT_VERSION || data.consent_text !== CONSENT_TEXT || data.source !== '/businessplan/') {
+      return {statusCode:400, body:'Invalid consent record'};
     }
-
-    console.log(`Auto-reply sent to ${userEmail}, Resend ID: ${result && result.id}`);
-    return { statusCode: 200, body: JSON.stringify({ sent: true, id: result && result.id }) };
-  } catch (err) {
-    console.error('Failed to send email:', err);
-    return { statusCode: 500, body: err.message };
+  } else {
+    answers = parsePlan(data.plan || '');
   }
+  const from = process.env.BUSINESS_PLAN_FROM;
+  const academy = process.env.BUSINESS_PLAN_ACADEMY_EMAIL;
+  if (!process.env.RESEND_API_KEY || !from || !academy || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(academy)) {
+    console.error('business-plan configuration missing');
+    return {statusCode:503, body:'Delivery configuration unavailable'};
+  }
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const reference = submission.id;
+  const context = [
+    'Participant email: ' + email,
+    'Netlify received at: ' + submission.created_at,
+    'Submission reference: ' + reference,
+    'Marketing opt-in: ' + (data.schema_version === '2' ? data.marketing_opt_in : 'not recorded'),
+    'Consent version: ' + (data.schema_version === '2' ? CONSENT_VERSION : 'legacy'),
+    'Consent wording: ' + (data.schema_version === '2' ? CONSENT_TEXT : 'not recorded'),
+    'Source: /businessplan/',
+    'No marketing subscription has been created.'
+  ].join('\n');
+  const planHtml = buildHtml(name, answers);
+  const planText = buildPlainText(name, answers);
+  // Retry the same Netlify event with the same payload within Resend's idempotency window.
+  // The form remains in Netlify even if either notification fails.
+  const messages = [
+    {role:'academy', to:academy, html:planHtml.replace('</body>', '<pre style="white-space:pre-wrap">' + escapeHtml(context) + '</pre></body>'), text:planText + '\n\n' + context, subject:'Business Plan Review — completed plan'},
+    {role:'participant', to:email, html:planHtml, text:planText, subject:'Your 1-Hour Business Plan'}
+  ];
+  for (const message of messages) {
+    let accepted = false;
+    for (let attempt = 0; attempt < 3 && !accepted; attempt++) {
+      try {
+        const result = await resend.emails.send({
+          from, to:[message.to], replyTo:'info@mindandmethodacademy.com',
+          subject:message.subject, html:message.html, text:message.text
+        }, {idempotencyKey:'business-plan/' + reference + '/' + message.role});
+        if (result.error || !result.data || !result.data.id) throw new Error('Provider rejected message');
+        console.info('business-plan provider accepted', {role:message.role, messageId:result.data.id});
+        accepted = true;
+      } catch (_) {
+        if (attempt < 2) {
+          await new Promise(resolve => setTimeout(resolve, 250 * (attempt + 1)));
+          continue;
+        }
+        console.error('business-plan notification failed', {role:message.role});
+        return {statusCode:502, body:JSON.stringify({accepted:false, failedRole:message.role})};
+      }
+    }
+  }
+  return {statusCode:200, body:JSON.stringify({providerAccepted:true})};
 };
