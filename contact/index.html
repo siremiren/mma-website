@@ -102,7 +102,8 @@
   <div class="page-hero-inner">
     <div class="section-label">Contact</div>
     <h1>Let's start a <em>conversation.</em></h1>
-    <p class="page-hero-desc">Whether you are an individual exploring our programmes or an organisation interested in a partnership — we would love to hear from you.</p>
+    <p class="page-hero-desc">Whether you're enquiring about a workshop, coaching or an established programme, or you'd like training tailored to your organisation, we'd be happy to hear from you.</p>
+    <p class="page-hero-desc">Tell us what you're looking for, and we'll help you explore the options.</p>
   </div>
 </section>
 
@@ -111,39 +112,40 @@
     <div class="contact-grid">
       <div class="reveal">
         <h2 class="section-title" style="font-size: 1.5rem;">Send us an enquiry</h2>
-        <p class="section-desc" style="margin-bottom: 2rem; font-size: 0.95rem;">Complete the form below and we will respond within two working days.</p>
-        <form action="https://formsubmit.co/hello@mindandmethodacademy.com" method="POST">
+        <p class="section-desc" style="margin-bottom: 2rem; font-size: 0.95rem;">Tell us a little about what you're looking for, and we'll get back to you.</p>
+        <form action="https://formsubmit.co/info@mindandmethodacademy.com" method="POST">
           <div class="form-grid">
             <div class="form-group">
               <label class="form-label" for="firstName">First Name <span class="required">*</span></label>
-              <input class="form-input" type="text" id="firstName" name="firstName" required>
+              <input class="form-input" type="text" id="firstName" name="firstName" autocomplete="given-name" required>
             </div>
             <div class="form-group">
-              <label class="form-label" for="lastName">Last Name <span class="required">*</span></label>
-              <input class="form-input" type="text" id="lastName" name="lastName" required>
+              <label class="form-label" for="lastName">Last Name</label>
+              <input class="form-input" type="text" id="lastName" name="lastName" autocomplete="family-name">
             </div>
             <div class="form-group form-group--full">
               <label class="form-label" for="email">Email Address <span class="required">*</span></label>
-              <input class="form-input" type="email" id="email" name="email" required>
+              <input class="form-input" type="email" id="email" name="email" autocomplete="email" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="organisation">Organisation</label>
-              <input class="form-input" type="text" id="organisation" name="organisation">
+              <input class="form-input" type="text" id="organisation" name="organisation" autocomplete="organization">
             </div>
             <div class="form-group">
               <label class="form-label" for="role">Your Role</label>
-              <input class="form-input" type="text" id="role" name="role">
+              <input class="form-input" type="text" id="role" name="role" autocomplete="organization-title">
             </div>
             <div class="form-group form-group--full">
-              <label class="form-label" for="enquiryType">Enquiry Type</label>
-              <select class="form-select" id="enquiryType" name="enquiryType">
+              <label class="form-label" for="enquiryType">What can we help you with? <span class="required">*</span></label>
+              <select class="form-select" id="enquiryType" name="enquiryType" required>
                 <option value="">Please select</option>
-                <option value="individual">Individual — Programme Interest</option>
-                <option value="partnership">Organisation — Partnership Enquiry</option>
-                <option value="workshop">Organisation — Workshop Booking</option>
-                <option value="speaking">Speaking Engagement</option>
-                <option value="media">Media or Press</option>
-                <option value="general">General Enquiry</option>
+                <option value="existing-workshop-or-programme">An existing workshop or programme</option>
+                <option value="one-to-one-coaching">One-to-one coaching</option>
+                <option value="business-builder-accelerator">Business Builder Accelerator</option>
+                <option value="organisation-training">Training for an organisation</option>
+                <option value="speaking">Speaking engagement</option>
+                <option value="media">Media or press</option>
+                <option value="other">Something else</option>
               </select>
             </div>
             <div class="form-group form-group--full">
@@ -152,7 +154,7 @@
             </div>
             <div class="form-group form-group--full">
               <button type="submit" class="btn-primary">Submit Enquiry <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
-  <p class="form-consent">Your details are used only to respond to your enquiry. We do not share or sell your information. View our <a href="/privacy/">Privacy Policy</a>.</p>
+  <p class="form-consent">We'll use the details you provide to respond to your enquiry. Our contact form is processed by a third-party service. For more information about how we handle your personal information, please read our <a href="/privacy/">Privacy Policy</a>.</p>
 </div>
           </div>
         </form>
@@ -161,11 +163,11 @@
         <div class="contact-details">
           <div class="contact-detail">
             <h4>Email</h4>
-            <a href="mailto:hello@mindandmethodacademy.com">hello@mindandmethodacademy.com</a>
+            <a href="mailto:info@mindandmethodacademy.com">info@mindandmethodacademy.com</a>
           </div>
           <div class="contact-detail">
             <h4>Registered Address</h4>
-            <p>71-75 Shelton Street<br>Covent Garden, London<br>WC2H 9JQ</p>
+            <p>71–75 Shelton Street<br>Covent Garden, London<br>WC2H 9JQ</p>
           </div>
           <div class="contact-detail">
             <h4>Company</h4>
@@ -174,7 +176,8 @@
         </div>
         <div class="contact-note">
           <h4>For Organisations</h4>
-          <p>If you are enquiring on behalf of a university, council, government body, charity, or corporate partner, please include details of your objectives, the audience you are looking to support, and your preferred timeline. This helps us prepare a relevant proposal for your initial conversation.</p>
+          <p>If you're enquiring about training for your staff, students or community, tell us a little about who the training is for, what you'd like them to learn and any timings you have in mind.</p>
+          <p>Whether you're interested in one of our existing programmes or training tailored to your organisation, we'd be happy to discuss your needs.</p>
         </div>
       </div>
     </div>
@@ -183,7 +186,7 @@
 
 </main>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><a href="/" class="nav-logo" style="display:inline-flex"><div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--legacy-gold)"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="nav-logo-text">Mind <span>&amp;</span> Method</div></a><p class="footer-brand-text">You build the business. We provide structure and accountability.</p></div><div><h3 class="footer-heading">Navigate</h3>
+<footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><a href="/" class="nav-logo" style="display:inline-flex"><div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--legacy-gold)"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="nav-logo-text">Mind <span>&amp;</span> Method</div></a><p class="footer-brand-text">Skills you can learn. Knowledge you can use.</p></div><div><h3 class="footer-heading">Navigate</h3>
 <ul class="footer-links">
   <li><a href="/">Home</a></li>
   <li><a href="/about/">About</a></li>
