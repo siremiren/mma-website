@@ -21,7 +21,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-  <url>
     <loc>https://mindandmethodacademy.com/businessplan/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -50,5 +49,11 @@
     <loc>https://mindandmethodacademy.com/cookies/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mindandmethodacademy.com/programmes/entrepreneurship/</loc>
+  </url>
+  <url>
+    <loc>https://mindandmethodacademy.com/programmes/professional-development/</loc>
   </url>
 </urlset>
