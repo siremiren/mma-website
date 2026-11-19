@@ -57,6 +57,10 @@ function buildHtml(name, answers) {
       '</h2><div style="white-space:pre-wrap;overflow-wrap:anywhere">' + escapeHtml(answers[i] || 'Not answered yet.') + '</div>').join('') +
     '<p>Mind &amp; Method Academy<br>mindandmethodacademy.com</p></body></html>';
 }
+// Netlify and Resend operational IDs only; never log arbitrary event/provider text.
+function safeLogId(value) {
+  return typeof value === 'string' && /^(?:[a-f0-9]{24}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$/i.test(value) ? value : 'unavailable';
+}
 exports.handler = async (event) => {
   if (event.httpMethod && event.httpMethod !== 'POST') return {statusCode:405, body:'Method not allowed'};
   let submission;
@@ -86,7 +90,7 @@ exports.handler = async (event) => {
   const from = process.env.BUSINESS_PLAN_FROM;
   const academy = process.env.BUSINESS_PLAN_ACADEMY_EMAIL;
   if (!process.env.RESEND_API_KEY || !from || !academy || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(academy)) {
-    console.error('business-plan configuration missing');
+    console.error('business-plan configuration missing', {submissionReference:safeLogId(submission.id)});
     return {statusCode:503, body:'Delivery configuration unavailable'};
   }
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -103,32 +107,41 @@ exports.handler = async (event) => {
   ].join('\n');
   const planHtml = buildHtml(name, answers);
   const planText = buildPlainText(name, answers);
-  // Retry the same Netlify event with the same payload within Resend's idempotency window.
-  // The form remains in Netlify even if either notification fails.
+  // Each role gets its own attempts and stable key. Provider acceptance is not delivery.
+  // The form remains in Netlify on failure; do not assume event responses trigger replay.
   const messages = [
     {role:'academy', to:academy, html:planHtml.replace('</body>', '<pre style="white-space:pre-wrap">' + escapeHtml(context) + '</pre></body>'), text:planText + '\n\n' + context, subject:'Business Plan Review — completed plan'},
     {role:'participant', to:email, html:planHtml, text:planText, subject:'Your 1-Hour Business Plan'}
   ];
+  const outcomes = {};
   for (const message of messages) {
     let accepted = false;
+    let attempts = 0;
     for (let attempt = 0; attempt < 3 && !accepted; attempt++) {
+      attempts = attempt + 1;
+      let errorClass = 'sdk_exception';
       try {
         const result = await resend.emails.send({
           from, to:[message.to], replyTo:'info@mindandmethodacademy.com',
           subject:message.subject, html:message.html, text:message.text
         }, {idempotencyKey:'business-plan/' + reference + '/' + message.role});
-        if (result.error || !result.data || !result.data.id) throw new Error('Provider rejected message');
-        console.info('business-plan provider accepted', {role:message.role, messageId:result.data.id});
+        if (!result || result.error || !result.data || !result.data.id) {
+          errorClass = result && result.error ? 'provider_rejected' : 'invalid_provider_response';
+          throw new Error('Provider did not confirm acceptance');
+        }
+        console.info('business-plan delivery attempt', {submissionReference:safeLogId(reference), role:message.role, attempt:attempts, outcome:'accepted', messageId:safeLogId(result.data.id)});
         accepted = true;
       } catch (_) {
+        console.error('business-plan delivery attempt', {submissionReference:safeLogId(reference), role:message.role, attempt:attempts, outcome:'failed', errorClass});
         if (attempt < 2) {
           await new Promise(resolve => setTimeout(resolve, 250 * (attempt + 1)));
           continue;
         }
-        console.error('business-plan notification failed', {role:message.role});
-        return {statusCode:502, body:JSON.stringify({accepted:false, failedRole:message.role})};
       }
     }
+    outcomes[message.role] = {accepted, attempts};
   }
-  return {statusCode:200, body:JSON.stringify({providerAccepted:true})};
+  const providerAccepted = outcomes.academy.accepted && outcomes.participant.accepted;
+  const partialFailure = !providerAccepted && (outcomes.academy.accepted || outcomes.participant.accepted);
+  return {statusCode:providerAccepted ? 200 : 502, body:JSON.stringify({providerAccepted, partialFailure, outcomes})};
 };
