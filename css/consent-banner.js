@@ -151,6 +151,7 @@
       '#mma-cookie-settings{font:inherit;color:rgba(255,255,255,.85);background:none;border:0;padding:10px 0;min-height:44px;cursor:pointer;text-decoration:underline}' +
       '#mma-consent{background:#1B263B;color:#FFF;margin-top:80px;padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:minmax(0,1fr);align-items:center;gap:16px;font-family:"Lato",system-ui,sans-serif;scroll-margin-top:80px;max-height:calc(var(--contact-visible-height,100dvh) - var(--contact-dock-height,0px) - 80px);box-sizing:border-box}' +
       '#mma-consent[hidden]{display:none}' +
+      'body:has(#mma-consent:not([hidden])) .nav--transparent:not(.scrolled){background:#1B263B}' +
       '#mma-consent p{margin:0;font-size:14px;line-height:1.5;min-width:0;min-height:0;max-height:100%;overflow-y:auto}' +
       '#mma-consent a{color:#C5A059;text-decoration:underline}' +
       '#mma-consent .mma-consent-actions{display:flex;gap:10px;flex-wrap:wrap}' +
