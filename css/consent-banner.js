@@ -91,6 +91,7 @@
   }
 
   function startAnalytics() {
+    if (window.location.hostname !== 'mindandmethodacademy.com') return;
     if (loaded) {
       // An existing tag may have been disabled by withdrawal in another tab.
       window['ga-disable-' + GA_ID] = false;
