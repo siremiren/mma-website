@@ -137,7 +137,7 @@
   function buildPreferences() {
     var footer = document.querySelector('.footer-inner');
     var links = document.querySelector('.footer-bottom-links');
-    // Business Plan and 404 have no Academy footer; add a cookie-only footer.
+    // Use a cookie-only footer on pages without the standard footer.
     if (!footer || !links) {
       footer = document.createElement('footer');
       footer.className = 'mma-cookie-footer';
@@ -145,36 +145,26 @@
       document.body.appendChild(footer);
       links = footer;
     }
-    var style = document.createElement('style');
-    style.textContent =
-      '.mma-cookie-links{flex-wrap:wrap;align-items:center}' +
-      '.mma-cookie-footer{padding:18px 96px 24px 32px;background:#1B263B;color:#FFF;font-family:"Lato",system-ui,sans-serif}' +
-      '#mma-cookie-settings{font:inherit;color:rgba(255,255,255,.85);background:none;border:0;padding:10px 0;min-height:44px;cursor:pointer;text-decoration:underline}' +
-      '#mma-consent{background:#1B263B;color:#FFF;margin-top:80px;padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:minmax(0,1fr);align-items:center;gap:16px;font-family:"Lato",system-ui,sans-serif;scroll-margin-top:80px;max-height:calc(var(--contact-visible-height,100dvh) - var(--contact-dock-height,0px) - 80px);box-sizing:border-box}' +
-      '#mma-consent[hidden]{display:none}' +
-      'body:has(#mma-consent:not([hidden])) .nav--transparent:not(.scrolled){background:#1B263B}' +
-      '#mma-consent p{margin:0;font-size:14px;line-height:1.5;min-width:0;min-height:0;max-height:100%;overflow-y:auto}' +
-      '#mma-consent a{color:#C5A059;text-decoration:underline}' +
-      '#mma-consent .mma-consent-actions{display:flex;gap:10px;flex-wrap:wrap}' +
-      '#mma-consent button{font-family:"Montserrat",sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding:10px 18px;min-height:44px;border-radius:4px;cursor:pointer;border:1px solid rgba(255,255,255,.4);background:transparent;color:#FFF}' +
-      '#mma-consent #mma-consent-accept{background:#C5A059;color:#1B263B;border-color:#C5A059}' +
-      '#mma-consent #mma-consent-accept:hover{background:#D4B577}' +
-      '#mma-consent button:hover{border-color:#FFF}' +
-      '#mma-cookie-settings:focus-visible,#mma-consent button:focus-visible,#mma-consent a:focus-visible,#mma-consent p:focus-visible{outline:2px solid #FFF;outline-offset:4px}' +
-      '@media(max-width:768px){#mma-consent{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}}' +
-      '@media print{#mma-cookie-settings,#mma-consent,.mma-cookie-footer{display:none!important}}';
-    document.head.appendChild(style);
-
     settings = document.createElement('button');
     settings.type = 'button';
     settings.id = 'mma-cookie-settings';
     settings.textContent = 'Cookie settings';
     settings.setAttribute('aria-controls', 'mma-consent');
-    settings.setAttribute('aria-expanded', String(!choice));
+    settings.setAttribute('aria-expanded', String(!panel.hidden));
     links.classList.add('mma-cookie-links');
     // Keep settings clear of the existing bottom-right WhatsApp launcher.
     links.insertBefore(settings, links.firstChild);
 
+    settings.addEventListener('click', function () {
+      returnFocus = settings;
+      panel.hidden = false;
+      settings.setAttribute('aria-expanded', 'true');
+      document.getElementById('mma-consent-reject').focus();
+      panel.scrollIntoView({block: 'start'});
+    });
+  }
+
+  function mountPanel() {
     panel = document.createElement('section');
     panel.id = 'mma-consent';
     panel.setAttribute('aria-label', 'Analytics cookie preferences');
@@ -184,26 +174,20 @@
       '<div class="mma-consent-actions"><button id="mma-consent-reject" type="button">Reject</button>' +
       '<button id="mma-consent-accept" type="button">Accept</button>' +
       '<button id="mma-consent-close" type="button">Close</button></div>';
-    // On-arrival strip in normal flow: navigation stays above; forms stay below.
-    var header = document.querySelector('header');
-    if (header) header.insertAdjacentElement('afterend', panel);
-    else document.body.insertBefore(panel, document.body.firstChild);
+    // The parser executes this at the slot before parsing the main content.
+    var slot = document.currentScript;
+    slot.before(panel);
 
     function close() {
       panel.hidden = true;
-      settings.setAttribute('aria-expanded', 'false');
+      if (settings) settings.setAttribute('aria-expanded', 'false');
       var target = returnFocus || document.querySelector('main h1, main') || settings;
-      if (!returnFocus) target.setAttribute('tabindex', '-1');
-      target.focus({preventScroll: !returnFocus});
+      if (target) {
+        if (!returnFocus) target.setAttribute('tabindex', '-1');
+        target.focus({preventScroll: !returnFocus});
+      }
       returnFocus = null;
     }
-    settings.addEventListener('click', function () {
-      returnFocus = settings;
-      panel.hidden = false;
-      settings.setAttribute('aria-expanded', 'true');
-      document.getElementById('mma-consent-reject').focus();
-      panel.scrollIntoView({block: 'start'});
-    });
     document.getElementById('mma-consent-accept').addEventListener('click', function () {
       choice = 'granted'; save(choice); startAnalytics(); close();
     });
@@ -231,6 +215,7 @@
   window.addEventListener('pageshow', function (event) {
     if (event.persisted && loaded && readChoice() !== 'granted') stopAnalytics(false);
   });
+  mountPanel();
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildPreferences);
   else buildPreferences();
 })();
