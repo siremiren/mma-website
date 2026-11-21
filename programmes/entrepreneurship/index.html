@@ -30,6 +30,32 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.v2.css">
+<style>
+  /* Business Builder fee is intentionally understated within the existing programme section. */
+  .business-builder-fee {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1.25rem;
+    width: fit-content;
+    max-width: 100%;
+    border-top: 2px solid var(--legacy-gold);
+    padding-top: 1rem;
+  }
+  .business-builder-fee-label {
+    color: var(--text-secondary);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .business-builder-fee-amount {
+    color: var(--oxford-blue);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+</style>
 <link rel="stylesheet" href="/css/consent-banner.css">
 </head>
 <body>
@@ -112,7 +138,11 @@
       <h3 class="mt-4">What you&#x27;ll work towards</h3>
       <p class="section-desc mb-2">By the end of six weeks, our aim is to help you develop a clearer business plan, shape your offer and make meaningful progress towards starting your business.</p>
       <p class="section-desc">The exact steps will depend on your circumstances. We&#x27;ll help you understand your options and make informed decisions, rather than rushing you through a checklist just to say everything is complete.</p>
-      <a href="/contact/" class="btn-primary btn-primary--dark mt-4">Enquire About Business Builder</a>
+      <div class="business-builder-fee mt-4">
+        <span class="business-builder-fee-label">Six-week programme fee</span>
+        <strong class="business-builder-fee-amount">£999</strong>
+      </div>
+      <a href="/contact/" class="btn-primary btn-primary--dark mt-3">Enquire About Business Builder</a>
   </div>
 </section>
 
