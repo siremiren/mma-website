@@ -3,6 +3,8 @@ backend:
   repo: siremiren/mma-website
   branch: main
 
+publish_mode: editorial_workflow
+
 media_folder: "images"
 
 collections:
