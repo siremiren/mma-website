@@ -782,6 +782,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     background: #1B263B !important;
   }
 
+  html.mobile-nav-open { overflow: hidden; }
+  .nav.menu-open { z-index: 10000; }
+
   .nav-links.open {
     display: flex !important;
     flex-direction: column;
@@ -794,6 +797,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     isolation: isolate;
     opacity: 1;
     overflow-y: auto;
+    overscroll-behavior-y: contain;
   }
 
   .nav-links.open a { font-size: 1rem; }

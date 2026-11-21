@@ -35,6 +35,6 @@
   document.addEventListener('click', (event) => {
     if (!item.contains(event.target)) setOpen(false);
   });
-  document.getElementById('hamburger')?.addEventListener('click', () => setOpen(false));
+  item.closest('#navLinks').addEventListener('mobilemenuclose', () => setOpen(false));
   mobile.addEventListener('change', () => setOpen(false));
 })();
