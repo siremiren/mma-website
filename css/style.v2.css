@@ -717,17 +717,14 @@ img { max-width: 100%; display: block; }
 /* ═══════════════════════════════════════
    ANIMATIONS
 ═══════════════════════════════════════ */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes slideInUp {
+  from { translate: 0 8px; }
+  to { translate: none; }
 }
 
-.reveal {
-  opacity: 0; transform: translateY(30px);
-  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-entering { animation: slideInUp 0.24s ease-out; }
 }
-
-.reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ═══════════════════════════════════════
    UTILITY
@@ -810,6 +807,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;

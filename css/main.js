@@ -4,7 +4,24 @@ if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',wi
 // Mobile menu
 const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
 if(hamburger){hamburger.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('open');if(nav){nav.classList.toggle('menu-open',isOpen)}})}
-// Reveal on scroll
-const reveals=document.querySelectorAll('.reveal');
-const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>{entry.target.classList.add('visible')},i*80);observer.unobserve(entry.target)}})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
-reveals.forEach(el=>observer.observe(el));
+// Content is always visible. Animate only elements approaching from below.
+if ('IntersectionObserver' in window) {
+  const motion = window.matchMedia('(prefers-reduced-motion: no-preference)');
+  if (motion.matches) {
+    const reveals = document.querySelectorAll('.reveal');
+    if (reveals.length) {
+      const observer = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+
+          observer.unobserve(entry.target);
+          if (motion.matches && entry.boundingClientRect.top >= window.innerHeight) {
+            entry.target.classList.add('reveal-entering');
+          }
+        }
+      }, { rootMargin: '0px 0px 32px 0px' });
+
+      reveals.forEach(element => observer.observe(element));
+    }
+  }
+}
