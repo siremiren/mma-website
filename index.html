@@ -108,16 +108,16 @@
   .impact-content { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 4rem; align-items: start; }
   .impact-text p { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,0.6); margin-top: 1.5rem; }
   .impact-orgs-title { font-size: 1.15rem; text-align: center; margin-bottom: 2rem; }
-  .impact-orgs-grid { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1rem; }
-  .impact-org { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.35rem; }
-  .impact-org-logo { width: clamp(4.5rem, 9vw, 6rem); aspect-ratio: 1; border-radius: 50%; background: white; margin-bottom: 0.25rem; display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center; }
-  .impact-org-logo img { width: var(--logo-size, 100%); height: var(--logo-size, 100%); object-fit: contain; }
-  .impact-org-logo--uel { --logo-size: 90%; }
-  .impact-org-logo--bcu { --logo-size: 84%; }
-  .impact-org-logo--tide { --logo-size: 70%; }
-  /* Compensate for the transparent margins in the supplied SVG. */
-  .impact-org-logo--barclays img { transform: scale(1.18); }
-  .impact-org-logo--samsung { --logo-size: 96%; }
+  .impact-orgs-grid { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.25rem; }
+  .impact-org { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.35rem; min-width: 0; }
+  .impact-org-logo { width: 100%; height: 4.625rem; background: transparent; border-radius: 0; position: relative; display: block; flex: none; margin-bottom: 0.35rem; }
+  .impact-org-logo img { position: absolute; inset: 0; width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: contain; filter: brightness(0) invert(1); }
+  .impact-org-logo--uel img { transform: scale(1.00); }
+  .impact-org-logo--lewisham img { filter: url(#mma-white-on-blue); transform: scale(1.35); }
+  .impact-org-logo--bcu img { transform: scale(1.20); }
+  .impact-org-logo--tide img { filter: url(#mma-white-on-blue); transform: scale(1.35); }
+  .impact-org-logo--barclays img { transform: scale(1.35); }
+  .impact-org-logo--samsung img { transform: scale(0.80); }
   .impact-org-name { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; line-height: 1.3; }
   .impact-org-role { font-size: 0.875rem; line-height: 1.4; color: rgba(255,255,255,0.72); }
   @media (max-width: 1024px) {
@@ -320,6 +320,13 @@
         <p>For us, successful training is about more than attending a workshop or completing a course. It's about what people take away, what they're able to do afterwards and how they use those skills in their work, businesses and everyday lives.</p>
       </div>
       <div class="impact-orgs reveal">
+        <!-- Extract the light crown/lettering from supplied blue-backed Lewisham and Tide PNGs. -->
+        <svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;overflow:hidden">
+          <filter id="mma-white-on-blue" color-interpolation-filters="sRGB">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2 0 0 -0.9 0" result="whiteMark"/>
+            <feComposite in="whiteMark" in2="SourceAlpha" operator="in"/>
+          </filter>
+        </svg>
         <h3 class="impact-orgs-title">Our Work, Partnerships &amp; Speaking Engagements</h3>
         <ul class="impact-orgs-grid" role="list">
           <li class="impact-org">
