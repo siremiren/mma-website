@@ -64,12 +64,19 @@ function safeLogId(value) {
   return typeof value === 'string' && /^(?:[a-f0-9]{24}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$/i.test(value) ? value : 'unavailable';
 }
 exports.handler = async (event) => {
-  if (!BUSINESS_PLAN_ENABLED) return {statusCode:410, body:'Business Plan submissions are temporarily unavailable'};
   if (event.httpMethod && event.httpMethod !== 'POST') return {statusCode:405, body:'Method not allowed'};
   let submission;
   try { submission = JSON.parse(event.body || '').payload; } catch (_) {
     return {statusCode:400, body:'Invalid submission'};
   }
+  if (submission?.form_name === 'contact') {
+    if (submission.data?.analytics_receipt) {
+      const { recordVerifiedReceipt } = await import('../lib/contact-receipts.mjs');
+      await recordVerifiedReceipt(submission, event);
+    }
+    return {statusCode:204, body:''};
+  }
+  if (!BUSINESS_PLAN_ENABLED) return {statusCode:410, body:'Business Plan submissions are temporarily unavailable'};
   if (!submission || submission.form_name !== 'business-plan') return {statusCode:200, body:'Ignored'};
   const data = submission.data || {};
   if (data['bot-field']) return {statusCode:200, body:'Ignored'};
