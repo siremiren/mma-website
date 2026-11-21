@@ -16,6 +16,17 @@
   to = "/404.html"
   status = 404
 
+# Allow the CMS OAuth popup to communicate with the admin document.
+[[headers]]
+  for = "/admin/"
+  [headers.values]
+    Cross-Origin-Opener-Policy = "same-origin-allow-popups"
+
+[[headers]]
+  for = "/admin/index.html"
+  [headers.values]
+    Cross-Origin-Opener-Policy = "same-origin-allow-popups"
+
 # Security headers — apply to all routes
 [[headers]]
   for = "/*"
