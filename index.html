@@ -128,31 +128,19 @@
   .audience-desc { font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary); }
   .audience-desc:has(+ .audience-desc) { margin-bottom: 1rem; }
   .section-desc--center + .section-desc--center { margin-top: 0.75rem; }
-  .impact-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
-  .impact-text p { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; }
-  .impact-text strong { color: white; font-weight: 700; }
-  /* Impact: organisation area */
-  .impact-orgs { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.08); }
-  .impact-orgs-title { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 2rem; }
-  .impact-orgs-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem 1.5rem; }
-  .impact-org-group--training { grid-column: 1 / -1; }
-  .impact-org-group--speaking { grid-column: span 2; }
-  .impact-org-label { margin-bottom: 0.75rem; }
-  .impact-org-list { list-style: none; display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
-  .impact-org-list--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .impact-org-list--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .impact-org { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.35rem; min-width: 0; }
-  .impact-org-logo { width: 100%; max-width: 8.5rem; height: 4.25rem; padding: 0.6rem; border: 1px dashed rgba(197,160,89,0.45); border-radius: 8px; display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center; margin-bottom: 0.25rem; }
-  .impact-org-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
-  .impact-org-placeholder { font-size: 0.7rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.65); }
+  .impact-content { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 4rem; align-items: start; }
+  .impact-text p { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,0.6); margin-top: 1.5rem; }
+  .impact-orgs-title { font-size: 1.15rem; text-align: center; margin-bottom: 2rem; }
+  .impact-orgs-grid { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1rem; }
+  .impact-org { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.35rem; }
+  .impact-org-logo { width: clamp(4.5rem, 9vw, 6rem); aspect-ratio: 1; border-radius: 50%; background: white; margin-bottom: 0.25rem; }
   .impact-org-name { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; line-height: 1.3; }
-  .impact-org-role { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+  .impact-org-role { font-size: 0.875rem; line-height: 1.4; color: rgba(255,255,255,0.72); }
   @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
     .hero-visual { max-width: 500px; }
     .problem-grid { grid-template-columns: 1fr; }
-    .impact-content { grid-template-columns: 1fr; }
-    .impact-content .grid-2 { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .impact-content { grid-template-columns: 1fr; gap: 2.5rem; }
   }
   @media (max-width: 768px) {
     .hero { min-height: auto; }
@@ -162,21 +150,6 @@
     .hero-stats .stat-card:nth-child(3) { margin-top: 0; }
     .stat-card { padding: 1.25rem; }
     .stat-number { font-size: 1.8rem; }
-    .impact-content .grid-2 { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .impact-content .stat-card { padding: 1rem; }
-    .impact-content .stat-number { font-size: 1.6rem; }
-    .impact-content .stat-label { font-size: 0.7rem; }
-  }
-  @media (max-width: 640px) {
-    .impact-orgs { margin-top: 3rem; padding-top: 2.5rem; }
-    .impact-orgs-grid { grid-template-columns: 1fr; }
-    .impact-org-group--speaking { grid-column: auto; }
-    .impact-org-list { column-gap: 0.75rem; }
-    .impact-org-list--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .impact-org-list--3 .impact-org:last-child { grid-column: 1 / -1; }
-  }
-  @media (max-width: 380px) {
-    .impact-content .grid-2 { grid-template-columns: 1fr; }
   }
   /* Testimonials carousel */
   .tc-wrap { position: relative; max-width: 520px; }
@@ -353,56 +326,48 @@
 
 <section class="section section--dark">
   <div class="section-inner">
-    <div class="reveal"><div class="section-label">Our Impact</div><h2 class="section-title">Helping people achieve more with what they know.</h2></div>
     <div class="impact-content">
       <div class="impact-text reveal">
+        <div class="section-label">Our Impact</div>
+        <h2 class="section-title">Helping people achieve more with what they know.</h2>
         <p>At Mind and Method Academy, we believe good training should make a real difference. Whether someone is learning a completely new skill or improving something they already do, our goal is to help them use what they've learnt to achieve more.</p>
         <p>We have over 15 years' experience coaching and teaching people in universities, schools, community centres and prisons across three continents. That experience has shaped how we work. We understand that people come from different backgrounds, have different needs and learn in different ways.</p>
         <p>For us, successful training is about more than attending a workshop or completing a course. It's about what people take away, what they're able to do afterwards and how they use those skills in their work, businesses and everyday lives.</p>
       </div>
-      <div class="grid-2 reveal">
-        <div class="stat-card stat-card--small"><div class="stat-number">15+</div><div class="stat-label">Years Coaching &amp; Teaching</div></div>
-        <div class="stat-card stat-card--small"><div class="stat-number">3</div><div class="stat-label">Continents</div></div>
-      </div>
-    </div>
-
-    <div class="impact-orgs reveal" role="group" aria-labelledby="impact-orgs-title">
-      <h3 class="impact-orgs-title" id="impact-orgs-title">Our Work, Partnerships &amp; Speaking Engagements</h3>
-      <div class="impact-orgs-grid">
-        <div class="impact-org-group impact-org-group--training">
-          <h4 class="eyebrow impact-org-label" id="impact-org-training">Training and collaborations</h4>
-          <ul class="impact-org-list impact-org-list--3" role="list" aria-labelledby="impact-org-training">
-            <li class="impact-org">
-              <span class="impact-org-name">University of East London</span>
-            </li>
-            <li class="impact-org">
-              <span class="impact-org-name">Lewisham Council</span>
-            </li>
-            <li class="impact-org">
-              <span class="impact-org-name">Birmingham City University</span>
-            </li>
-          </ul>
-        </div>
-        <div class="impact-org-group impact-org-group--partnership">
-          <h4 class="eyebrow impact-org-label" id="impact-org-partnership">Partnership</h4>
-          <ul class="impact-org-list" role="list" aria-labelledby="impact-org-partnership">
-            <li class="impact-org">
-              <span class="impact-org-name">Tide</span>
-            </li>
-          </ul>
-        </div>
-        <div class="impact-org-group impact-org-group--speaking">
-          <h4 class="eyebrow impact-org-label" id="impact-org-speaking">Speaking engagements</h4>
-          <ul class="impact-org-list impact-org-list--2" role="list" aria-labelledby="impact-org-speaking">
-            <li class="impact-org">
-              <span class="impact-org-name">Barclays</span>
-            </li>
-            <li class="impact-org">
-              <span class="impact-org-name">Samsung KX</span>
-              <span class="impact-org-role">Speaking venue</span>
-            </li>
-          </ul>
-        </div>
+      <div class="impact-orgs reveal">
+        <h3 class="impact-orgs-title">Our Work, Partnerships &amp; Speaking Engagements</h3>
+        <ul class="impact-orgs-grid" role="list">
+          <li class="impact-org">
+            <span class="impact-org-logo" aria-hidden="true"></span>
+            <span class="impact-org-name">University of East London</span>
+            <span class="impact-org-role">Training and collaborations</span>
+          </li>
+          <li class="impact-org">
+            <span class="impact-org-logo" aria-hidden="true"></span>
+            <span class="impact-org-name">Lewisham Council</span>
+            <span class="impact-org-role">Training and collaborations</span>
+          </li>
+          <li class="impact-org">
+            <span class="impact-org-logo" aria-hidden="true"></span>
+            <span class="impact-org-name">Birmingham City University</span>
+            <span class="impact-org-role">Training and collaborations</span>
+          </li>
+          <li class="impact-org">
+            <span class="impact-org-logo" aria-hidden="true"></span>
+            <span class="impact-org-name">Tide</span>
+            <span class="impact-org-role">Partnership</span>
+          </li>
+          <li class="impact-org">
+            <span class="impact-org-logo" aria-hidden="true"></span>
+            <span class="impact-org-name">Barclays</span>
+            <span class="impact-org-role">Speaking engagement</span>
+          </li>
+          <li class="impact-org">
+            <span class="impact-org-logo" aria-hidden="true"></span>
+            <span class="impact-org-name">Samsung KX</span>
+            <span class="impact-org-role">Speaking venue</span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
