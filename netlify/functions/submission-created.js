@@ -3,6 +3,8 @@
 // Required: RESEND_API_KEY, BUSINESS_PLAN_FROM (verified Resend identity),
 // BUSINESS_PLAN_ACADEMY_EMAIL (monitored inbox). No marketing list is subscribed.
 const { Resend } = require('resend');
+// The public Business Plan tool is paused until delivery is verified.
+const BUSINESS_PLAN_ENABLED = false;
 const QUESTIONS = [
   "What problem do you solve?",
   "Who has this problem?",
@@ -62,6 +64,7 @@ function safeLogId(value) {
   return typeof value === 'string' && /^(?:[a-f0-9]{24}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$/i.test(value) ? value : 'unavailable';
 }
 exports.handler = async (event) => {
+  if (!BUSINESS_PLAN_ENABLED) return {statusCode:410, body:'Business Plan submissions are temporarily unavailable'};
   if (event.httpMethod && event.httpMethod !== 'POST') return {statusCode:405, body:'Method not allowed'};
   let submission;
   try { submission = JSON.parse(event.body || '').payload; } catch (_) {
