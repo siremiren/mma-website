@@ -4,6 +4,12 @@
   publish = "."
   functions = "netlify/functions"
 
+# Retired Workshop page
+[[redirects]]
+  from = "/workshop/"
+  to = "/programmes/entrepreneurship/"
+  status = 301
+
 # Custom 404
 [[redirects]]
   from = "/*"
