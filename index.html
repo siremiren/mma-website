@@ -104,15 +104,21 @@
   .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(197, 160, 89, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(197, 160, 89, 0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
   .hero-inner { max-width: 1280px; margin: 0 auto; padding: 8rem 2rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 2; }
   .hero-content { max-width: 600px; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 100px; margin-bottom: 2rem; animation: fadeInUp 0.8s ease forwards; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 100px; margin-bottom: 2rem; }
   .hero-badge-dot { width: 6px; height: 6px; background: var(--legacy-gold); border-radius: 50%; }
   .hero-badge-text { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--legacy-gold); }
-  .hero h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; color: white; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.1s forwards; opacity: 0; }
+  .hero h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; color: white; margin-bottom: 1.5rem; }
   .hero h1 em { font-style: italic; color: var(--legacy-gold); }
-  .hero-sub { font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; max-width: 520px; animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+  .hero-sub { font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; max-width: 520px; }
   .hero-sub:has(+ .hero-sub) { margin-bottom: 1rem; }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.3s forwards; opacity: 0; }
-  .hero-visual { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-badge { animation: slideInUp 0.8s ease; }
+    .hero h1 { animation: slideInUp 0.8s ease 0.1s backwards; }
+    .hero-sub { animation: slideInUp 0.8s ease 0.2s backwards; }
+    .hero-actions { animation: slideInUp 0.8s ease 0.3s backwards; }
+    .hero-visual { animation: slideInUp 0.8s ease 0.4s backwards; }
+  }
   .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .hero-stats .stat-card:nth-child(2) { margin-top: 2rem; }
   .hero-stats .stat-card:nth-child(3) { margin-top: -1rem; }
@@ -207,7 +213,7 @@
   <li><a href="/media/">Media</a></li>
   <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
 </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" id="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 </header>
@@ -424,11 +430,7 @@
   </div>
 </footer>
 
-<script>
-const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
-const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');hamburger.addEventListener('click',()=>{navLinks.classList.toggle('open')});
-const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>{entry.target.classList.add('visible')},i*80);observer.unobserve(entry.target)}})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});reveals.forEach(el=>observer.observe(el));
-</script>
+<script src="/css/main.js"></script>
 <script src="/css/cms-loader.js"></script>
 <script>
 (function(){
