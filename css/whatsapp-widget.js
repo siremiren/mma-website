@@ -26,7 +26,7 @@
     + '#mma-wa-launcher:hover{padding:14px 22px 14px 18px}'
     + '#mma-wa-launcher:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(27,38,59,.3)}'
     + '#mma-wa-launcher:focus-visible{outline:3px solid #1B263B;outline-offset:2px;box-shadow:0 0 0 2px #FFF}'
-    + '#mma-wa-panel{position:absolute;bottom:72px;right:0;width:340px;max-width:calc(100vw - 48px);max-height:calc(100vh - var(--mma-wa-offset) - 88px);max-height:calc(100dvh - var(--mma-wa-offset) - 88px);display:flex;flex-direction:column;background:#FFF;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(27,38,59,.25);animation:mma-wa-pop .18s ease-out}'
+    + '#mma-wa-panel{position:absolute;bottom:72px;right:0;width:340px;max-width:calc(100vw - 48px);max-height:calc(100vh - var(--mma-wa-offset) - 88px);max-height:calc(100dvh - var(--mma-wa-offset) - 88px);display:flex;flex-direction:column;background:#FFF;border-radius:16px;overflow:auto;box-shadow:0 20px 50px rgba(27,38,59,.25);animation:mma-wa-pop .18s ease-out}'
     + '#mma-wa-panel[hidden]{display:none}'
     + '@keyframes mma-wa-pop{from{transform:translateY(4px)}to{transform:none}}'
     + '#mma-wa-header{flex:none;background:#C5A059;color:#1B263B;padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-start}'
@@ -35,12 +35,13 @@
     + '.mma-wa-dot{width:9px;height:9px;border-radius:50%;background:#25D366;display:inline-block}'
     + '#mma-wa-close{background:transparent;border:none;color:inherit;font-size:26px;line-height:1;cursor:pointer;padding:0;flex:0 0 44px;min-height:44px;border-radius:6px}'
     + '#mma-wa-close:hover{background:rgba(27,38,59,.1)}'
-    + '#mma-wa-body{background:#F7F3EA;padding:22px 18px;min-height:0;flex:1 1 180px;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:10px}'
+    + '#mma-wa-body{background:#F7F3EA;padding:22px 18px;min-height:0;flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:10px}'
     + '.mma-wa-bubble{background:#FFF;color:#1B263B;padding:12px 14px;border-radius:12px;font-size:14px;line-height:1.45;max-width:85%;align-self:flex-start;box-shadow:0 1px 2px rgba(0,0,0,.06)}'
     + '#mma-wa-footer{flex:none;background:#FFF;padding:12px 14px;border-top:1px solid #EEE}'
     + '#mma-wa-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#1B263B;text-decoration:none;padding:12px 18px;border-radius:8px;font-family:"Montserrat",sans-serif;font-weight:700;font-size:14px}'
     + '#mma-wa-cta:hover{background:#1ebd5b}'
     + '#mma-wa-close:focus-visible,#mma-wa-body:focus-visible,#mma-wa-cta:focus-visible{outline:3px solid #1B263B;outline-offset:-4px}'
+    + '@media (max-height:400px){#mma-wa-header{padding-block:10px}#mma-wa-body,#mma-wa-footer{padding-block:8px}}'
     + '@media (prefers-reduced-motion:reduce){#mma-wa-panel{animation:none}#mma-wa-launcher:hover{transform:none}}'
     + '@media (max-width:480px){#mma-wa-widget{--mma-wa-offset:16px;right:16px}#mma-wa-launcher-text{display:none}#mma-wa-launcher{padding:14px;gap:0}#mma-wa-panel{width:calc(100vw - 32px);max-width:none;right:0}}';
 
