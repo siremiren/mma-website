@@ -1,0 +1,121 @@
+/* Keep the fallback text close to Lato's width before the web font loads. */
+@font-face {
+  font-family: "Consent Lato Fallback";
+  src: local("Arial"), local("Liberation Sans");
+  size-adjust: 96%;
+}
+
+.mma-cookie-links {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.mma-cookie-footer {
+  padding: 18px 96px 24px 32px;
+  background: #1B263B;
+  color: #FFF;
+  font-family: "Lato",system-ui,sans-serif;
+}
+
+#mma-cookie-settings {
+  font: inherit;
+  color: rgba(255,255,255,.85);
+  background: none;
+  border: 0;
+  padding: 10px 0;
+  min-height: 44px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#mma-consent {
+  background: #1B263B;
+  color: #FFF;
+  margin-top: 80px;
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  grid-template-rows: minmax(0,1fr);
+  align-items: center;
+  gap: 16px;
+  font-family: "Lato","Consent Lato Fallback",system-ui,sans-serif;
+  scroll-margin-top: 80px;
+  max-height: calc(var(--contact-visible-height,100dvh) - var(--contact-dock-height,0px) - 80px);
+  box-sizing: border-box;
+}
+
+#mma-consent[hidden] {
+  display: none;
+}
+
+body:has(#mma-consent:not([hidden])) .nav--transparent:not(.scrolled) {
+  background: #1B263B;
+}
+
+#mma-consent p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  min-width: 0;
+  min-height: 0;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+#mma-consent a {
+  color: #C5A059;
+  text-decoration: underline;
+}
+
+#mma-consent .mma-consent-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#mma-consent button {
+  font-family: "Montserrat",sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  min-height: 44px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,.4);
+  background: transparent;
+  color: #FFF;
+}
+
+#mma-consent #mma-consent-accept {
+  background: #C5A059;
+  color: #1B263B;
+  border-color: #C5A059;
+}
+
+#mma-consent #mma-consent-accept:hover {
+  background: #D4B577;
+}
+
+#mma-consent button:hover {
+  border-color: #FFF;
+}
+
+#mma-cookie-settings:focus-visible,#mma-consent button:focus-visible,#mma-consent a:focus-visible,#mma-consent p:focus-visible {
+  outline: 2px solid #FFF;
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  #mma-consent {
+    grid-template-columns: minmax(0,1fr);
+    grid-template-rows: minmax(0,1fr) auto;
+  }
+}
+
+@media print {
+  #mma-cookie-settings,#mma-consent,.mma-cookie-footer {
+    display: none!important;
+  }
+}
