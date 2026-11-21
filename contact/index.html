@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Mind & Method Academy</title>
-<meta name="description" content="Get in touch with Mind and Method Academy. Whether you are an individual ready to start a business or an organisation looking to partner with us.">
+<meta name="description" content="Contact Mind and Method Academy about training, workshops, programmes and coaching for individuals and organisations.">
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="shortcut icon" href="/favicon.ico">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mindandmethodacademy.com/contact/">
 <meta property="og:title" content="Contact — Mind &amp; Method Academy">
-<meta property="og:description" content="Get in touch with Mind and Method Academy. Whether you are an individual ready to start a business or an organisation looking to partner with us.">
+<meta property="og:description" content="Contact Mind and Method Academy about training, workshops, programmes and coaching for individuals and organisations.">
 <meta property="og:site_name" content="Mind &amp; Method Academy">
 <meta property="og:image" content="https://mindandmethodacademy.com/images/og-default.jpg">
 <meta property="og:image:width" content="1200">
@@ -24,90 +24,33 @@
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact — Mind &amp; Method Academy">
-<meta name="twitter:description" content="Get in touch with Mind and Method Academy. Whether you are an individual ready to start a business or an organisation looking to partner with us.">
+<meta name="twitter:description" content="Contact Mind and Method Academy about training, workshops, programmes and coaching for individuals and organisations.">
 <meta name="twitter:image" content="https://mindandmethodacademy.com/images/og-default.jpg">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mindandmethodacademy.com/contact/">
-<meta property="og:title" content="Contact — Mind & Method Academy">
-<meta property="og:description" content="Get in touch with Mind and Method Academy. Whether you are an individual ready to start a business or an organisation looking to partner with us.">
-<meta property="og:site_name" content="Mind &amp; Method Academy">
-
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact — Mind & Method Academy">
-<meta name="twitter:description" content="Get in touch with Mind and Method Academy. Whether you are an individual ready to start a business or an organisation looking to partner with us.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.v2.css">
 <style>
-  .contact-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
-  .contact-details { margin-top: 2rem; }
-  .contact-detail { margin-bottom: 2rem; }
-  .contact-detail h3 { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--oxford-blue); margin-bottom: 0.5rem; }
-  .contact-detail p, .contact-detail a { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; text-decoration: none; }
-  .contact-detail a:hover { color: var(--oxford-blue); }
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 4rem; align-items: start; }
+  .contact-grid .section-title { font-size: 1.5rem; }
+  .contact-form { margin-top: 1.5rem; }
+  .contact-form .form-grid { column-gap: 1rem; }
+  .contact-form .form-group { min-width: 0; }
+  .contact-form .form-input, .contact-form .form-select, .contact-form .form-textarea { font-size: 1rem; }
+  .contact-form .required { color: var(--text-secondary); }
+  .contact-form :focus-visible { outline: 2px solid var(--oxford-blue); outline-offset: 3px; }
+  .contact-form :is(input, select, textarea, button), #main-content, #contact-confirmation-title { scroll-margin-top: 96px; }
+  .contact-email { display: inline-block; color: var(--oxford-blue); overflow-wrap: anywhere; }
   .contact-note { background: var(--legacy-gold-muted); border-radius: 12px; padding: 1.5rem; margin-top: 2rem; }
-  .contact-note h3 { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--oxford-blue); margin-bottom: 0.5rem; }
-  .contact-note p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
-  @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; } }
-
-.form-consent {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-top: 0.75rem;
-  margin-bottom: 0;
-}
-.form-consent a {
-  color: var(--oxford-blue);
-  text-decoration: underline;
-}
-</style>
-<style>
-/* Contact-only dock: activated by the local helper after the shared widget mounts. */
-@media (max-width: 1024px) {
-  html.contact-docked, .contact-docked body { height: 100%; overflow: hidden; }
-  .contact-docked { --contact-dock-height: calc(80px + env(safe-area-inset-bottom, 0px)); }
-  .contact-docked #contact-scroll-area {
-    position: fixed; top: var(--contact-visible-top, 0px); left: 0; right: 0;
-    height: calc(var(--contact-visible-height, 100dvh) - var(--contact-dock-height));
-    overflow-y: auto; overscroll-behavior-y: contain;
-  }
-  .contact-docked #nav { top: var(--contact-visible-top, 0px); }
-  .contact-docked .nav-links.open {
-    top: calc(var(--contact-visible-top, 0px) + 80px); bottom: auto;
-    height: max(0px, calc(var(--contact-visible-height, 100dvh) - var(--contact-dock-height) - 80px));
-  }
-  .contact-docked #main-content,
-  .contact-docked form input, .contact-docked form select,
-  .contact-docked form textarea, .contact-docked form button {
-    scroll-margin-top: 96px; scroll-margin-bottom: 12px;
-  }
-  .contact-docked #mma-wa-widget {
-    position: fixed; left: var(--contact-visible-left, 0px); right: auto; bottom: auto;
-    top: calc(var(--contact-visible-top, 0px) + var(--contact-visible-height, 100dvh) - var(--contact-dock-height));
-    width: var(--contact-visible-width, 100%); height: var(--contact-dock-height);
-    display: flex; align-items: center; justify-content: flex-end;
-    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
-    background: var(--cream); border-top: 1px solid var(--border-strong); box-sizing: border-box;
-  }
-  .contact-docked #mma-wa-launcher,
-  .contact-docked #mma-wa-launcher:hover { padding: 14px; gap: 0; transform: none; flex-shrink: 0; }
-  .contact-docked #mma-wa-launcher-text { display: none; }
-  .contact-docked #mma-wa-panel {
-    bottom: calc(100% + 8px); right: 16px;
-    max-width: calc(var(--contact-visible-width, 100vw) - 32px);
-    max-height: max(0px, calc(var(--contact-visible-height, 100dvh) - var(--contact-dock-height) - 16px));
-    overflow-y: auto; overscroll-behavior-y: contain;
-  }
-  .contact-docked #mma-wa-close { min-width: 44px; min-height: 44px; }
-  .contact-docked #mma-consent {
-    bottom: calc(100% - var(--contact-visible-top, 0px) - var(--contact-visible-height, 100dvh) + var(--contact-dock-height));
-  }
-}
+  .contact-note h3 { font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--oxford-blue); margin-bottom: 0.5rem; }
+  .contact-note p, .form-consent { color: var(--text-secondary); }
+  .contact-note p + p, .form-consent { margin-top: 0.75rem; }
+  .form-consent { font-size: 0.875rem; }
+  .form-consent a, .contact-form-error a { color: var(--oxford-blue); }
+  .contact-form-error { margin-top: 0.75rem; color: var(--oxford-blue); }
+  .contact-submit:disabled { cursor: wait; opacity: 0.75; }
+  @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
 </style>
 <script src="/css/consent-banner.js" defer></script>
 </head>
@@ -115,7 +58,6 @@
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<div id="contact-scroll-area">
 <header role="banner">
 <nav class="nav" id="nav">
   <div class="nav-inner">
@@ -154,28 +96,68 @@
 <section class="section section--cream">
   <div class="section-inner">
     <div class="contact-grid">
-      <div class="reveal">
-        <h2 class="section-title" style="font-size: 1.5rem;">Send us an enquiry</h2>
-        <p class="section-desc">Tell us a little about what you're looking for, and we'll get back to you. The email button opens your email app.</p>
-        <a href="mailto:info@mindandmethodacademy.com" class="btn-primary btn-primary--dark mt-4">Email the Academy</a>
-        <a href="https://wa.me/447500015709" class="btn-secondary btn-secondary--dark mt-4">Enquire on WhatsApp</a>
-        <p class="form-consent">We'll use the details you send to respond to your enquiry. Read our <a href="/privacy/">Privacy Policy</a> for more information.</p>
+      <div id="contact-enquiry">
+        <h2 class="section-title">Send us an enquiry</h2>
+        <p class="section-desc">Tell us a little about what you're looking for, and we'll get back to you.</p>
+        <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p hidden><label>Leave this field blank <input name="bot-field" autocomplete="off"></label></p>
+          <p class="form-consent mb-2">Fields marked with an asterisk (*) are required.</p>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="firstName">First Name <span class="required" aria-hidden="true">*</span></label>
+              <input class="form-input" type="text" id="firstName" name="firstName" autocomplete="given-name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastName">Last Name</label>
+              <input class="form-input" type="text" id="lastName" name="lastName" autocomplete="family-name">
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label" for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
+              <input class="form-input" type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="organisation">Organisation</label>
+              <input class="form-input" type="text" id="organisation" name="organisation" autocomplete="organization">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="role">Your Role</label>
+              <input class="form-input" type="text" id="role" name="role" autocomplete="organization-title">
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label" for="enquiryType">What can we help you with? <span class="required" aria-hidden="true">*</span></label>
+              <select class="form-select" id="enquiryType" name="enquiryType" required>
+                <option value="">Please select</option>
+                <option value="existing-workshop-or-programme">An existing workshop or programme</option>
+                <option value="one-to-one-coaching">One-to-one coaching</option>
+                <option value="business-builder-accelerator">Business Builder Accelerator</option>
+                <option value="organisation-training">Training for an organisation</option>
+                <option value="speaking">Speaking engagement</option>
+                <option value="media">Media or press</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label" for="message">Your Message <span class="required" aria-hidden="true">*</span></label>
+              <textarea class="form-textarea" id="message" name="message" required></textarea>
+            </div>
+          </div>
+          <p class="form-consent">We use Netlify Forms to receive and store the details you provide so we can respond to your enquiry. Read our <a href="/privacy/">Privacy Policy</a> for more information.</p>
+          <button type="submit" class="btn-primary btn-primary--dark contact-submit mt-4">Submit Enquiry</button>
+          <div role="alert">
+            <p class="contact-form-error" hidden>We couldn’t confirm receipt of your enquiry. Please try again, or contact us by <a href="mailto:info@mindandmethodacademy.com">email</a> or <a href="https://wa.me/447500015709">WhatsApp</a>.</p>
+          </div>
+        </form>
       </div>
-      <div class="reveal">
-        <div class="contact-details">
-          <div class="contact-detail">
-            <h3>Email</h3>
-            <a href="mailto:info@mindandmethodacademy.com">info@mindandmethodacademy.com</a>
-          </div>
-          <div class="contact-detail">
-            <h3>Registered Address</h3>
-            <p>71–75 Shelton Street<br>Covent Garden, London<br>WC2H 9JQ</p>
-          </div>
-          <div class="contact-detail">
-            <h3>Company</h3>
-            <p>Mind and Method Academy Ltd<br>Company No. 16932969<br>ICO Registration: ZC073024</p>
-          </div>
-        </div>
+      <div id="contact-confirmation" hidden>
+        <h2 class="section-title" id="contact-confirmation-title" tabindex="-1">Thanks for your enquiry.</h2>
+        <p class="section-desc">We've received your message and will be in touch.</p>
+        <a href="/" class="btn-primary btn-primary--dark mt-4">Back to Home</a>
+      </div>
+      <div>
+        <h2 class="section-title">Other ways to reach us</h2>
+        <p><a href="mailto:info@mindandmethodacademy.com" class="contact-email">info@mindandmethodacademy.com</a></p>
+        <a href="https://wa.me/447500015709" class="btn-secondary btn-secondary--dark mt-4">Enquire on WhatsApp</a>
         <div class="contact-note">
           <h3>For Organisations</h3>
           <p>If you're enquiring about training for your staff, students or community, tell us a little about who the training is for, what you'd like them to learn and any timings you have in mind.</p>
@@ -197,107 +179,8 @@
   <li><a href="/contact/">Contact</a></li>
 </ul></div><div><h3 class="footer-heading">Legal</h3><ul class="footer-links"><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookies/">Cookie Policy</a></li></ul></div><div><h3 class="footer-heading">Contact</h3><ul class="footer-links"><li><a href="mailto:info@mindandmethodacademy.com">info@mindandmethodacademy.com</a></li><li>Covent Garden, London</li><li>United Kingdom</li></ul></div></div><div class="footer-bottom"><span>&copy; 2026 Mind and Method Academy Ltd. Company No. 16932969. ICO Reg. ZC073024.</span><div class="footer-bottom-links"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookies/">Cookies</a></div></div></div></footer>
 
-</div>
 <script src="/css/main.js"></script>
-<script src="/css/whatsapp-widget.js" defer></script>
 <script src="/css/nav-dropdown.js"></script>
-<script>
-// Contact-only enhancement. The shared widget retains its own open/close handlers.
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.documentElement;
-  const area = document.getElementById('contact-scroll-area');
-  const nav = document.getElementById('nav');
-  const launcher = document.getElementById('mma-wa-launcher');
-  const panel = document.getElementById('mma-wa-panel');
-  const close = document.getElementById('mma-wa-close');
-  if (!area || !nav || !launcher || !panel || !close) return;
-  const mobile = window.matchMedia('(max-width: 1024px)');
-  const viewport = window.visualViewport;
-  let docked = false;
-  let frame = 0;
-  let revealObserver;
-  let mobileScroll = 0;
-
-  const syncNav = () => {
-    if (docked && mobile.matches) {
-      mobileScroll = area.scrollTop;
-      nav.classList.toggle('scrolled', mobileScroll > 40);
-    }
-  };
-  const keepFieldVisible = () => {
-    const field = document.activeElement;
-    if (!docked || !panel.hidden || !field.matches('form input, form select, form textarea, form button')) return;
-    const bounds = area.getBoundingClientRect();
-    const box = field.getBoundingClientRect();
-    const top = bounds.top + nav.getBoundingClientRect().height + 16;
-    const bottom = bounds.bottom - 12;
-    const outside = box.height > bottom - top ? box.bottom <= top || box.top >= bottom : box.top < top || box.bottom > bottom;
-    if (outside) field.scrollIntoView({block: 'nearest', behavior: 'instant'});
-  };
-  const updateViewport = () => {
-    frame = 0;
-    if (!docked) return;
-    root.style.setProperty('--contact-visible-height', (viewport ? viewport.height : window.innerHeight) + 'px');
-    root.style.setProperty('--contact-visible-width', (viewport ? viewport.width : window.innerWidth) + 'px');
-    root.style.setProperty('--contact-visible-top', (viewport ? viewport.offsetTop : 0) + 'px');
-    root.style.setProperty('--contact-visible-left', (viewport ? viewport.offsetLeft : 0) + 'px');
-    keepFieldVisible();
-  };
-  const scheduleViewport = () => {
-    if (!frame) frame = requestAnimationFrame(updateViewport);
-  };
-  const setDocked = () => {
-    if (mobile.matches === docked) return;
-    const scroll = docked ? mobileScroll : window.scrollY;
-    docked = mobile.matches;
-    root.classList.toggle('contact-docked', docked);
-    if (docked) {
-      area.setAttribute('tabindex', '0');
-      area.setAttribute('role', 'region');
-      area.setAttribute('aria-label', 'Contact');
-      updateViewport();
-      area.scrollTop = scroll;
-      syncNav();
-      // Large form blocks cannot reach the shared 15% threshold in short viewports.
-      // Keep the existing reveal transition, but trigger it when content enters this scroll area.
-      revealObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, {root: area, rootMargin: '-80px 0px 0px', threshold: 0});
-      area.querySelectorAll('.reveal:not(.visible)').forEach(element => revealObserver.observe(element));
-    } else {
-      revealObserver?.disconnect();
-      ['tabindex', 'role', 'aria-label'].forEach(name => area.removeAttribute(name));
-      ['height', 'width', 'top', 'left'].forEach(name => root.style.removeProperty('--contact-visible-' + name));
-      window.scrollTo({top: scroll, behavior: 'instant'});
-      nav.classList.toggle('scrolled', scroll > 40);
-    }
-  };
-
-  area.addEventListener('scroll', syncNav, {passive: true});
-  area.addEventListener('focusin', () => { if (docked) requestAnimationFrame(keepFieldVisible); });
-  window.addEventListener('scroll', syncNav, {passive: true});
-  window.addEventListener('resize', scheduleViewport);
-  viewport?.addEventListener('resize', scheduleViewport);
-  viewport?.addEventListener('scroll', scheduleViewport);
-  mobile.addEventListener('change', setDocked);
-  launcher.addEventListener('click', () => { if (docked && !panel.hidden) close.focus(); });
-  close.addEventListener('click', () => { if (docked) launcher.focus(); });
-  let restoreAfterEscape = false;
-  document.addEventListener('keydown', event => {
-    restoreAfterEscape = docked && event.key === 'Escape' && !panel.hidden;
-  }, true);
-  document.addEventListener('keydown', () => {
-    // Registered after the shared widget: it closes the panel, then we restore focus.
-    if (restoreAfterEscape && panel.hidden) launcher.focus();
-    restoreAfterEscape = false;
-  });
-  setDocked();
-}, {once: true});
-</script>
+<script src="/css/contact-form.js?v=2" defer></script>
 </body>
 </html>
