@@ -19,27 +19,30 @@
 
   // ---- inject CSS ----
   var css = ''
-    + '#mma-wa-widget{position:fixed;bottom:24px;right:24px;z-index:9999;font-family:"Lato",system-ui,-apple-system,sans-serif}'
+    + '#mma-wa-widget{--mma-wa-offset:24px;position:fixed;bottom:var(--mma-wa-offset);right:24px;z-index:9999;font-family:"Lato",system-ui,-apple-system,sans-serif}'
     + '#mma-wa-launcher{display:inline-flex;align-items:center;gap:0;background:#C5A059;color:#1B263B;border:none;border-radius:999px;padding:14px;font-family:"Montserrat",sans-serif;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 8px 24px rgba(27,38,59,.25);transition:all .2s ease;overflow:hidden}'
     + '#mma-wa-launcher #mma-wa-launcher-text{max-width:0;opacity:0;white-space:nowrap;transition:max-width .25s ease,opacity .2s ease,margin-left .25s ease}'
     + '#mma-wa-launcher:hover #mma-wa-launcher-text{max-width:200px;opacity:1;margin-left:10px}'
     + '#mma-wa-launcher:hover{padding:14px 22px 14px 18px}'
     + '#mma-wa-launcher:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(27,38,59,.3)}'
-    + '#mma-wa-launcher:focus-visible{outline:3px solid #1B263B;outline-offset:2px}'
-    + '#mma-wa-panel{position:absolute;bottom:72px;right:0;width:340px;max-width:calc(100vw - 32px);background:#FFF;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(27,38,59,.25);animation:mma-wa-pop .18s ease-out}'
-    + '@keyframes mma-wa-pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}'
-    + '#mma-wa-header{background:#C5A059;color:#FFF;padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-start}'
+    + '#mma-wa-launcher:focus-visible{outline:3px solid #1B263B;outline-offset:2px;box-shadow:0 0 0 2px #FFF}'
+    + '#mma-wa-panel{position:absolute;bottom:72px;right:0;width:340px;max-width:calc(100vw - 48px);max-height:calc(100vh - var(--mma-wa-offset) - 88px);max-height:calc(100dvh - var(--mma-wa-offset) - 88px);display:flex;flex-direction:column;background:#FFF;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(27,38,59,.25);animation:mma-wa-pop .18s ease-out}'
+    + '#mma-wa-panel[hidden]{display:none}'
+    + '@keyframes mma-wa-pop{from{transform:translateY(4px)}to{transform:none}}'
+    + '#mma-wa-header{flex:none;background:#C5A059;color:#1B263B;padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-start}'
     + '#mma-wa-agent{font-family:"Montserrat",sans-serif;font-weight:800;font-size:18px;letter-spacing:.5px;text-transform:uppercase}'
-    + '#mma-wa-status{font-size:13px;opacity:.95;margin-top:4px;display:flex;align-items:center;gap:8px}'
+    + '#mma-wa-status{font-size:13px;margin-top:4px;display:flex;align-items:center;gap:8px}'
     + '.mma-wa-dot{width:9px;height:9px;border-radius:50%;background:#25D366;display:inline-block}'
-    + '#mma-wa-close{background:transparent;border:none;color:#FFF;font-size:26px;line-height:1;cursor:pointer;padding:0 4px}'
-    + '#mma-wa-close:hover{opacity:.8}'
-    + '#mma-wa-body{background:#F7F3EA;padding:22px 18px;min-height:180px;display:flex;flex-direction:column;gap:10px}'
+    + '#mma-wa-close{background:transparent;border:none;color:inherit;font-size:26px;line-height:1;cursor:pointer;padding:0;flex:0 0 44px;min-height:44px;border-radius:6px}'
+    + '#mma-wa-close:hover{background:rgba(27,38,59,.1)}'
+    + '#mma-wa-body{background:#F7F3EA;padding:22px 18px;min-height:0;flex:1 1 180px;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:10px}'
     + '.mma-wa-bubble{background:#FFF;color:#1B263B;padding:12px 14px;border-radius:12px;font-size:14px;line-height:1.45;max-width:85%;align-self:flex-start;box-shadow:0 1px 2px rgba(0,0,0,.06)}'
-    + '#mma-wa-footer{background:#FFF;padding:12px 14px;border-top:1px solid #EEE}'
-    + '#mma-wa-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#FFF;text-decoration:none;padding:12px 18px;border-radius:8px;font-family:"Montserrat",sans-serif;font-weight:700;font-size:14px}'
+    + '#mma-wa-footer{flex:none;background:#FFF;padding:12px 14px;border-top:1px solid #EEE}'
+    + '#mma-wa-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#1B263B;text-decoration:none;padding:12px 18px;border-radius:8px;font-family:"Montserrat",sans-serif;font-weight:700;font-size:14px}'
     + '#mma-wa-cta:hover{background:#1ebd5b}'
-    + '@media (max-width:480px){#mma-wa-widget{bottom:16px;right:16px}#mma-wa-launcher-text{display:none}#mma-wa-launcher{padding:14px;gap:0}#mma-wa-panel{width:calc(100vw - 32px);right:0}}';
+    + '#mma-wa-close:focus-visible,#mma-wa-body:focus-visible,#mma-wa-cta:focus-visible{outline:3px solid #1B263B;outline-offset:-4px}'
+    + '@media (prefers-reduced-motion:reduce){#mma-wa-panel{animation:none}#mma-wa-launcher:hover{transform:none}}'
+    + '@media (max-width:480px){#mma-wa-widget{--mma-wa-offset:16px;right:16px}#mma-wa-launcher-text{display:none}#mma-wa-launcher{padding:14px;gap:0}#mma-wa-panel{width:calc(100vw - 32px);max-width:none;right:0}}';
 
   var styleEl = document.createElement('style');
   styleEl.type = 'text/css';
@@ -56,7 +59,7 @@
   }
 
   var html = ''
-    + '<button id="mma-wa-launcher" aria-label="Open WhatsApp chat" aria-expanded="false">'
+    + '<button id="mma-wa-launcher" type="button" aria-label="Open WhatsApp chat" aria-expanded="false" aria-controls="mma-wa-panel" aria-haspopup="dialog">'
     +   waIcon
     +   '<span id="mma-wa-launcher-text">Chat with us</span>'
     + '</button>'
@@ -66,9 +69,9 @@
     +       '<div id="mma-wa-agent">' + CONFIG.agent + '</div>'
     +       '<div id="mma-wa-status"><span class="mma-wa-dot" aria-hidden="true"></span><span>' + CONFIG.tagline + '</span></div>'
     +     '</div>'
-    +     '<button id="mma-wa-close" aria-label="Close chat">&times;</button>'
+    +     '<button id="mma-wa-close" type="button" aria-label="Close chat">&times;</button>'
     +   '</div>'
-    +   '<div id="mma-wa-body">' + bubblesHtml + '</div>'
+    +   '<div id="mma-wa-body" tabindex="0" role="region" aria-label="Chat information">' + bubblesHtml + '</div>'
     +   '<div id="mma-wa-footer">'
     +     '<a id="mma-wa-cta" target="_blank" rel="noopener noreferrer">' + waIconSm + 'Open WhatsApp</a>'
     +   '</div>'
@@ -88,12 +91,29 @@
     var panel    = document.getElementById('mma-wa-panel');
     var closeBtn = document.getElementById('mma-wa-close');
 
-    function open()  { panel.hidden = false; launcher.setAttribute('aria-expanded', 'true'); }
-    function close() { panel.hidden = true;  launcher.setAttribute('aria-expanded', 'false'); }
+    function open() {
+      panel.hidden = false;
+      launcher.setAttribute('aria-expanded', 'true');
+      closeBtn.focus({ preventScroll: true });
+    }
 
-    launcher.addEventListener('click', function () { panel.hidden ? open() : close(); });
-    closeBtn.addEventListener('click', close);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) close(); });
+    function close(restoreFocus) {
+      if (panel.hidden) return;
+      launcher.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) launcher.focus({ preventScroll: true });
+      panel.hidden = true;
+    }
+
+    launcher.addEventListener('click', function () { panel.hidden ? open() : close(true); });
+    closeBtn.addEventListener('click', function () { close(true); });
+    document.addEventListener('focusin', function (event) {
+      if (!container.contains(event.target)) close(false);
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape' || event.defaultPrevented || panel.hidden) return;
+      event.preventDefault();
+      close(container.contains(document.activeElement));
+    });
   }
 
   if (document.readyState === 'loading') {

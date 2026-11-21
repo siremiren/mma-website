@@ -292,6 +292,9 @@ img { max-width: 100%; display: block; }
   display: flex; align-items: center; gap: 12px;
 }
 
+.section:not(.section--dark) .section-label,
+.audience-card--light .eyebrow { color: var(--oxford-blue); }
+
 .section-label::before {
   content: '';
   width: 24px; height: 2px;
@@ -653,7 +656,7 @@ img { max-width: 100%; display: block; }
   margin-bottom: 0.25rem;
 }
 
-.legal-content a { color: var(--legacy-gold); text-decoration: underline; }
+.legal-content a { color: var(--oxford-blue); text-decoration: underline; }
 .legal-content strong { color: var(--text-primary); }
 
 /* ═══════════════════════════════════════
@@ -740,8 +743,11 @@ img { max-width: 100%; display: block; }
 /* ═══════════════════════════════════════
    FOCUS & ACCESSIBILITY
 ═══════════════════════════════════════ */
+:where(.section:not(.section--dark)) { --focus-outline: var(--oxford-blue); }
+:where(.section--dark, .audience-card--dark) { --focus-outline: var(--legacy-gold); }
+
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-  outline: 2px solid var(--legacy-gold);
+  outline: 2px solid var(--focus-outline, var(--legacy-gold));
   outline-offset: 3px;
   border-radius: 2px;
 }
