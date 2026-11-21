@@ -1,37 +1,47 @@
-# Mind & Method Academy
+# Mind and Method Academy
 
-> World-class business education, without the £30k MBA.
+> Skills you can learn. Knowledge you can use.
 
-Mind and Method Academy is a UK-based business education company helping individuals and organisations build businesses. We run structured programmes covering the full path from intention to first revenue.
+Mind and Method Academy is a UK-based training and coaching provider for individuals and organisations. We offer practical learning in entrepreneurship, professional and personal development, and artificial intelligence through established programmes and tailored training.
 
 ## Who We Serve
 
-- Individuals: time-poor people with jobs and other commitments who want to start a business
-- Organisations: universities, local authorities, government bodies, charities, prisons, and corporate partners
+- **Individuals:** People looking to develop practical skills for work, business and everyday life, including those exploring entrepreneurship.
+- **Organisations:** Employers, educational institutions, councils, charities and other organisations seeking practical training for their staff, students or communities.
 
-## Our Programmes
+## Training Areas
 
-- **DIY Accelerator (Step 1)**: Self-directed online programme — we teach you how to build it
-- **Done-With-You Programme (Step 2)**: 10-week high-touch coaching — we help you build and launch it
-- **Done-For-You (Step 3)**: Full execution — we build and launch it for you
+- **Entrepreneurship:** Business planning, customers, pricing, finance, marketing, sales and business operations. Includes the six-week Business Builder programme.
+- **Professional & Personal Development:** Leadership, management, communication, negotiation, public speaking, confidence and related skills.
+- **Artificial Intelligence:** Practical AI skills and tools for work, business and everyday life, including responsible and effective use.
+
+## How We Deliver Training
+
+- **Established programmes:** Workshops, courses and coaching that individuals or organisations can access.
+- **Tailored training:** Training developed around an organisation's needs, learners and objectives.
 
 ## About
 
-Founded by Samuel Iremiren (MBA, MSc Economics), with 10+ years of coaching experience across three continents. Previously worked with Samsung on enterprise development.
+The experience behind Mind and Method Academy includes over 15 years of coaching and teaching across three continents.
 
 Registered in England and Wales. Company No. 16932969. ICO Reg. ZC073024.
 
 ## Contact
 
-- Email: hello@mindandmethodacademy.com
-- Address: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
-- Website: https://mindandmethodacademy.com
+- Email: [info@mindandmethodacademy.com](mailto:info@mindandmethodacademy.com)
+- Address: 71–75 Shelton Street, Covent Garden, London, WC2H 9JQ
+- Website: [https://mindandmethodacademy.com/](https://mindandmethodacademy.com/)
 
 ## Pages
 
 - [Home](https://mindandmethodacademy.com/)
-- [About](https://mindandmethodacademy.com/about/)
+- [About Us](https://mindandmethodacademy.com/about/)
 - [Programmes](https://mindandmethodacademy.com/programmes/)
+- [Entrepreneurship](https://mindandmethodacademy.com/programmes/entrepreneurship/)
+- [Professional & Personal Development](https://mindandmethodacademy.com/programmes/professional-development/)
+- [Artificial Intelligence](https://mindandmethodacademy.com/programmes/artificial-intelligence/)
+- [Business Builder Workshop](https://mindandmethodacademy.com/workshop/)
 - [Contact](https://mindandmethodacademy.com/contact/)
 - [Privacy Policy](https://mindandmethodacademy.com/privacy/)
 - [Terms of Service](https://mindandmethodacademy.com/terms/)
+- [Cookie Policy](https://mindandmethodacademy.com/cookies/)
