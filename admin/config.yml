@@ -17,6 +17,7 @@ collections:
           - { label: "Hero Badge Text", name: "hero_badge", widget: "string" }
           - { label: "Hero Heading (use <em> for gold text)", name: "hero_heading", widget: "string" }
           - { label: "Hero Description", name: "hero_sub", widget: "text" }
+          - { label: "Hero Description Paragraph 2", name: "hero_sub2", widget: "text" }
           - { label: "Stat 1 Number", name: "stat1_num", widget: "string" }
           - { label: "Stat 1 Label", name: "stat1_label", widget: "string" }
           - { label: "Stat 2 Number", name: "stat2_num", widget: "string" }
@@ -71,103 +72,48 @@ collections:
         label: "Programmes Page"
         file: "content/programmes.json"
         fields:
-          - { label: "Page Subtitle", name: "page_desc", widget: "text" }
-          - label: "Individuals Section"
-            name: "individuals_group"
-            widget: "object"
-            collapsed: false
-            fields:
-              - { label: "Section Heading", name: "individuals_section_heading", widget: "string" }
-              - { label: "Section Description", name: "individuals_section_desc", widget: "text" }
-          - label: "Programme 1 — DIY Accelerator"
-            name: "p1_group"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Card Title", name: "p1_title", widget: "string" }
-              - { label: "Card Description", name: "p1_desc", widget: "text" }
-              - { label: "What You Will Learn 1", name: "p1_learn_1", widget: "string" }
-              - { label: "What You Will Learn 2", name: "p1_learn_2", widget: "string" }
-              - { label: "What You Will Learn 3", name: "p1_learn_3", widget: "string" }
-              - { label: "What You Will Learn 4", name: "p1_learn_4", widget: "string" }
-              - { label: "What You Will Learn 5", name: "p1_learn_5", widget: "string" }
-              - { label: "Who This Is For 1", name: "p1_for_1", widget: "string" }
-              - { label: "Who This Is For 2", name: "p1_for_2", widget: "string" }
-              - { label: "Who This Is For 3", name: "p1_for_3", widget: "string" }
-              - { label: "What You Will Leave With 1", name: "p1_leave_1", widget: "string" }
-              - { label: "What You Will Leave With 2", name: "p1_leave_2", widget: "string" }
-              - { label: "What You Will Leave With 3", name: "p1_leave_3", widget: "string" }
-              - { label: "What You Will Leave With 4", name: "p1_leave_4", widget: "string" }
-              - { label: "What You Will Leave With 5", name: "p1_leave_5", widget: "string" }
-          - label: "Programme 2 — Done With You"
-            name: "p2_group"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Card Title", name: "p2_title", widget: "string" }
-              - { label: "Card Description", name: "p2_desc", widget: "text" }
-              - { label: "What This Includes 1", name: "p2_includes_1", widget: "string" }
-              - { label: "What This Includes 2", name: "p2_includes_2", widget: "string" }
-              - { label: "What This Includes 3", name: "p2_includes_3", widget: "string" }
-              - { label: "What This Includes 4", name: "p2_includes_4", widget: "string" }
-              - { label: "What This Includes 5", name: "p2_includes_5", widget: "string" }
-              - { label: "Who This Is For 1", name: "p2_for_1", widget: "string" }
-              - { label: "Who This Is For 2", name: "p2_for_2", widget: "string" }
-              - { label: "Who This Is For 3", name: "p2_for_3", widget: "string" }
-              - { label: "What You Will Leave With 1", name: "p2_leave_1", widget: "string" }
-              - { label: "What You Will Leave With 2", name: "p2_leave_2", widget: "string" }
-              - { label: "What You Will Leave With 3", name: "p2_leave_3", widget: "string" }
-              - { label: "What You Will Leave With 4", name: "p2_leave_4", widget: "string" }
-              - { label: "What You Will Leave With 5", name: "p2_leave_5", widget: "string" }
-          - label: "Programme 3 — Done For You"
-            name: "p3_group"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Card Title", name: "p3_title", widget: "string" }
-              - { label: "Card Description", name: "dfy_desc", widget: "text" }
-              - { label: "What We Do For You 1", name: "p3_does_1", widget: "string" }
-              - { label: "What We Do For You 2", name: "p3_does_2", widget: "string" }
-              - { label: "What We Do For You 3", name: "p3_does_3", widget: "string" }
-              - { label: "What We Do For You 4", name: "p3_does_4", widget: "string" }
-              - { label: "What We Do For You 5", name: "p3_does_5", widget: "string" }
-              - { label: "Who This Is For 1", name: "p3_for_1", widget: "string" }
-              - { label: "Who This Is For 2", name: "p3_for_2", widget: "string" }
-              - { label: "Who This Is For 3", name: "p3_for_3", widget: "string" }
-              - { label: "What You Will Walk Away With 1", name: "p3_leave_1", widget: "string" }
-              - { label: "What You Will Walk Away With 2", name: "p3_leave_2", widget: "string" }
-              - { label: "What You Will Walk Away With 3", name: "p3_leave_3", widget: "string" }
-              - { label: "What You Will Walk Away With 4", name: "p3_leave_4", widget: "string" }
-              - { label: "What You Will Walk Away With 5", name: "p3_leave_5", widget: "string" }
-          - label: "Organisations Section"
-            name: "org_group"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Section Heading", name: "organisations_heading", widget: "string" }
-              - { label: "Section Description", name: "organisations_desc", widget: "text" }
-              - { label: "Universities", name: "sector_universities", widget: "text" }
-              - { label: "Councils & Government", name: "sector_councils", widget: "text" }
-              - { label: "Charities & Third Sector", name: "sector_charities", widget: "text" }
-              - { label: "Prisons & Rehabilitation", name: "sector_prisons", widget: "text" }
-              - { label: "Schools & Youth", name: "sector_schools", widget: "text" }
-              - { label: "Corporate Partners", name: "sector_corporate", widget: "text" }
-          - label: "What Partners Can Expect"
-            name: "expect_group"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Section Heading", name: "partners_section_heading", widget: "string" }
-              - { label: "Point 1", name: "expect_1", widget: "string" }
-              - { label: "Point 2", name: "expect_2", widget: "string" }
-              - { label: "Point 3", name: "expect_3", widget: "string" }
-              - { label: "Point 4", name: "expect_4", widget: "string" }
-              - { label: "Point 5", name: "expect_5", widget: "string" }
-              - { label: "Point 6", name: "expect_6", widget: "string" }
-              - { label: "Point 7", name: "expect_7", widget: "string" }
-              - { label: "Point 8", name: "expect_8", widget: "string" }
-          - { label: "CTA Heading", name: "cta_section_heading", widget: "string" }
-          - { label: "CTA Description", name: "cta_section_desc", widget: "text" }
+          - { label: "Hero paragraph 1", name: "page_desc", widget: "text" }
+          - { label: "Hero paragraph 2", name: "page_desc2", widget: "text" }
+          - { label: "Training areas heading", name: "individuals_section_heading", widget: "string" }
+          - { label: "Training areas introduction", name: "individuals_section_desc", widget: "text" }
+          - { label: "Training area 1 title", name: "p1_title", widget: "string" }
+          - { label: "Training area 1 description", name: "p1_desc", widget: "text" }
+          - { label: "Entrepreneurship paragraph 2", name: "p1_desc2", widget: "text" }
+          - { label: "Training area 2 title", name: "p2_title", widget: "string" }
+          - { label: "Training area 2 description", name: "p2_desc", widget: "text" }
+          - { label: "Training area 3 title", name: "p3_title", widget: "string" }
+          - { label: "Training area 3 description", name: "dfy_desc", widget: "text" }
+          - { label: "Organisations heading", name: "organisations_heading", widget: "string" }
+          - { label: "Organisations paragraph 1", name: "organisations_desc", widget: "text" }
+          - { label: "Organisations paragraph 2", name: "organisations_desc2", widget: "text" }
+          - { label: "Universities", name: "sector_universities", widget: "text" }
+          - { label: "Councils & Government", name: "sector_councils", widget: "text" }
+          - { label: "Charities & Third Sector", name: "sector_charities", widget: "text" }
+          - { label: "Prisons & Rehabilitation", name: "sector_prisons", widget: "text" }
+          - { label: "Schools & Youth", name: "sector_schools", widget: "text" }
+          - { label: "Businesses & Employers", name: "sector_corporate", widget: "text" }
+          - { label: "Measuring success heading", name: "partners_section_heading", widget: "string" }
+          - { label: "Measuring success introduction", name: "partners_section_desc", widget: "text" }
+          - { label: "Measuring success examples lead-in", name: "partners_section_examples", widget: "text" }
+          - { label: "Measure 01 title", name: "expect_1_title", widget: "string" }
+          - { label: "Measure 01 description", name: "expect_1", widget: "text" }
+          - { label: "Measure 02 title", name: "expect_2_title", widget: "string" }
+          - { label: "Measure 02 description", name: "expect_2", widget: "text" }
+          - { label: "Measure 03 title", name: "expect_3_title", widget: "string" }
+          - { label: "Measure 03 description", name: "expect_3", widget: "text" }
+          - { label: "Measure 04 title", name: "expect_4_title", widget: "string" }
+          - { label: "Measure 04 description", name: "expect_4", widget: "text" }
+          - { label: "Measure 05 title", name: "expect_5_title", widget: "string" }
+          - { label: "Measure 05 description", name: "expect_5", widget: "text" }
+          - { label: "Measure 06 title", name: "expect_6_title", widget: "string" }
+          - { label: "Measure 06 description", name: "expect_6", widget: "text" }
+          - { label: "Measure 07 title", name: "expect_7_title", widget: "string" }
+          - { label: "Measure 07 description", name: "expect_7", widget: "text" }
+          - { label: "Measure 08 title", name: "expect_8_title", widget: "string" }
+          - { label: "Measure 08 description", name: "expect_8", widget: "text" }
+          - { label: "Get started heading", name: "cta_section_heading", widget: "string" }
+          - { label: "Get started paragraph 1", name: "cta_section_desc", widget: "text" }
+          - { label: "Get started paragraph 2", name: "cta_section_desc2", widget: "text" }
 
       - name: "workshop"
         label: "Workshop Page"
@@ -217,7 +163,6 @@ collections:
           - { label: "Question 6", name: "q6_text", widget: "string" }
           - { label: "Question 7", name: "q7_text", widget: "string" }
           - { label: "Generate Button Text", name: "btn_generate", widget: "string" }
-          - { label: "Generate Small Print", name: "generate_note", widget: "string" }
           - { label: "Output Section Label", name: "output_label", widget: "string" }
           - { label: "Output Heading", name: "output_heading", widget: "string" }
           - { label: "Output Subtext", name: "output_sub", widget: "string" }
@@ -226,6 +171,15 @@ collections:
           - { label: "CTA Heading", name: "cta_heading", widget: "string" }
           - { label: "CTA Description", name: "cta_desc", widget: "text" }
           - { label: "CTA Button Text", name: "cta_btn", widget: "string" }
+
+          - { label: "Card Desc2", name: "card_desc2", widget: "text" }
+          - { label: "Q1 Help", name: "q1_help", widget: "text" }
+          - { label: "Q2 Help", name: "q2_help", widget: "text" }
+          - { label: "Q3 Help", name: "q3_help", widget: "text" }
+          - { label: "Q4 Help", name: "q4_help", widget: "text" }
+          - { label: "Q5 Help", name: "q5_help", widget: "text" }
+          - { label: "Q6 Help", name: "q6_help", widget: "text" }
+          - { label: "Q7 Help", name: "q7_help", widget: "text" }
 
       - name: "media"
         label: "Media Page — Testimonials"

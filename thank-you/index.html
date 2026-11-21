@@ -6,31 +6,6 @@
 <title>Purchase Complete — The Side Door | Mind & Method Academy</title>
 <meta name="robots" content="noindex, nofollow">
 
-<!-- Meta Pixel — Purchase Event -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1521665449478921');
-fbq('track', 'PageView');
-fbq('track', 'Purchase', {
-  value: 2.99,
-  currency: 'GBP',
-  content_name: 'The Side Door',
-  content_type: 'product'
-});
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1521665449478921&ev=Purchase&noscript=1&cd[value]=2.99&cd[currency]=GBP"/>
-</noscript>
-<!-- End Meta Pixel -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -275,7 +250,16 @@ fbq('track', 'Purchase', {
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
       <li><a href="/about/">About</a></li>
-      <li><a href="/programmes/">Programmes</a></li>
+      <li class="nav-programmes">
+    <a href="/programmes/">Programmes</a>
+    <button class="nav-submenu-toggle" type="button" aria-label="Show Programmes submenu" aria-expanded="false" aria-controls="programmesSubmenu"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></button>
+    <ul class="nav-submenu" id="programmesSubmenu" hidden>
+      <li><a href="/programmes/entrepreneurship/">Entrepreneurship</a></li>
+      <li><a href="/programmes/professional-development/">Professional &amp; Personal Development</a></li>
+      <li><a href="/programmes/artificial-intelligence/">Artificial Intelligence</a></li>
+    </ul>
+  </li>
+  <li><a href="/media/">Media</a></li>
       <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -392,7 +376,7 @@ fbq('track', 'Purchase', {
       <div>
         <h3 class="footer-heading">Contact</h3>
         <ul class="footer-links">
-          <li><a href="mailto:hello@mindandmethodacademy.com">hello@mindandmethodacademy.com</a></li>
+          <li><a href="mailto:info@mindandmethodacademy.com">info@mindandmethodacademy.com</a></li>
           <li>Covent Garden, London</li>
           <li>United Kingdom</li>
         </ul>
@@ -422,5 +406,6 @@ fbq('track', 'Purchase', {
 </script>
 
 <script src="/css/whatsapp-widget.js" defer></script>
+<script src="/css/nav-dropdown.js"></script>
 </body>
 </html>

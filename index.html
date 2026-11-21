@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mind & Method Academy — Business Education for Founders</title>
-<meta name="description" content="Turning capable people into operating founders. Structured business education for individuals who want to start a business, and the organisations that support them.">
+<title>Mind and Method Academy | Practical Training &amp; Coaching</title>
+<meta name="description" content="Practical training and coaching in entrepreneurship, professional development and AI. Established programmes and bespoke training for individuals and organisations.">
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="shortcut icon" href="/favicon.ico">
@@ -15,8 +15,8 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mindandmethodacademy.com/">
-<meta property="og:title" content="Mind & Method Academy — Business Education for Founders">
-<meta property="og:description" content="Turning capable people into operating founders. Structured business education for individuals who want to start a business, and the organisations that support them.">
+<meta property="og:title" content="Mind and Method Academy | Practical Training &amp; Coaching">
+<meta property="og:description" content="Practical training and coaching in entrepreneurship, professional development and AI. Established programmes and bespoke training for individuals and organisations.">
 <meta property="og:site_name" content="Mind & Method Academy">
 <meta property="og:image" content="https://mindandmethodacademy.com/images/og-default.jpg">
 <meta property="og:image:width" content="1200">
@@ -24,8 +24,8 @@
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mind & Method Academy — Business Education for Founders">
-<meta name="twitter:description" content="Turning capable people into operating founders. Structured business education for individuals who want to start a business, and the organisations that support them.">
+<meta name="twitter:title" content="Mind and Method Academy | Practical Training &amp; Coaching">
+<meta name="twitter:description" content="Practical training and coaching in entrepreneurship, professional development and AI. Established programmes and bespoke training for individuals and organisations.">
 <meta name="twitter:image" content="https://mindandmethodacademy.com/images/og-default.jpg">
 
 <!-- LocalBusiness + EducationalOrganization Schema -->
@@ -110,6 +110,7 @@
   .hero h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; color: white; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.1s forwards; opacity: 0; }
   .hero h1 em { font-style: italic; color: var(--legacy-gold); }
   .hero-sub { font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; max-width: 520px; animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+  .hero-sub:has(+ .hero-sub) { margin-bottom: 1rem; }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.3s forwards; opacity: 0; }
   .hero-visual { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
   .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -125,14 +126,33 @@
   .audience-card--dark .audience-desc { color: rgba(255,255,255,0.65); }
   .audience-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
   .audience-desc { font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary); }
+  .audience-desc:has(+ .audience-desc) { margin-bottom: 1rem; }
+  .section-desc--center + .section-desc--center { margin-top: 0.75rem; }
   .impact-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
   .impact-text p { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; }
   .impact-text strong { color: white; font-weight: 700; }
+  /* Impact: organisation area */
+  .impact-orgs { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.08); }
+  .impact-orgs-title { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 2rem; }
+  .impact-orgs-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem 1.5rem; }
+  .impact-org-group--training { grid-column: 1 / -1; }
+  .impact-org-group--speaking { grid-column: span 2; }
+  .impact-org-label { margin-bottom: 0.75rem; }
+  .impact-org-list { list-style: none; display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+  .impact-org-list--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .impact-org-list--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .impact-org { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.35rem; min-width: 0; }
+  .impact-org-logo { width: 100%; max-width: 8.5rem; height: 4.25rem; padding: 0.6rem; border: 1px dashed rgba(197,160,89,0.45); border-radius: 8px; display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center; margin-bottom: 0.25rem; }
+  .impact-org-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .impact-org-placeholder { font-size: 0.7rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.65); }
+  .impact-org-name { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; line-height: 1.3; }
+  .impact-org-role { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
   @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
     .hero-visual { max-width: 500px; }
     .problem-grid { grid-template-columns: 1fr; }
     .impact-content { grid-template-columns: 1fr; }
+    .impact-content .grid-2 { grid-template-columns: 1fr 1fr; gap: 1rem; }
   }
   @media (max-width: 768px) {
     .hero { min-height: auto; }
@@ -146,6 +166,14 @@
     .impact-content .stat-card { padding: 1rem; }
     .impact-content .stat-number { font-size: 1.6rem; }
     .impact-content .stat-label { font-size: 0.7rem; }
+  }
+  @media (max-width: 640px) {
+    .impact-orgs { margin-top: 3rem; padding-top: 2.5rem; }
+    .impact-orgs-grid { grid-template-columns: 1fr; }
+    .impact-org-group--speaking { grid-column: auto; }
+    .impact-org-list { column-gap: 0.75rem; }
+    .impact-org-list--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .impact-org-list--3 .impact-org:last-child { grid-column: 1 / -1; }
   }
   @media (max-width: 380px) {
     .impact-content .grid-2 { grid-template-columns: 1fr; }
@@ -194,9 +222,16 @@
     <ul class="nav-links" id="navLinks">
   <li><a href="/" class="active">Home</a></li>
   <li><a href="/about/">About</a></li>
-  <li><a href="/programmes/">Programmes</a></li>
-  <li><a href="/workshop/">Workshop</a></li>
-  <li><a href="/businessplan/">Free Tool</a></li>
+  <li class="nav-programmes">
+    <a href="/programmes/">Programmes</a>
+    <button class="nav-submenu-toggle" type="button" aria-label="Show Programmes submenu" aria-expanded="false" aria-controls="programmesSubmenu"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></button>
+    <ul class="nav-submenu" id="programmesSubmenu" hidden>
+      <li><a href="/programmes/entrepreneurship/">Entrepreneurship</a></li>
+      <li><a href="/programmes/professional-development/">Professional &amp; Personal Development</a></li>
+      <li><a href="/programmes/artificial-intelligence/">Artificial Intelligence</a></li>
+    </ul>
+  </li>
+  <li><a href="/media/">Media</a></li>
   <li><a href="/contact/" class="nav-cta">Get in Touch</a></li>
 </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
@@ -212,13 +247,14 @@
     <div class="hero-content">
       <div class="hero-badge">
         <div class="hero-badge-dot"></div>
-        <span class="hero-badge-text">Business Implementation for Founders</span>
+        <span class="hero-badge-text">PRACTICAL TRAINING &amp; DEVELOPMENT</span>
       </div>
-      <h1 data-cms-html="hero_heading">Turning capable people into <em>operating founders.</em></h1>
-      <p class="hero-sub" data-cms="hero_sub">Most people who want to start a business never do. They have the ability and the ambition — but they lack a clear, structured path from intention to revenue. We provide that path.</p>
+      <h1 data-cms-html="hero_heading">Skills you can learn. <em>Knowledge you can use.</em></h1>
+      <p class="hero-sub" data-cms="hero_sub">Mind and Method Academy helps organisations and individuals develop practical skills through training, coaching and hands-on learning.</p>
+      <p class="hero-sub" data-cms="hero_sub2">From entrepreneurship and professional development to artificial intelligence, we deliver established programmes and tailored training that help people put what they learn into practice.</p>
       <div class="hero-actions">
-        <a href="/programmes/" class="btn-primary">Our Programmes <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-        <a href="/contact/" class="btn-secondary">Partner With Us</a>
+        <a href="/programmes/" class="btn-primary">Explore Our Programmes <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="/contact/" class="btn-secondary">Discuss Your Training Needs</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -242,32 +278,18 @@
   </div>
 </section>
 
-<!-- EMAIL CAPTURE STRIP — Item 8 -->
-<div class="email-capture" role="complementary" aria-label="Free business plan download">
-  <div class="email-capture-inner">
-    <div class="email-capture-text">
-      <strong data-cms="capture_heading">Free: Your 1-Hour Business Plan</strong>
-      <span data-cms="capture_subtext">7 questions. One hour. More clarity than most people get from a full course.</span>
-    </div>
-    <a href="/businessplan/" class="email-capture-btn">
-      Build Your Free Business Plan
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-    </a>
-  </div>
-</div>
-
 <section class="section section--cream">
   <div class="section-inner">
-    <div class="reveal"><div class="section-label">The Problem</div><h2 class="section-title">Capable people are stalling at the starting line.</h2></div>
+    <div class="reveal"><div class="section-label">The Problem</div><h2 class="section-title">Learning new skills should help you do more.</h2></div>
     <div class="problem-grid">
       <div class="problem-text reveal">
-        <p>Across the UK, people from all backgrounds want to build businesses. Many are intelligent, driven, and resourceful. Some have degrees. Some have decades of life experience. All of them have ideas they believe in.</p>
-        <p>Yet most never start. They consume content but never apply it. They invest in short bursts — a course here, an event there — then return to their routines with notes they never look at again. They cycle between inspiration and inactivity.</p>
-        <p>The gap is structural. These people do not need more information. They need a system that turns information into implementation — and someone to hold them accountable while they do it.</p>
+        <p>People want to grow, learn new things and achieve more. They want to become better leaders, stronger communicators, successful business owners and more confident professionals. Organisations want their people to develop too, so they can work better, take on new challenges and achieve more together.</p>
+        <p>But finding the right training isn't always easy. And learning something new is only half the journey. Without the opportunity to practise and apply it, even the most useful knowledge can end up as notes that never get used.</p>
+        <p>The right training helps people build on what they already know and discover what else they can do. A great idea becomes easier to share when you can communicate clearly. A good manager becomes even better when they know how to lead and inspire others. And someone with an ambition can gain the skills to turn it into something real.</p>
       </div>
       <div class="callout reveal">
-        <div class="callout-quote">"The fear of losing money, losing time, and the quiet embarrassment of having to tell people it did not work out keeps them stuck."</div>
-        <div class="callout-attr">— The gap between intention and action</div>
+        <div class="callout-quote">"What you learn should help you do more with what you already know — and open doors to things you've never done before."</div>
+        <div class="callout-attr">— Why practical learning matters</div>
       </div>
     </div>
   </div>
@@ -275,22 +297,22 @@
 
 <section class="section section--white">
   <div class="section-inner">
-    <div class="reveal"><div class="section-label">Our Method</div><h2 class="section-title">Structure that produces founders, not just students.</h2><p class="section-desc">We identified seven things that stop first-time founders from getting a business off the ground. Every programme we run is built to remove each one — not by teaching around them, but by working through them together.</p></div>
+    <div class="reveal"><div class="section-label">Our Method</div><h2 class="section-title">Learn it. Practise it. Use it.</h2><p class="section-desc">Learning something new should make a difference beyond the classroom. That's why we focus on more than simply sharing information. Whether you're joining one of our programmes or bringing us in to train your team, our approach is simple: make learning easy to understand, practical and useful.</p></div>
     <div class="grid-3 mt-6">
       <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg></div>
-        <h3>Clear Method</h3>
-        <p>Proven frameworks covering the critical path to first revenue: Mindset, Offers, Sales, Marketing, and Operations. Every session ends with a completed deliverable — something participants can use, not just understand.</p>
+        <h3>Clear Teaching</h3>
+        <p>We break down complex subjects into simple, easy-to-follow steps. Using examples people can relate to, we help learners understand what they need to know and how it connects to their work, business or personal goals.</p>
       </div>
       <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <h3>Built-In Accountability</h3>
-        <p>Daily commitments, tracked metrics, live sessions, and direct feedback. Our programmes are designed for people with limited time and competing priorities. The structure works in short, focused bursts.</p>
+        <h3>Hands-On Practice</h3>
+        <p>People learn by doing, not just listening. Through exercises, discussions and real-life examples, we give learners opportunities to practise new skills, ask questions and build confidence in what they're learning.</p>
       </div>
       <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <h3>Real Momentum</h3>
-        <p>Participants build their actual business inside the programme. They validate offers, acquire clients, and generate revenue while still enrolled. The outcome is an operating business, not a business plan.</p>
+        <h3>Learning You Can Use</h3>
+        <p>The real value of training is what happens afterwards. Whether it's leading a meeting, starting a business, communicating more clearly or using AI to work smarter, we help people take what they've learnt and put it into practice.</p>
       </div>
     </div>
   </div>
@@ -298,31 +320,32 @@
 
 <section class="section section--cream">
   <div class="section-inner">
-    <div class="reveal"><div class="section-label">Who We Serve</div><h2 class="section-title">For individuals ready to start, and the organisations that support them.</h2></div>
+    <div class="reveal"><div class="section-label">Who We Serve</div><h2 class="section-title">For people who want to improve, and organisations that want to help them.</h2></div>
     <div class="grid-2 mt-6">
       <div class="audience-card audience-card--light reveal">
         <div class="eyebrow">For Individuals</div>
-        <h3>People ready to build their first business</h3>
-        <p class="audience-desc">Our participants come from all walks of life — employed people considering a change, graduates exploring self-employment, career changers, and individuals who have always wanted to build something of their own.</p>
+        <h3>Build skills for what comes next.</h3>
+        <p class="audience-desc">Whether you're looking to start a business, become a better communicator, develop your leadership skills or learn how to use AI, we're here to help you learn, practise and improve.</p>
         <ul class="checklist mb-4">
-          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>On-demand self-paced business education</li>
-          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Done-with-you implementation with live coaching</li>
-          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Structured workshops and group sessions</li>
-          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Direct accountability and progress tracking</li>
+          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Entrepreneurship and Business Builder programmes</li>
+          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Leadership, communication and public speaking</li>
+          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Practical AI training</li>
+          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Workshops, courses and one-to-one coaching</li>
         </ul>
-        <a href="/programmes/" class="link-arrow">View Programmes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="/programmes/" class="link-arrow">Explore Our Programmes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
       <div class="audience-card audience-card--dark reveal">
         <div class="eyebrow">For Organisations</div>
-        <h3>Universities, councils, charities, prisons, and corporate partners</h3>
-        <p class="audience-desc">We partner with institutions to deliver enterprise education and self-employment support to the communities they serve. Our programmes are designed for people at the earliest stages of business formation.</p>
+        <h3>Help your people learn and do better.</h3>
+        <p class="audience-desc">We work with businesses, universities, councils, charities and other organisations to deliver practical training that helps people improve their skills and perform better.</p>
+        <p class="audience-desc">Whether you need a ready-made programme or something designed specifically for your team, we can help.</p>
         <ul class="checklist checklist--light mb-4">
-          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>University enterprise and employability programmes</li>
-          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Council and government self-employment support</li>
-          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Charity and third-sector enterprise delivery</li>
-          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Prison and youth enterprise education</li>
+          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Leadership and professional development training</li>
+          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Entrepreneurship and enterprise programmes</li>
+          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Practical AI workshops and training</li>
+          <li><span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Bespoke workshops, seminars and training programmes</li>
         </ul>
-        <a href="/contact/" class="link-arrow link-arrow--gold">Discuss a Partnership <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="/contact/" class="link-arrow link-arrow--gold">Discuss Your Training Needs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
     </div>
   </div>
@@ -330,18 +353,56 @@
 
 <section class="section section--dark">
   <div class="section-inner">
-    <div class="reveal"><div class="section-label">Our Impact</div><h2 class="section-title">We go where the need is greatest.</h2></div>
+    <div class="reveal"><div class="section-label">Our Impact</div><h2 class="section-title">Helping people achieve more with what they know.</h2></div>
     <div class="impact-content">
       <div class="impact-text reveal">
-        <p>Mind and Method Academy was founded to serve the people that traditional business education leaves behind: <strong>first-time founders without capital</strong>, people without networks, young people without role models, and individuals from communities where entrepreneurship has never felt like a realistic path.</p>
-        <p>Our founder has delivered workshops in universities, community centres, schools, and prisons across three continents. Every programme is designed around the reality of our participants — people with limited time, limited resources, and real concerns about risk.</p>
-        <p>We measure success by one metric: <strong>did they build a business?</strong> Everything else — attendance, satisfaction, engagement — is secondary to that outcome.</p>
+        <p>At Mind and Method Academy, we believe good training should make a real difference. Whether someone is learning a completely new skill or improving something they already do, our goal is to help them use what they've learnt to achieve more.</p>
+        <p>We have over 15 years' experience coaching and teaching people in universities, schools, community centres and prisons across three continents. That experience has shaped how we work. We understand that people come from different backgrounds, have different needs and learn in different ways.</p>
+        <p>For us, successful training is about more than attending a workshop or completing a course. It's about what people take away, what they're able to do afterwards and how they use those skills in their work, businesses and everyday lives.</p>
       </div>
       <div class="grid-2 reveal">
-        <div class="stat-card stat-card--small"><div class="stat-number">10+</div><div class="stat-label">Years Coaching</div></div>
+        <div class="stat-card stat-card--small"><div class="stat-number">15+</div><div class="stat-label">Years Coaching &amp; Teaching</div></div>
         <div class="stat-card stat-card--small"><div class="stat-number">3</div><div class="stat-label">Continents</div></div>
-        <div class="stat-card stat-card--small"><div class="stat-number">5.5M</div><div class="stat-label">SMEs in the UK</div></div>
-        <div class="stat-card stat-card--small"><div class="stat-number">90%</div><div class="stat-label">Fail Within 3 Years</div></div>
+      </div>
+    </div>
+
+    <div class="impact-orgs reveal" role="group" aria-labelledby="impact-orgs-title">
+      <h3 class="impact-orgs-title" id="impact-orgs-title">Our Work, Partnerships &amp; Speaking Engagements</h3>
+      <div class="impact-orgs-grid">
+        <div class="impact-org-group impact-org-group--training">
+          <h4 class="eyebrow impact-org-label" id="impact-org-training">Training and collaborations</h4>
+          <ul class="impact-org-list impact-org-list--3" role="list" aria-labelledby="impact-org-training">
+            <li class="impact-org">
+              <span class="impact-org-name">University of East London</span>
+            </li>
+            <li class="impact-org">
+              <span class="impact-org-name">Lewisham Council</span>
+            </li>
+            <li class="impact-org">
+              <span class="impact-org-name">Birmingham City University</span>
+            </li>
+          </ul>
+        </div>
+        <div class="impact-org-group impact-org-group--partnership">
+          <h4 class="eyebrow impact-org-label" id="impact-org-partnership">Partnership</h4>
+          <ul class="impact-org-list" role="list" aria-labelledby="impact-org-partnership">
+            <li class="impact-org">
+              <span class="impact-org-name">Tide</span>
+            </li>
+          </ul>
+        </div>
+        <div class="impact-org-group impact-org-group--speaking">
+          <h4 class="eyebrow impact-org-label" id="impact-org-speaking">Speaking engagements</h4>
+          <ul class="impact-org-list impact-org-list--2" role="list" aria-labelledby="impact-org-speaking">
+            <li class="impact-org">
+              <span class="impact-org-name">Barclays</span>
+            </li>
+            <li class="impact-org">
+              <span class="impact-org-name">Samsung KX</span>
+              <span class="impact-org-role">Speaking venue</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -352,8 +413,9 @@
   <div class="section-inner">
     <div class="reveal">
       <div class="section-label section-label--center">Work With Us</div>
-      <h2 class="section-title">Looking for a provider who understands your community?</h2>
-      <p class="section-desc section-desc--center mb-4">If you are a university, local authority, government body, charity, or corporate partner looking to help people in your community build and launch their first business — we should talk.</p>
+      <h2 class="section-title">Ready to learn something new or train your team?</h2>
+      <p class="section-desc section-desc--center">Whether you're looking to develop your own skills, join one of our workshops or arrange training for your organisation, we'd love to hear from you.</p>
+      <p class="section-desc section-desc--center mb-4">Explore our existing programmes or talk to us about training designed around your needs. Whatever you're looking to learn, we'll help you find the right place to start.</p>
       <a href="/contact/" class="btn-primary btn-primary--dark">Get in Touch <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     </div>
   </div>
@@ -369,7 +431,7 @@
           <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--legacy-gold);"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
           <div class="nav-logo-text">Mind <span>&amp;</span> Method</div>
         </a>
-        <p class="footer-brand-text">You build the business. We provide structure and accountability.</p>
+        <p class="footer-brand-text">Skills you can learn. Knowledge you can use.</p>
       </div>
       <div>
         <h3 class="footer-heading">Navigate</h3>
@@ -378,7 +440,6 @@
   <li><a href="/about/">About</a></li>
   <li><a href="/programmes/">Programmes</a></li>
   <li><a href="/workshop/">Workshop</a></li>
-  <li><a href="/businessplan/">Free Business Plan</a></li>
   <li><a href="/contact/">Contact</a></li>
 </ul>
       </div>
@@ -388,7 +449,7 @@
       </div>
       <div>
         <h3 class="footer-heading">Contact</h3>
-        <ul class="footer-links"><li><a href="mailto:hello@mindandmethodacademy.com">hello@mindandmethodacademy.com</a></li><li>Covent Garden, London</li><li>United Kingdom</li></ul>
+        <ul class="footer-links"><li><a href="mailto:info@mindandmethodacademy.com">info@mindandmethodacademy.com</a></li><li>Covent Garden, London</li><li>United Kingdom</li></ul>
       </div>
     </div>
     <div class="footer-bottom">
@@ -437,5 +498,6 @@ const reveals=document.querySelectorAll('.reveal');const observer=new Intersecti
 })();
 </script>
 <script src="/css/whatsapp-widget.js" defer></script>
+<script src="/css/nav-dropdown.js"></script>
 </body>
 </html>

@@ -141,6 +141,40 @@ img { max-width: 100%; display: block; }
 .nav-links a.active { color: white; }
 .nav-links a.active::after { width: 100%; }
 
+/* Programmes navigation disclosure */
+.nav-programmes { position: relative; display: flex; align-items: center; gap: 0.35rem; }
+.nav-submenu-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 32px; padding: 0; border: 0;
+  background: transparent; color: rgba(255,255,255,0.7); cursor: pointer;
+}
+.nav-submenu-toggle:hover { color: white; }
+.nav-submenu-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.nav-submenu {
+  position: absolute; top: 100%; left: -1rem; z-index: 101;
+  width: 290px; padding: 0.75rem 1rem; margin: 0; list-style: none;
+  background: var(--oxford-blue); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+}
+.nav-submenu[hidden] { display: none; }
+.nav-submenu li + li { margin-top: 0.4rem; }
+.nav-submenu a, .nav-submenu span {
+  display: block; padding: 0.65rem 0;
+  font-family: 'Montserrat', sans-serif; font-size: 0.8rem;
+  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  line-height: 1.6;
+}
+.nav-submenu span { color: rgba(255,255,255,0.55); }
+@media (max-width: 768px) {
+  .nav-programmes { flex-wrap: wrap; justify-content: center; max-width: 100%; }
+  .nav-submenu-toggle { width: 44px; height: 44px; }
+  .nav-programmes .nav-submenu {
+    position: static; flex-basis: 100%; width: 100%; max-width: 290px;
+    margin-top: 0.5rem; padding: 0.5rem 1rem;
+  }
+  .nav-links.open .nav-submenu a, .nav-submenu span { font-size: 0.8rem; }
+}
+
 .nav-cta {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.8rem; font-weight: 600;
