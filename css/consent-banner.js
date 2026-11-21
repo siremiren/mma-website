@@ -176,8 +176,7 @@
       '<button id="mma-consent-close" type="button">Close</button></div>';
     // The parser executes this at the slot before parsing the main content.
     var slot = document.currentScript;
-    var skipLink = !document.querySelector('header') && document.querySelector('.skip-link');
-    (skipLink || slot).before(panel);
+    slot.before(panel);
 
     function close() {
       panel.hidden = true;
