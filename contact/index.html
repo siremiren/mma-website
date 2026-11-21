@@ -81,7 +81,7 @@
   </div>
 </nav>
 </header>
-<script src="/css/consent-banner.js?v=3"></script>
+<script src="/css/consent-banner.js?v=4"></script>
 
 <main id="main-content" role="main" tabindex="-1">
 
@@ -102,6 +102,7 @@
         <p class="section-desc">Tell us a little about what you're looking for, and we'll get back to you.</p>
         <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact">
+          <input type="hidden" name="analytics_receipt">
           <p hidden><label>Leave this field blank <input name="bot-field" autocomplete="off"></label></p>
           <p class="form-consent mb-2">Fields marked with an asterisk (*) are required.</p>
           <div class="form-grid">
@@ -181,6 +182,6 @@
 
 <script src="/css/main.js"></script>
 <script src="/css/nav-dropdown.js"></script>
-<script src="/css/contact-form.js?v=2" defer></script>
+<script src="/css/contact-form.js?v=3" defer></script>
 </body>
 </html>

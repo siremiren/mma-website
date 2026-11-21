@@ -4,6 +4,7 @@
   "description": "Mind & Method Academy website — Netlify Functions dependencies",
   "private": true,
   "dependencies": {
+    "@netlify/blobs": "11.1.9",
     "resend": "^4.0.0"
   }
 }
