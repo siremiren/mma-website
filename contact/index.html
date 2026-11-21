@@ -38,8 +38,9 @@
   .contact-form .form-grid { column-gap: 1rem; }
   .contact-form .form-group { min-width: 0; }
   .contact-form .form-input, .contact-form .form-select, .contact-form .form-textarea { font-size: 1rem; }
+  .contact-form .required { color: var(--text-secondary); }
   .contact-form :focus-visible { outline: 2px solid var(--oxford-blue); outline-offset: 3px; }
-  .contact-form :is(input, select, textarea, button), #main-content { scroll-margin-top: 96px; }
+  .contact-form :is(input, select, textarea, button), #main-content, #contact-confirmation-title { scroll-margin-top: 96px; }
   .contact-email { display: inline-block; color: var(--oxford-blue); overflow-wrap: anywhere; }
   .contact-note { background: var(--legacy-gold-muted); border-radius: 12px; padding: 1.5rem; margin-top: 2rem; }
   .contact-note h3 { font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--oxford-blue); margin-bottom: 0.5rem; }
@@ -95,10 +96,10 @@
 <section class="section section--cream">
   <div class="section-inner">
     <div class="contact-grid">
-      <div>
+      <div id="contact-enquiry">
         <h2 class="section-title">Send us an enquiry</h2>
         <p class="section-desc">Tell us a little about what you're looking for, and we'll get back to you.</p>
-        <form class="contact-form" name="contact" method="POST" action="/contact/confirmation/" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact">
           <p hidden><label>Leave this field blank <input name="bot-field" autocomplete="off"></label></p>
           <p class="form-consent mb-2">Fields marked with an asterisk (*) are required.</p>
@@ -147,6 +148,11 @@
             <p class="contact-form-error" hidden>We couldn’t confirm receipt of your enquiry. Please try again, or contact us by <a href="mailto:info@mindandmethodacademy.com">email</a> or <a href="https://wa.me/447500015709">WhatsApp</a>.</p>
           </div>
         </form>
+      </div>
+      <div id="contact-confirmation" hidden>
+        <h2 class="section-title" id="contact-confirmation-title" tabindex="-1">Thanks for your enquiry.</h2>
+        <p class="section-desc">We've received your message and will be in touch.</p>
+        <a href="/" class="btn-primary btn-primary--dark mt-4">Back to Home</a>
       </div>
       <div>
         <h2 class="section-title">Other ways to reach us</h2>
