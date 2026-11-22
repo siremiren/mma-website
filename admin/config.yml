@@ -7,6 +7,8 @@ publish_mode: editorial_workflow
 
 media_folder: "images"
 
+# Only fields connected to public pages are exposed. Decap 3.18.0 preserves
+# unknown JSON keys on save, so historical copy stays in its existing files.
 collections:
   - name: "pages"
     label: "Pages"
@@ -16,59 +18,29 @@ collections:
         label: "Home Page"
         file: "content/home.json"
         fields:
-          - { label: "Hero Badge Text", name: "hero_badge", widget: "string" }
-          - { label: "Hero Heading (use <em> for gold text)", name: "hero_heading", widget: "string" }
-          - { label: "Hero Description", name: "hero_sub", widget: "text" }
-          - { label: "Hero Description Paragraph 2", name: "hero_sub2", widget: "text" }
-          - { label: "Stat 1 Number", name: "stat1_num", widget: "string" }
-          - { label: "Stat 1 Label", name: "stat1_label", widget: "string" }
-          - { label: "Stat 2 Number", name: "stat2_num", widget: "string" }
-          - { label: "Stat 2 Label", name: "stat2_label", widget: "string" }
-          - { label: "Stat 3 Number", name: "stat3_num", widget: "string" }
-          - { label: "Stat 3 Label", name: "stat3_label", widget: "string" }
-          - { label: "Stat 4 Number", name: "stat4_num", widget: "string" }
-          - { label: "Stat 4 Label", name: "stat4_label", widget: "string" }
-          - { label: "Problem Section Heading", name: "problem_heading", widget: "string" }
-          - { label: "Problem Paragraph 1", name: "problem_p1", widget: "text" }
-          - { label: "Problem Paragraph 2", name: "problem_p2", widget: "text" }
-          - { label: "Problem Paragraph 3", name: "problem_p3", widget: "text" }
-          - { label: "Callout Quote", name: "callout_quote", widget: "text" }
-          - { label: "Callout Attribution", name: "callout_attr", widget: "string" }
-          - { label: "Method Heading", name: "method_heading", widget: "string" }
-          - { label: "Method Description", name: "method_desc", widget: "text" }
-          - { label: "Card 1 Title", name: "card1_title", widget: "string" }
-          - { label: "Card 1 Description", name: "card1_desc", widget: "text" }
-          - { label: "Card 2 Title", name: "card2_title", widget: "string" }
-          - { label: "Card 2 Description", name: "card2_desc", widget: "text" }
-          - { label: "Card 3 Title", name: "card3_title", widget: "string" }
-          - { label: "Card 3 Description", name: "card3_desc", widget: "text" }
-          - { label: "Individuals Description", name: "individuals_desc", widget: "text" }
-          - { label: "Organisations Description", name: "organisations_desc", widget: "text" }
-          - { label: "Impact Heading", name: "impact_heading", widget: "string" }
-          - { label: "Impact Paragraph 1 (use <strong> for bold)", name: "impact_p1", widget: "text" }
-          - { label: "Impact Paragraph 2", name: "impact_p2", widget: "text" }
-          - { label: "Impact Paragraph 3 (use <strong> for bold)", name: "impact_p3", widget: "text" }
-          - { label: "CTA Heading", name: "cta_heading", widget: "string" }
-          - { label: "CTA Description", name: "cta_desc", widget: "text" }
-          - { label: "Email Capture Heading", name: "capture_heading", widget: "string" }
-          - { label: "Email Capture Subtext", name: "capture_subtext", widget: "string" }
+          - label: "Hero heading"
+            name: "hero_heading"
+            widget: "string"
+            hint: "Use `<em>...</em>` for the gold emphasis. Other markup displays as text."
+          - { label: "Hero paragraph 1", name: "hero_sub", widget: "text" }
+          - { label: "Hero paragraph 2", name: "hero_sub2", widget: "text" }
 
       - name: "about"
         label: "About Page"
         file: "content/about.json"
         fields:
-          - { label: "Page Subtitle", name: "page_desc", widget: "text" }
-          - { label: "Founder Bio Paragraph 1", name: "founder_p1", widget: "text" }
-          - { label: "Founder Bio Paragraph 2", name: "founder_p2", widget: "text" }
-          - { label: "Founder Bio Paragraph 3", name: "founder_p3", widget: "text" }
+          - { label: "Hero introduction", name: "page_desc", widget: "text" }
+          - { label: "Founder biography paragraph 1", name: "founder_p1", widget: "text" }
+          - { label: "Founder biography paragraph 2", name: "founder_p2", widget: "text" }
+          - { label: "Founder biography paragraph 3", name: "founder_p3", widget: "text" }
           - { label: "Why We Exist Heading", name: "gap_heading", widget: "string" }
           - { label: "Why We Exist Paragraph 1", name: "gap_p1", widget: "text" }
           - { label: "Why We Exist Paragraph 2", name: "gap_p2", widget: "text" }
           - { label: "Why We Exist Paragraph 3", name: "gap_p3", widget: "text" }
-          - { label: "Callout Quote", name: "callout_quote", widget: "text" }
-          - { label: "Callout Attribution", name: "callout_attr", widget: "string" }
-          - { label: "Approach Heading", name: "approach_heading", widget: "string" }
-          - { label: "Approach Description", name: "approach_desc", widget: "text" }
+          - { label: "Why We Exist quote", name: "callout_quote", widget: "text" }
+          - { label: "Why We Exist quote attribution", name: "callout_attr", widget: "string" }
+          - { label: "Our Approach heading", name: "approach_heading", widget: "string" }
+          - { label: "Our Approach introduction", name: "approach_desc", widget: "text" }
 
       - name: "programmes"
         label: "Programmes Page"
@@ -78,13 +50,13 @@ collections:
           - { label: "Hero paragraph 2", name: "page_desc2", widget: "text" }
           - { label: "Training areas heading", name: "individuals_section_heading", widget: "string" }
           - { label: "Training areas introduction", name: "individuals_section_desc", widget: "text" }
-          - { label: "Training area 1 title", name: "p1_title", widget: "string" }
-          - { label: "Training area 1 description", name: "p1_desc", widget: "text" }
-          - { label: "Entrepreneurship paragraph 2", name: "p1_desc2", widget: "text" }
-          - { label: "Training area 2 title", name: "p2_title", widget: "string" }
-          - { label: "Training area 2 description", name: "p2_desc", widget: "text" }
-          - { label: "Training area 3 title", name: "p3_title", widget: "string" }
-          - { label: "Training area 3 description", name: "dfy_desc", widget: "text" }
+          - { label: "Entrepreneurship card title", name: "p1_title", widget: "string" }
+          - { label: "Entrepreneurship card paragraph 1", name: "p1_desc", widget: "text" }
+          - { label: "Entrepreneurship card paragraph 2", name: "p1_desc2", widget: "text" }
+          - { label: "Professional & Personal Development card title", name: "p2_title", widget: "string" }
+          - { label: "Professional & Personal Development card description", name: "p2_desc", widget: "text" }
+          - { label: "Artificial Intelligence card title", name: "p3_title", widget: "string" }
+          - { label: "Artificial Intelligence card description", name: "dfy_desc", widget: "text" }
           - { label: "Organisations heading", name: "organisations_heading", widget: "string" }
           - { label: "Organisations paragraph 1", name: "organisations_desc", widget: "text" }
           - { label: "Organisations paragraph 2", name: "organisations_desc2", widget: "text" }
@@ -113,90 +85,6 @@ collections:
           - { label: "Measure 07 description", name: "expect_7", widget: "text" }
           - { label: "Measure 08 title", name: "expect_8_title", widget: "string" }
           - { label: "Measure 08 description", name: "expect_8", widget: "text" }
-          - { label: "Get started heading", name: "cta_section_heading", widget: "string" }
-          - { label: "Get started paragraph 1", name: "cta_section_desc", widget: "text" }
-          - { label: "Get started paragraph 2", name: "cta_section_desc2", widget: "text" }
-
-      - name: "businessplan"
-        label: "Business Plan Tool"
-        file: "content/businessplan.json"
-        fields:
-          - { label: "Badge Text", name: "badge_text", widget: "string" }
-          - { label: "Card Heading (use <em> for italic gold text)", name: "card_heading", widget: "string" }
-          - { label: "Card Description", name: "card_desc", widget: "text" }
-          - { label: "Step 1 Label", name: "step_1", widget: "string" }
-          - { label: "Step 2 Label", name: "step_2", widget: "string" }
-          - { label: "Step 3 Label", name: "step_3", widget: "string" }
-          - { label: "Name Field Label", name: "label_name", widget: "string" }
-          - { label: "Start Button Text", name: "btn_start", widget: "string" }
-          - { label: "Questions Section Label", name: "questions_label", widget: "string" }
-          - { label: "Questions Heading", name: "questions_heading", widget: "string" }
-          - { label: "Questions Intro Text", name: "questions_intro", widget: "text" }
-          - { label: "Question 1", name: "q1_text", widget: "string" }
-          - { label: "Question 2", name: "q2_text", widget: "string" }
-          - { label: "Question 3", name: "q3_text", widget: "string" }
-          - { label: "Question 4", name: "q4_text", widget: "string" }
-          - { label: "Question 5", name: "q5_text", widget: "string" }
-          - { label: "Question 6", name: "q6_text", widget: "string" }
-          - { label: "Question 7", name: "q7_text", widget: "string" }
-          - { label: "Generate Button Text", name: "btn_generate", widget: "string" }
-          - { label: "Output Section Label", name: "output_label", widget: "string" }
-          - { label: "Output Heading", name: "output_heading", widget: "string" }
-          - { label: "Output Subtext", name: "output_sub", widget: "string" }
-          - { label: "Plan Document Title", name: "doc_title", widget: "string" }
-          - { label: "Plan Document Subtitle", name: "doc_subtitle", widget: "text" }
-          - { label: "CTA Heading", name: "cta_heading", widget: "string" }
-          - { label: "CTA Description", name: "cta_desc", widget: "text" }
-          - { label: "CTA Button Text", name: "cta_btn", widget: "string" }
-
-          - { label: "Card Desc2", name: "card_desc2", widget: "text" }
-          - { label: "Q1 Help", name: "q1_help", widget: "text" }
-          - { label: "Q2 Help", name: "q2_help", widget: "text" }
-          - { label: "Q3 Help", name: "q3_help", widget: "text" }
-          - { label: "Q4 Help", name: "q4_help", widget: "text" }
-          - { label: "Q5 Help", name: "q5_help", widget: "text" }
-          - { label: "Q6 Help", name: "q6_help", widget: "text" }
-          - { label: "Q7 Help", name: "q7_help", widget: "text" }
-
-      - name: "media"
-        label: "Media Page — Testimonials"
-        file: "content/media.json"
-        fields:
-          - { label: "Quote 1", name: "quote_1", widget: "text" }
-          - { label: "Name 1", name: "name_1", widget: "string" }
-          - { label: "Context 1", name: "context_1", widget: "string" }
-          - { label: "Quote 2", name: "quote_2", widget: "text" }
-          - { label: "Name 2", name: "name_2", widget: "string" }
-          - { label: "Context 2", name: "context_2", widget: "string" }
-          - { label: "Quote 3", name: "quote_3", widget: "text" }
-          - { label: "Name 3", name: "name_3", widget: "string" }
-          - { label: "Context 3", name: "context_3", widget: "string" }
-          - { label: "Quote 4", name: "quote_4", widget: "text" }
-          - { label: "Name 4", name: "name_4", widget: "string" }
-          - { label: "Context 4", name: "context_4", widget: "string" }
-          - { label: "Quote 5", name: "quote_5", widget: "text", required: false }
-          - { label: "Name 5", name: "name_5", widget: "string", required: false }
-          - { label: "Context 5", name: "context_5", widget: "string", required: false }
-          - { label: "Quote 6", name: "quote_6", widget: "text", required: false }
-          - { label: "Name 6", name: "name_6", widget: "string", required: false }
-          - { label: "Context 6", name: "context_6", widget: "string", required: false }
-          - { label: "Quote 7", name: "quote_7", widget: "text", required: false }
-          - { label: "Name 7", name: "name_7", widget: "string", required: false }
-          - { label: "Context 7", name: "context_7", widget: "string", required: false }
-          - { label: "Quote 8", name: "quote_8", widget: "text", required: false }
-          - { label: "Name 8", name: "name_8", widget: "string", required: false }
-          - { label: "Context 8", name: "context_8", widget: "string", required: false }
-          - { label: "Quote 9", name: "quote_9", widget: "text", required: false }
-          - { label: "Name 9", name: "name_9", widget: "string", required: false }
-          - { label: "Context 9", name: "context_9", widget: "string", required: false }
-
-  - name: "images"
-    label: "Site Images"
-    files:
-      - name: "site_images"
-        label: "Upload Images"
-        file: "content/images.json"
-        fields:
-          - { label: "Hero Image", name: "hero_img", widget: "image", required: false }
-          - { label: "Founder Portrait", name: "founder_img", widget: "image", required: false }
-          - { label: "Community Event Photo", name: "community_img", widget: "image", required: false }
+          - { label: "Closing enquiry section heading", name: "cta_section_heading", widget: "string" }
+          - { label: "Closing enquiry section paragraph 1", name: "cta_section_desc", widget: "text" }
+          - { label: "Closing enquiry section paragraph 2", name: "cta_section_desc2", widget: "text" }
