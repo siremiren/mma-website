@@ -15,6 +15,7 @@
   var panel, settings;
   var returnFocus = null;
   var storage = null;
+  var enquiryConsent = null;
   window['ga-disable-' + GA_ID] = true;
 
   // A readable but unwritable store cannot reliably retain a withdrawal.
@@ -116,7 +117,61 @@
     document.head.appendChild(tag);
   }
 
+  function resetEnquiryConsent() {
+    if (enquiryConsent) enquiryConsent.abort();
+    enquiryConsent = null;
+  }
+
+  function getEnquiryConsent() {
+    if (!loaded || choice !== 'granted' || window['ga-disable-' + GA_ID] ||
+        readChoice() !== 'granted') {
+      resetEnquiryConsent();
+      return null;
+    }
+    if (!enquiryConsent && typeof AbortController === 'function') enquiryConsent = new AbortController();
+    return enquiryConsent ? enquiryConsent.signal : null;
+  }
+
+  function sendEnquiryEvent(signal, name, params) {
+    if (!signal || signal !== getEnquiryConsent()) return;
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var page = canonical ? new URL(canonical.href, window.location.origin) : null;
+    window.gtag('event', name, Object.assign({
+      send_to: GA_ID,
+      page_location: window.location.origin + (page && page.origin === window.location.origin ? page.pathname : '/'),
+      page_referrer: ''
+    }, params));
+  }
+
+  window.mmaEnquiryAnalytics = {
+    getConsent: getEnquiryConsent,
+    lead: function (signal) {
+      sendEnquiryEvent(signal, 'generate_lead', { method: 'contact_form' });
+    }
+  };
+
+  function trackEnquiryLink(event) {
+    if (event.type === 'auxclick' && event.button !== 1) return;
+    var link = event.target.closest && event.target.closest('a[href]');
+    if (!link) return;
+    var email = link.getAttribute('href') === 'mailto:info@mindandmethodacademy.com';
+    var whatsapp = link.origin === 'https://wa.me' && link.pathname === '/447500015709';
+    if (!email && !whatsapp) return;
+
+    var placement = 'contact_direct';
+    if (link.closest('footer')) placement = 'footer';
+    else if (link.closest('.contact-form-error')) placement = 'contact_fallback';
+    else if (link.id === 'mma-wa-cta') placement = 'widget';
+
+    sendEnquiryEvent(getEnquiryConsent(), email ? 'email_click' : 'whatsapp_click', { placement: placement });
+  }
+
+  document.addEventListener('click', trackEnquiryLink);
+  document.addEventListener('auxclick', trackEnquiryLink);
+
   function stopAnalytics(reload) {
+    resetEnquiryConsent();
+
     // No consent-update ping. Only an explicitly confirmed action may reload.
     window['ga-disable-' + GA_ID] = true;
     window.gtag = function () {};
@@ -208,6 +263,7 @@
   // Honour withdrawal in another tab as well as this page's own settings.
   window.addEventListener('storage', function (event) {
     if (event.key === STORAGE_KEY || event.key === null) {
+      resetEnquiryConsent();
       choice = readChoice();
       if (loaded && choice !== 'granted') stopAnalytics(false);
     }
