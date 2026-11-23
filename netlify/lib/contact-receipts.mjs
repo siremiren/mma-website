@@ -7,7 +7,7 @@ const fieldPattern = /^(\d{13})\.([a-f0-9]{64})$/;
 const tokenPattern = /^(\d{13})\.[a-f0-9]{32}$/;
 
 export function receiptStore(options) {
-  return getStore('contact-receipts', options);
+  return getStore({ name: 'contact-receipts', ...(options || {}) });
 }
 
 function receiptKey(field) {
